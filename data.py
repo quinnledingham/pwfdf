@@ -32,7 +32,6 @@ def download_pwfdf_collection():
             child_path.mkdir(exist_ok=True)
             sb.get_item_files(child_item, child_path)
 
-
 class PWFDF_Entry:
     def __init__(self, d):
         self.d = d

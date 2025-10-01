@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 from pysheds.grid import Grid
 
 import requests
+import numpy as np
+import elevation
+
+from data import PWFDF_Data
 
 def plot_catchment(grid, clipped_catch):
     fig, ax = plt.subplots(figsize=(8,6))
@@ -50,8 +54,8 @@ def delineate_watershed(dem_file, pour_point_coords):
     plt.imshow(dem, extent=grid.extent, cmap='terrain', zorder=1)
     plt.colorbar(label='Elevation (m)')
     plt.grid(zorder=0)
-    #im = ax.imshow(np.where(clipped_catch, clipped_catch, np.nan), extent=grid.extent, zorder=1, cmap='Greys_r')
-    im = ax.imshow(dist, extent=grid.extent, zorder=2, cmap='cubehelix_r')
+    im = ax.imshow(np.where(catch, catch, np.nan), extent=grid.extent, zorder=1, cmap='Greys_r')
+    #im = ax.imshow(dist, extent=grid.extent, zorder=2, cmap='cubehelix_r')
     plt.title('Digital elevation map', size=14)
     plt.xlabel('Longitude')
     plt.ylabel('Latitude')
@@ -114,3 +118,16 @@ def plot_dem(output_file, x, y):
     plt.ylabel('Latitude')
     plt.tight_layout()
     plt.show()
+
+def main():
+    data = PWFDF_Data()
+    i = 2
+    entry = data.get(i)
+
+    bounds = entry.bounds(5)
+    output_file = './data/dem.tif'
+    elevation.clip(bounds=bounds, output=output_file, product='SRTM1')
+    delineate_watershed(output_file, entry.coordinates_wgs84())
+
+if __name__ == "__main__":
+    main()
