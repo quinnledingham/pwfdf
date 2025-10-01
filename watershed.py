@@ -1,9 +1,14 @@
 import matplotlib.pyplot as plt
 from pysheds.grid import Grid
 
+import rasterio
+from rasterio.mask import mask
+from rasterio.features import shapes
+
 import requests
 import numpy as np
-import elevation
+import py3dep 
+from shapely.geometry import shape, mapping
 
 from data import PWFDF_Data
 
@@ -43,6 +48,7 @@ def delineate_watershed(dem_file, pour_point_coords):
     dist = grid.distance_to_outlet(x=x_snap, y=y_snap, fdir=flow_dir, dirmap=dirmap, xytype='coordinate')
 
     # plot DEM
+    '''
     print("PLOTTING DEM")
     fig, ax = plt.subplots(figsize=(8,8))
     fig.patch.set_alpha(0)
@@ -59,6 +65,58 @@ def delineate_watershed(dem_file, pour_point_coords):
     plt.plot(x_snap, y_snap, 'go', markersize=1, zorder=2)  # 'ro' = red circle
     plt.tight_layout()
     plt.show()
+    '''
+    return catch, grid
+
+def watershed_to_polygon(catch, grid):
+    catch_array = np.asarray(catch)
+    catch_mask = catch_array.astype(np.uint8)
+    transform = grid.affine
+    geoms = list(shapes(catch_mask, transform=transform))
+    
+    watershed_geom = None
+    for geom, value in geoms:
+        if value == 1:
+            watershed_geom = shape(geom)
+            break
+    
+    return watershed_geom
+
+def clip_dnbr_by_watershed(dnbr_file, catch, grid, output_file):
+    watershed_geom = watershed_to_polygon(catch, grid)
+    
+    if watershed_geom is None:
+        raise ValueError("Could not extract watershed polygon")
+    
+    # Read and clip the dNBR raster
+    with rasterio.open(dnbr_file) as src:
+        # Clip the raster using the watershed polygon
+        clipped_data, clipped_transform = mask(
+            src, 
+            [mapping(watershed_geom)], 
+            crop=True,
+            filled=True,
+            nodata=np.nan
+        )
+        
+        # Update metadata
+        clipped_profile = src.profile.copy()
+        clipped_profile.update({
+            'height': clipped_data.shape[1],
+            'width': clipped_data.shape[2],
+            'transform': clipped_transform,
+            'nodata': np.nan
+        })
+        
+        # Write clipped raster
+        with rasterio.open(output_file, 'w', **clipped_profile) as dst:
+            dst.write(clipped_data)
+    
+    print(f"Clipped dNBR saved to {output_file}")
+    print(f"Clipped dNBR shape: {clipped_data.shape}")
+    print(f"Valid pixels: {np.sum(~np.isnan(clipped_data))}")
+    
+    return clipped_data[0]  # Return 2D array
 
 def get_watershed_from_usgs_api(longitude: float, latitude: float):
     try:
@@ -121,8 +179,12 @@ def main():
 
     bounds = entry.bounds(5)
     output_file = './data/dem.tif'
-    elevation.clip(bounds=bounds, output=output_file, product='SRTM1')
-    delineate_watershed(output_file, entry.coordinates_wgs84())
+
+    dem = py3dep.get_dem(bounds, resolution=30, crs="EPSG:4326")
+    dem.rio.to_raster(output_file)
+
+    catch, grid = delineate_watershed(output_file, entry.coordinates_wgs84())
+    clipped_dnbr = clip_dnbr_by_watershed('./data/dnbr.tif', catch, grid, './data/clipped_dnbr.tif')
 
 if __name__ == "__main__":
     main()
