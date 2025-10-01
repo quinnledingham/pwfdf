@@ -3,6 +3,7 @@ import torchvision
 import torchvision.transforms as transforms
 import torch.optim as optim
 import torch.backends.cudnn as cudnn
+from torch.utils.data import Dataset, DataLoader
 
 from tqdm import tqdm
 
@@ -11,31 +12,50 @@ import sys
 import time
 from datetime import timedelta
 
+class App_Dataset(Dataset):
+  def __init__(self, features, labels, device):
+      self.features = torch.FloatTensor(features).to(device)
+      self.labels = torch.LongTensor(labels).to(device)
+
+  def __len__(self):
+      return len(self.labels)
+
+  def __getitem__(self, idx):
+      return self.features[idx], self.labels[idx]
+
+def load_cifar10(path):
+    transform_train = transforms.Compose([
+        transforms.RandomCrop(32, padding=4),
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+    ])
+
+    transform_test = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+    ])
+
+    train_set = torchvision.datasets.CIFAR10(root=path, train=True, download=True, transform=transform_train)
+    test_set = torchvision.datasets.CIFAR10(root=path, train=False, download=True, transform=transform_test)
+
+    return train_set, test_set
+
 class Data:
-    def __init__(self, name, path, batch_size):
-        self.name = name
+    def __init__(self, batch_size, train_set, test_set):
+        #self.name = name
+        
+        #if self.name == "CIFAR10":
+        #    self.classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
+        #    self.train_set, self.test_set = load_cifar10(path)
+        #elif self.name == 'Custom':
 
-        if self.name == "CIFAR10":
-            w = 2
-            transform_train = transforms.Compose([
-                transforms.RandomCrop(32, padding=4),
-                transforms.RandomHorizontalFlip(),
-                transforms.ToTensor(),
-                transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-            ])
+        self.train_set = train_set
+        self.test_set = test_set
+        w = 0
+        self.test_loader = torch.utils.data.DataLoader(self.test_set, batch_size=batch_size, shuffle=False, num_workers=w)
+        self.train_loader = torch.utils.data.DataLoader(self.train_set, batch_size=batch_size, shuffle=True, num_workers=w)
 
-            transform_test = transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-            ])
-
-            self.train_set = torchvision.datasets.CIFAR10(root=path, train=True, download=True, transform=transform_train)
-            self.train_loader = torch.utils.data.DataLoader(self.train_set, batch_size=batch_size, shuffle=True, num_workers=w)
-
-            self.test_set = torchvision.datasets.CIFAR10(root=path, train=False, download=True, transform=transform_test)
-            self.test_loader = torch.utils.data.DataLoader(self.test_set, batch_size=batch_size, shuffle=False, num_workers=w)
-
-            self.classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
 def dict_to_class(class_name, data_dict):
 
@@ -52,7 +72,9 @@ class App:
     def __init__(self, params):
         print("App Starting...")
 
+        #
         # Picking Device
+        #
         if torch.cuda.is_available():
             num_gpus = torch.cuda.device_count()
             print(f"Available GPUs:")
@@ -65,6 +87,10 @@ class App:
 
         print(f"Device: {self.device}")
 
+        #
+        # Adding "global" parameters
+        #
+
         # Define default parameters
         default_params = {
             'data_path': './data',
@@ -73,11 +99,11 @@ class App:
             'epochs': 100,
             'model_name': 'default_model',
             "model_output": "./default.model",
-            'dataset': None
+            'dataset_name': None
         }
 
-        # If no params provided, use defaults
         if params is None:
+            # If no params provided, use defaults
             self.params = default_params
         else:
             # Merge provided params with defaults (provided params override defaults)
@@ -86,8 +112,11 @@ class App:
         for key, value in self.params.items():
             setattr(self, key, value)
 
-        if self.dataset is not None:
-            self.data = Data(self.dataset, self.data_path, self.batch_size)
+        #
+        # Setting up data
+        #
+        if self.dataset_name != 'Custom':
+            self.data = Data(self.data_path, self.dataset_name, self.batch_size)
 
 
     def main(self):
@@ -102,11 +131,11 @@ class App:
             return
 
         if sys.argv[1] == "train":
-            self.train_func()
+            self.train_func(self)
             torch.save(self.model.state_dict(), self.model_output)
         elif sys.argv[1] == "test":
             self.model.load_state_dict(torch.load(self.model_output, weights_only=True))
-            self.test_func()
+            self.test_func(self)
 
         self.quit()
 
@@ -130,3 +159,6 @@ class App:
 
     def test_pbar(self):
         return tqdm(self.data.test_loader, desc=f"Testing", unit="batch", leave=False)
+
+    def create_dataset(self, features, labels):
+        return App_Dataset(features, labels, self.device)

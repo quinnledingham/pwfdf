@@ -6,40 +6,41 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 
-from app import App
-from pwfdf_data import PWFDF_Data
+from app import App, Data, App_Dataset
+from data import PWFDF_Data
 from eval import evaluate
 
 params = {
   "epochs": 20,
   "batch_size": 64,
-  "block_size": 256,
   "max_iters": 5000,
   "eval_interval": 500,
   "learning_rate": 3e-4,
   "eval_iters": 200,
-  "n_embd": 128,
-  "n_head": 4,
-  "n_layer": 6,
-  "dropout": 0.2,
   "model_output": './output/transformer.model',
   "optimizer": 'AdamW',
-  "dataset": 'Custom',
+  "dataset_name": 'Custom',
 }
 
-app = App(params)
+
+block_size = 256
+n_embd = 128
+n_head = 4
+n_layer = 6
+dropout = 0.2
+head_size = n_embd // n_head
 
 class Head(nn.Module):
   """ one head of self-attention """
 
-  def __init__(self, head_size):
+  def __init__(self):
       super().__init__()
-      self.key = nn.Linear(app.n_embd, head_size, bias=False)
-      self.query = nn.Linear(app.n_embd, head_size, bias=False)
-      self.value = nn.Linear(app.n_embd, head_size, bias=False)
-      self.register_buffer('tril', torch.tril(torch.ones(app.block_size, app.block_size)))
+      self.key = nn.Linear(n_embd, head_size, bias=False)
+      self.query = nn.Linear(n_embd, head_size, bias=False)
+      self.value = nn.Linear(n_embd, head_size, bias=False)
+      self.register_buffer('tril', torch.tril(torch.ones(block_size, block_size)))
 
-      self.dropout = nn.Dropout(app.dropout)
+      self.dropout = nn.Dropout(dropout)
 
   def forward(self, x):
       # input of size (batch, time-step, channels)
@@ -60,11 +61,11 @@ class Head(nn.Module):
 class MultiHeadAttention(nn.Module):
     """ multiple heads of self-attention in parallel """
 
-    def __init__(self, num_heads, head_size):
+    def __init__(self):
         super().__init__()
-        self.heads = nn.ModuleList([Head(head_size) for _ in range(num_heads)])
-        self.proj = nn.Linear(head_size * num_heads, app.n_embd)
-        self.dropout = nn.Dropout(app.dropout)
+        self.heads = nn.ModuleList([Head() for _ in range(n_head)])
+        self.proj = nn.Linear(head_size * n_head, n_embd)
+        self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
         out = torch.cat([h(x) for h in self.heads], dim=-1)
@@ -74,13 +75,13 @@ class MultiHeadAttention(nn.Module):
 class FeedFoward(nn.Module):
     """ a simple linear layer followed by a non-linearity """
 
-    def __init__(self, n_embd):
+    def __init__(self):
         super().__init__()
         self.net = nn.Sequential(
             nn.Linear(n_embd, 4 * n_embd),
             nn.ReLU(),
             nn.Linear(4 * n_embd, n_embd),
-            nn.Dropout(app.dropout),
+            nn.Dropout(dropout),
         )
 
     def forward(self, x):
@@ -89,12 +90,11 @@ class FeedFoward(nn.Module):
 class Block(nn.Module):
     """ Transformer block: communication followed by computation """
 
-    def __init__(self, n_embd, n_head):
+    def __init__(self):
         # n_embd: embedding dimension, n_head: the number of heads we'd like
         super().__init__()
-        head_size = n_embd // n_head
-        self.sa = MultiHeadAttention(n_head, head_size)
-        self.ffwd = FeedFoward(n_embd)
+        self.sa = MultiHeadAttention()
+        self.ffwd = FeedFoward()
         self.ln1 = nn.LayerNorm(n_embd)
         self.ln2 = nn.LayerNorm(n_embd)
 
@@ -104,20 +104,19 @@ class Block(nn.Module):
         return x
 
 class Transformer(nn.Module):
-  def __init__(self):
+  def __init__(self, input_size):
     super().__init__()
     # each token directly reads off the logits for the next token from a lookup table
     #self.token_embedding_table = nn.Embedding(app.vocab_size, app.n_embd)
     #self.position_embedding_table = nn.Embedding(app.block_size, app.n_embd)
 
-    self.input_projection = torch.nn.Linear(data.shape[1], app.n_embd)
-    self.pos_encoding = torch.nn.Parameter(torch.randn(1, 1, app.n_embd))
+    self.input_projection = torch.nn.Linear(input_size, n_embd)
+    self.pos_encoding = torch.nn.Parameter(torch.randn(1, 1, n_embd))
 
-    self.blocks = nn.Sequential(*[Block(app.n_embd, n_head=app.n_head) for _ in range(app.n_layer)])
-    self.ln_f = nn.LayerNorm(app.n_embd) # final layer norm
-    self.lm_head = nn.Linear(app.n_embd, data.shape[1])
+    self.blocks = nn.Sequential(*[Block() for _ in range(n_layer)])
+    self.ln_f = nn.LayerNorm(n_embd) # final layer norm
+    self.lm_head = nn.Linear(n_embd, input_size)
 
-    # better init, not covered in the original GPT video, but important, will cover in followup video
     self.apply(self._init_weights)
 
   def _init_weights(self, module):
@@ -153,77 +152,11 @@ class Transformer(nn.Module):
 
     return logits, loss
 
-pwfdf_data = PWFDF_Data()
-
-numerical_features = [
-    'UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
-    'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-    'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
-    'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
-]
-
-categorical_features = ['State', 'UTM_Zone']
-label_encoders = {}
-for col in categorical_features:
-    if col in pwfdf_data.df.columns:
-        le = LabelEncoder()
-        pwfdf_data.df[col + '_encoded'] = le.fit_transform(pwfdf_data.df[col].astype(str))
-        label_encoders[col] = le
-
-pwfdf_data.df[numerical_features] = pwfdf_data.df[numerical_features].fillna(pwfdf_data.df[numerical_features].mean()) # handle missing values
-feature_cols = numerical_features + [col + '_encoded' for col in categorical_features if col in pwfdf_data.df.columns] # combine features
-scaler = StandardScaler() #normalize
-data = torch.FloatTensor(scaler.fit_transform(pwfdf_data.df[feature_cols].values))
-#data = torch.FloatTensor(pwfdf_data.df[feature_cols].values)
-print(len(numerical_features))
-print(data.shape)
-target = torch.tensor(pwfdf_data.df['Response'].values)
-
-
-X_train, X_val, y_train, y_val = train_test_split(data, target, test_size=0.1, random_state=42, stratify=target)
-
-class DebrisFlowDataset(Dataset):
-  def __init__(self, features, labels):
-      self.features = torch.FloatTensor(features).to(app.device)
-      self.labels = torch.LongTensor(labels).to(app.device)
-
-  def __len__(self):
-      return len(self.labels)
-
-  def __getitem__(self, idx):
-      return self.features[idx], self.labels[idx]
-
-train_dataset = DebrisFlowDataset(X_train, y_train)
-test_dataset = DebrisFlowDataset(X_val, y_val)
-
-app.data.train_loader = DataLoader(train_dataset, batch_size=app.batch_size, shuffle=True)
-app.data.test_loader = DataLoader(test_dataset, batch_size=app.batch_size, shuffle=False)
-
-print(train_dataset.features.shape)
-
-@torch.no_grad()
-def estimate_loss():
-    out = {}
-    app.model.eval()
-    for split in ['train', 'val']:
-        losses = torch.zeros(app.eval_iters)
-        for k in range(app.eval_iters):
-            X, Y = get_batch(split)
-            logits, loss = app.model(X, Y)
-            losses[k] = loss.item()
-        out[split] = losses.mean()
-    app.model.train()
-    return out
-
-def train():
+def train(app):
   print("Training")
 
   for epoch in range(app.epochs):
     app.model.train()
-    total_loss = 0
-    correct = 0
-    total = 0
-
     pbar = app.pbar(epoch)
 
     for batch_i, (features, labels) in enumerate(pbar):
@@ -232,17 +165,15 @@ def train():
       loss.backward()
       app.optimizer.step()
 
-      total_loss += loss.item()
-      _, predicted = torch.max(outputs.data, 1)
-      total += labels.size(0)
-      correct += (predicted == labels).sum().item()
+    print(f"\nEpoch {epoch+1}/{app.epochs}")
+    train_metrics = evaluate(app.model, app.data.train_loader)
+    print("Train")
+    train_metrics.output()
+    test_metrics = evaluate(app.model, app.data.test_loader)
+    print("Test")
+    test_metrics.output()
 
-    test_acc, test_ts, test_auc, test_confusion = evaluate(app.model, app.data.test_loader)
-    train_loss = total_loss / len(app.data.train_loader)
-    print(f"Epoch {epoch+1}/{app.epochs} - Loss: {train_loss:.4f}, TEST: {test_acc:<12.4f} {test_ts:<12.4f} {test_auc:<12.4f}")
-
-
-def test():
+def test(app):
   app.model.eval()
   test_loss = 0
   test_correct = 0
@@ -264,8 +195,24 @@ def test():
 
   print(f"Final Test Accuracy: {test_acc:.2f}%")
 
+app = App(params)
+
 def main():
-  app.model = Transformer()
+  # loading data
+  pwfdf_data = PWFDF_Data()
+
+  data, target = pwfdf_data.get_data_target()
+  data = torch.FloatTensor(data)
+  target = torch.tensor(target)
+
+  X_train, X_val, y_train, y_val = train_test_split(data, target, test_size=0.1, random_state=42, stratify=target)
+
+  train_dataset = app.create_dataset(X_train, y_train)
+  test_dataset = app.create_dataset(X_val, y_val)
+
+  app.data = Data(app.batch_size, train_dataset, test_dataset)
+
+  app.model = Transformer(data.shape[1])
   app.set_optimizer()
   app.train_func = train
   app.test_func = test
