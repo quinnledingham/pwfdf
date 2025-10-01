@@ -14,8 +14,9 @@ import ee
 import geetools
 from geetools import tools
 
-ee.Authenticate()
-ee.Initialize(project='ee-quinnledingham')
+from datetime import datetime, timedelta
+
+from pwfdf_data import *
 
 def plot_catchment(grid, clipped_catch):
     fig, ax = plt.subplots(figsize=(8,6))
@@ -106,52 +107,12 @@ def get_watershed_from_usgs_api(longitude: float, latitude: float):
         print(f"Error querying USGS API: {e}")
         return None
 
-class PWFDF_Entry:
-    def __init__(self, d):
-        self.d = d
-        self.utm_x = self.d['UTM_X']
-        self.utm_y = self.d['UTM_Y']
-        self.zone = self.d['UTM_Zone']
-
-        utm_proj = Proj(proj='utm', zone=self.zone, ellps='WGS84', datum='WGS84', south=False)
-        wgs84_proj = Proj(proj='latlong', ellps='WGS84', datum='WGS84')
-        self.transformer = Transformer.from_proj(utm_proj, wgs84_proj, always_xy=True)
-
-    def coordinates_wgs84(self):
-        return self.transformer.transform(self.utm_x, self.utm_y)
-    
-    def bounds(self, buffer_km):
-        buffer_m = buffer_km * 1000 # Convert buffer from km to meters
-
-        # Calculate bounds in UTM
-        utm_west  = self.utm_x - buffer_m
-        utm_south = self.utm_y - buffer_m
-        utm_east  = self.utm_x + buffer_m
-        utm_north = self.utm_y + buffer_m
-
-        west, south =  self.transformer.transform(utm_west, utm_south)
-        east, north =  self.transformer.transform(utm_east, utm_north)
-
-        return (west, south, east, north)
-    
-    def __getitem__(self, key):
-        return self.d[key]
 
 
-class PWFDF_Data:
-    path = 'data/ofr20161106_appx-1.xlsx'
-    sheet_name = 'Appendix1_ModelData'
-
-    def __init__(self):
-        self.df = pd.read_excel(self.path, sheet_name=self.sheet_name)
-
-    def get(self, i):
-        return PWFDF_Entry(self.df.iloc[i].to_dict())
-    
 def plot_dem(output_file, x, y):
     fig, ax = plt.subplots(figsize=(8, 6))
     fig.patch.set_alpha(0)
-    
+
     with rasterio.open(output_file) as src:
         target_crs = src.crs
         target_bounds = src.bounds
@@ -204,7 +165,7 @@ def get_satellite_image(file, bounds, start_date, end_date):
         .filterBounds(region) \
         .filterDate(start_date, end_date) \
         .filter(ee.Filter.lt('CLOUD_COVER', 20))
-    
+
     bands = ['SR_B3', 'SR_B2', 'SR_B1', 'SR_B4']  # RGB
     rgb = image.median().select(bands).clip(region)
     url = rgb.getDownloadURL({
@@ -217,14 +178,13 @@ def get_satellite_image(file, bounds, start_date, end_date):
     with open(file, 'wb') as f:
         f.write(response.content)
 
-from datetime import datetime, timedelta
 
 def get_fire_images(fire_year, bounds):
     print("FIRE")
     fire_date = f"{fire_year}-07-15"
     fire_dt = datetime.strptime(fire_date, "%Y-%m-%d")
 
-    pre_fire_end = fire_dt - timedelta(days=30)  
+    pre_fire_end = fire_dt - timedelta(days=30)
     pre_fire_start = pre_fire_end - timedelta(days=90)
     post_fire_start = fire_dt + timedelta(days=30)
     post_fire_end = post_fire_start + timedelta(days=150)
@@ -237,6 +197,9 @@ def main():
     data = PWFDF_Data()
     i = 2
     entry = data.get(i)
+
+    ee.Authenticate()
+    ee.Initialize(project='ee-quinnledingham')
 
     print(f"Using entry: {i}, fire name: {entry['Fire Name']}, seg id: {entry['Fire_SegID']}")
     bounds = entry.bounds(5)
