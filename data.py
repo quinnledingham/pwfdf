@@ -108,7 +108,6 @@ def main():
     i = 2
     entry = data.get(i)
 
-    
 
     #print(f"Using entry: {i}, fire name: {entry['Fire Name']}, seg id: {entry['Fire_SegID']}")
     bounds = entry.bounds(5)

@@ -29,22 +29,17 @@ def plot_catchment_dist(grid, dist):
 def delineate_watershed(dem_file, pour_point_coords):
     grid = Grid.from_raster(dem_file)
     dem = grid.read_raster(dem_file)
-
     pit_filled_dem = grid.fill_pits(dem)
     flooded_dem = grid.fill_depressions(pit_filled_dem)
     inflated_dem = grid.resolve_flats(flooded_dem)
-
     dirmap = (64, 128, 1, 2, 4, 8, 16, 32)
     flow_dir  = grid.flowdir(inflated_dem, dirmap=dirmap)
     flow_acc = grid.accumulation(flow_dir, dirmap=dirmap)
-
     threshold = 100
     branches = grid.extract_river_network(flow_dir, flow_acc > threshold, dirmap=dirmap)
-
     x, y = pour_point_coords
     x_snap, y_snap = grid.snap_to_mask(flow_acc > 10, pour_point_coords) # Snap pour point to high accumulation cell
     catch = grid.catchment(x=x_snap, y=y_snap, fdir=flow_dir, dirmap=dirmap, xytype='coordinate')
-
     dist = grid.distance_to_outlet(x=x_snap, y=y_snap, fdir=flow_dir, dirmap=dirmap, xytype='coordinate')
 
     # plot DEM
