@@ -1,3 +1,5 @@
+import sys
+
 import torch
 import torchvision
 import torchvision.transforms as transforms
@@ -6,8 +8,6 @@ import torch.backends.cudnn as cudnn
 from torch.utils.data import Dataset, DataLoader
 
 from tqdm import tqdm
-
-import sys
 
 import time
 from datetime import timedelta
@@ -54,7 +54,7 @@ class Data:
         self.test_set = test_set
         w = 0
         self.test_loader = torch.utils.data.DataLoader(self.test_set, batch_size=batch_size, shuffle=False, num_workers=w)
-        self.train_loader = torch.utils.data.DataLoader(self.train_set, batch_size=batch_size, shuffle=True, num_workers=w)
+        self.train_loader = torch.utils.data.DataLoader(self.train_set, batch_size=batch_size, shuffle=False, num_workers=w)
 
 
 def dict_to_class(class_name, data_dict):
@@ -121,7 +121,8 @@ class App:
 
     def main(self):
         self.start_time = time.time()
-        self.model = self.model.to(self.device)
+        if hasattr(self.model, "to"):
+            self.model = self.model.to(self.device)
         if self.device == 'cuda':
             self.model = torch.nn.DataParallel(self.model)
             cudnn.benchmark = True

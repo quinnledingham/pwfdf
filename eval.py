@@ -5,63 +5,67 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 from sklearn.metrics import roc_auc_score, roc_curve, confusion_matrix
 
+def threat_score(y_true, y_pred, threshold=0.5):
+    """Threat Score = TP / (TP + FN + FP)"""
+    y_pred_binary = (y_pred >= threshold).astype(int)
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred_binary, labels=[0, 1]).ravel()
+    
+    if (tp + fn + fp) == 0:
+        return 0.0
+    return tp / (tp + fn + fp)
 
-def calculate_threat_score(y_true, y_pred):
-  """
-  Calculate Threat Score (Critical Success Index)
-  TS = hits / (hits + misses + false alarms)
-  """
-  cm = confusion_matrix(y_true.cpu().numpy(), y_pred.cpu().numpy())
-  tn, fp, fn, tp = cm.ravel()
+def find_best_threshold(y_true, y_pred):
+    """Find threshold that maximizes threat score"""
+    thresholds = np.arange(0.01, 1.0, 0.01)
+    scores = [threat_score(y_true, y_pred, t) for t in thresholds]
+    best_idx = np.argmax(scores)
+    return thresholds[best_idx], scores[best_idx]
 
-  # Threat Score (CSI)
-  threat_score = tp / (tp + fn + fp) if (tp + fn + fp) > 0 else 0
-
-  return threat_score, {'TP': tp, 'FP': fp, 'FN': fn, 'TN': tn}
-
-class Evaluation_Metrics:
-  accuracy: float
-  loss: float
-
-  threat_score: float
-  auc: float
-  confusion: dict
-
-  def __init__(self) -> None:
-    pass
-
-  def output(self):
-      print(f"Acc: {self.accuracy:.4f} | Loss: {self.loss:.4f} | Threat: {self.threat_score:.4f} | AUC: {self.auc:.4f}")
-      print("Confusion Matrix:", self.confusion)
-
-def evaluate(model, loader, return_probs=False):
-    out = Evaluation_Metrics()
+def evaluate(model, X_test, y_test):
     model.eval()
-    all_labels = []
-    all_predictions = []
-    all_probabilities = []
-    losses = torch.zeros(len(loader))
-    
     with torch.no_grad():
-        for i, (features, labels) in enumerate(loader):
-            outputs, loss = model(features, labels)
-            probabilities = F.softmax(outputs, dim=1)
-            _, predicted = torch.max(outputs.data, 1)
-            losses[i] = loss.item()
-            all_labels.append(labels)
-            all_predictions.append(predicted)
-            all_probabilities.append(probabilities[:, 1])  # Probability of class 1
+        y_pred = model(X_test).cpu().numpy().flatten()
     
-    all_labels = torch.cat(all_labels)
-    all_predictions = torch.cat(all_predictions)
-    all_probabilities = torch.cat(all_probabilities)
+    threshold, ts = find_best_threshold(y_test.cpu().numpy(), y_pred)
+    y_pred_binary = (y_pred >= threshold).astype(int)
+    tn, fp, fn, tp = confusion_matrix(y_test.cpu().numpy(), y_pred_binary, labels=[0, 1]).ravel()
     
-    # Calculate metrics
-    out.accuracy = (all_predictions == all_labels).float().mean().item()
-    out.threat_score, out.confusion = calculate_threat_score(all_labels, all_predictions)
-    out.auc = roc_auc_score(all_labels.cpu().numpy(), all_probabilities.cpu().numpy())
-    out.loss = losses.mean().item()
+    accuracy = (tp + tn) / (tp + tn + fp + fn)
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
     
-    if return_probs:
-        return out, all_labels, all_probabilities
-    return out
+    print(f"{'='*50}")
+    print(f"Test Results")
+    print(f"Threat Score: {ts:.4f}")
+    print(f"Accuracy:     {accuracy:.4f}")
+    print(f"Precision:    {precision:.4f}")
+    print(f"Recall:       {recall:.4f}")
+    print(f"F1 Score:     {f1:.4f}")
+    print(f"Threshold:    {threshold:.3f}")
+    print(f"TP={tp}, TN={tn}, FP={fp}, FN={fn}")
+    
+    return ts
+
+def compare_params(models, durations):
+    """Compare learned vs published Staley 2017 parameters"""
+    published = {
+        '15min': {'B': -3.63, 'Ct': 0.41, 'Cf': 0.67, 'Cs': 0.70},
+        '30min': {'B': -3.61, 'Ct': 0.26, 'Cf': 0.39, 'Cs': 0.50},
+        '60min': {'B': -3.21, 'Ct': 0.17, 'Cf': 0.20, 'Cs': 0.22}
+    }
+    
+    print(f"\n{'='*60}")
+    print("Comparison with Staley 2017 Published Parameters")
+    print(f"{'='*60}")
+    
+    for dur in durations:
+        print(f"\n{dur}:")
+        print(f"{'Param':<8} {'Published':<12} {'Learned':<12} {'Diff':<12}")
+        print("-" * 50)
+        
+        for param in ['B', 'Ct', 'Cf', 'Cs']:
+            pub = published[dur][param]
+            learn = models[dur].state_dict()[param].item()
+            diff = learn - pub
+            print(f"{param:<8} {pub:<12.4f} {learn:<12.4f} {diff:<12.4f}")
