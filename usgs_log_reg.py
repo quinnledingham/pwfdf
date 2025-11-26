@@ -4,7 +4,7 @@ import torch.optim as optim
 import numpy as np
 from sklearn.metrics import confusion_matrix
 
-from eval import find_best_threshold
+from eval import threat_score
 
 # Gets very similar values, so they masked out the data in a similar way to how it is done in prepare data
 
@@ -30,7 +30,7 @@ class Staley2017Model(nn.Module):
         
         logit = B + Ct * T * R + Cf * F * R + Cs * S * R
         # Clip for numerical stability
-        logit = torch.clamp(logit, -500, 500)
+        #logit = torch.clamp(logit, -500, 500)
         return torch.sigmoid(logit).unsqueeze(1)
 
 
@@ -64,13 +64,14 @@ def prepare_data(pwfdf_data, duration='15min', split='Training'):
     y = df['Response'].values
     
     # Remove rows with missing values
-    mask = ~(np.isnan(T) | np.isnan(F) | np.isnan(S) | np.isnan(R) | np.isnan(y))
+    mask = ~(np.isnan(T) | np.isnan(F) | np.isnan(S) | np.isnan(R))
+    #mask = ~np.isnan(X).any(axis=1)
     T, F, S, R, y = T[mask], F[mask], S[mask], R[mask], y[mask]
+    
     #T = np.nan_to_num(T, nan=0.0)
     #F = np.nan_to_num(F, nan=0.0)
     #S = np.nan_to_num(S, nan=0.0)
     #R = np.nan_to_num(R, nan=0.0)
-    #y = np.nan_to_num(y, nan=0.0)
 
     return T, F, S, R, y
 
@@ -84,7 +85,8 @@ def train(model, pwfdf_data, duration='15min', max_iter=1000):
     print(f"Training on {len(y_train)} samples")
     print(f"Positive samples: {np.sum(y_train)} ({100*np.mean(y_train):.1f}%)")
     print(f"Negative samples: {len(y_train) - np.sum(y_train)} ({100*(1-np.mean(y_train)):.1f}%)")
-    
+    print(f"Testing on {len(y_test)} samples")
+
     # Convert to tensors with double precision for better numerical stability
     T_train_t = torch.DoubleTensor(T_train)
     F_train_t = torch.DoubleTensor(F_train)
@@ -131,7 +133,7 @@ def train(model, pwfdf_data, duration='15min', max_iter=1000):
             model.eval()
             with torch.no_grad():
                 y_test_pred = model(T_test_t, F_test_t, S_test_t, R_test_t).numpy().flatten()
-            threshold, test_ts = find_best_threshold(y_test, y_test_pred)
+            test_ts = threat_score(y_test, y_test_pred)
             model.train()
             
             print(f"Iter {iteration}: Loss={loss.item():.6f}, Test TS={test_ts:.4f}")
@@ -151,11 +153,15 @@ def train(model, pwfdf_data, duration='15min', max_iter=1000):
     
     print(f"Training completed after {iteration} iterations")
     
+    print(f"\n{'='*50}")
+    print(f"Training Set Results for {duration}")
+    evaluate(model, T_train, F_train, S_train, R_train, y_train, duration=duration)
+
     return model, (T_test, F_test, S_test, R_test, y_test)
 
 
-def evaluate(model, T_test, F_test, S_test, R_test, y_test, duration='15min'):
-    """Evaluate model"""
+def evaluate(model, T_test, F_test, S_test, R_test, y_test, duration='15min', threshold=0.5):
+    """Evaluate model with fixed threshold"""
     T_test_t = torch.DoubleTensor(T_test)
     F_test_t = torch.DoubleTensor(F_test)
     S_test_t = torch.DoubleTensor(S_test)
@@ -165,24 +171,23 @@ def evaluate(model, T_test, F_test, S_test, R_test, y_test, duration='15min'):
     with torch.no_grad():
         y_pred = model(T_test_t, F_test_t, S_test_t, R_test_t).numpy().flatten()
     
-    threshold, ts = find_best_threshold(y_test, y_pred)
+    # Use fixed threshold instead of optimizing
     y_pred_binary = (y_pred >= threshold).astype(int)
     tn, fp, fn, tp = confusion_matrix(y_test, y_pred_binary, labels=[0, 1]).ravel()
     
+    ts = tp / (tp + fn + fp) if (tp + fn + fp) > 0 else 0.0
     accuracy = (tp + tn) / (tp + tn + fp + fn)
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0
     recall = tp / (tp + fn) if (tp + fn) > 0 else 0
     f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
     
-    print(f"\n{'='*50}")
-    print(f"Test Set Results for {duration}")
     print(f"{'='*50}")
     print(f"Threat Score: {ts:.4f}")
     print(f"Accuracy:     {accuracy:.4f}")
     print(f"Precision:    {precision:.4f}")
     print(f"Recall:       {recall:.4f}")
     print(f"F1 Score:     {f1:.4f}")
-    print(f"Threshold:    {threshold:.3f}")
+    print(f"Threshold:    {threshold:.3f} (fixed)")
     print(f"TP={tp}, TN={tn}, FP={fp}, FN={fn}")
     print(f"\nLearned Parameters:")
     print(f"  B  = {model.B.item():.4f}")
@@ -216,7 +221,6 @@ def compare_params(models, durations):
             diff = learn - pub
             print(f"{param:<8} {pub:<12.4f} {learn:<12.4f} {diff:<12.4f}")
 
-
 # Main execution
 if __name__ == "__main__":
     from data import PWFDF_Data
@@ -244,6 +248,8 @@ if __name__ == "__main__":
         models[duration] = model
         
         T_test, F_test, S_test, R_test, y_test = test_data[duration]
+        print(f"\n{'='*50}")
+        print(f"Test Set Results for {duration}")
         evaluate(model, T_test, F_test, S_test, R_test, y_test, duration=duration)
     
     # Compare with published parameters

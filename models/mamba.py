@@ -13,21 +13,13 @@ class MambaClassifier(nn.Module):
         self.duration = '15min'
         self.name = 'Mamba'
 
-        # Input projection
         self.input_proj = nn.Linear(input_dim, d_model)
         
-        # Mamba backbone
         self.mamba_layers = nn.ModuleList([
-            Mamba(
-                d_model=d_model,
-                d_state=16,
-                d_conv=4,
-                expand=2,
-            )
+            Mamba(d_model=d_model, d_state=16, d_conv=4, expand=2)
             for _ in range(n_layers)
         ])
         
-        # Layer normalization
         self.norms = nn.ModuleList([
             nn.LayerNorm(d_model)
             for _ in range(n_layers)
@@ -35,13 +27,12 @@ class MambaClassifier(nn.Module):
         
         self.dropout = nn.Dropout(dropout)
         
-        # Output head
         self.output_head = nn.Sequential(
             nn.Linear(d_model, 32),
             nn.ReLU(),
             nn.Dropout(dropout),
             nn.Linear(32, 1),
-            nn.Sigmoid()
+            #nn.Sigmoid()
         )
         
     def forward(self, x):
@@ -67,26 +58,15 @@ class MambaClassifier(nn.Module):
         return self.output_head(x).squeeze(-1)
 
 class HybridMambaLogisticModel(nn.Module):
-    def __init__(self, input_dim=16, d_model=64, n_layers=4, dropout=0.1):
+    def __init__(self, features, input_dim=16, d_model=64, n_layers=4, dropout=0.1):
         super().__init__()
         self.input_dim = input_dim
         self.d_model = d_model
         self.duration = '15min'
         self.name = 'HybridMamba'
         
-        # Define which features are rainfall accumulation features
-        # These will use logistic regression
-        self.rainfall_features = [
-            'Acc015_mm', 'Acc030_mm', 'Acc060_mm', 'StormAccum_mm'
-        ]
-        
-        # All numerical features from your dataset
-        self.all_features = [
-            'UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
-            'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-            'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
-            'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
-        ]
+        self.rainfall_features = ['Acc015_mm', 'Acc030_mm', 'Acc060_mm', 'StormAccum_mm']
+        self.all_features = features
         
         # Get indices for rainfall vs non-rainfall features
         self.rainfall_indices = [self.all_features.index(feat) for feat in self.rainfall_features if feat in self.all_features]

@@ -2,9 +2,6 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
-from sklearn.metrics import confusion_matrix
-
-from eval import find_best_threshold, evaluate, compare_params
 
 class Staley2017Model(nn.Module):
     """
@@ -12,18 +9,22 @@ class Staley2017Model(nn.Module):
     p = 1 / (1 + exp(-(B + Ct*T*R + Cf*F*R + Cs*S*R)))
     """
     
-    def __init__(self, duration='15min'):
+    def __init__(self, features, duration='15min'):
         super().__init__()
         self.duration = duration
         self.name = 'logres'
         
         # Feature indices for T, F, S
-        self.T_idx = 10  # PropHM23
-        self.F_idx = 11  # dNBR/1000
-        self.S_idx = 12  # KF
+        self.T_idx = features.index('PropHM23')
+        self.F_idx = features.index('dNBR/1000')
+        self.S_idx = features.index('KF') 
         
         # Rainfall index based on duration
-        self.R_idx = {'15min': 13, '30min': 14, '60min': 15}[duration]
+        self.R_idx = {
+            '15min': features.index('Acc015_mm'), 
+            '30min': features.index('Acc030_mm'), 
+            '60min': features.index('Acc060_mm')
+        }[duration]
         
         # Initialize all parameters at 0
         self.B = nn.Parameter(torch.tensor([0.0]))
@@ -48,8 +49,6 @@ class Staley2017Model(nn.Module):
         Cs = self.Cs.squeeze()
         
         logit = B + Ct * T * R + Cf * F * R + Cs * S * R
-        # Clip for numerical stability
-        logit = torch.clamp(logit, -500, 500)
         return torch.sigmoid(logit)
 
 

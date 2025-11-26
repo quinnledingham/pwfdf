@@ -8,6 +8,7 @@ from pyproj import Proj, transform, Transformer
 from sklearn.preprocessing import StandardScaler, LabelEncoder, RobustScaler
 import geopandas as gpd
 from shapely.geometry import Point
+from sklearn.impute import SimpleImputer
 
 # Downloads all of the hazard assessments to dir
 def download_pwfdf_collection():
@@ -82,153 +83,81 @@ class PWFDF_Data:
 
     def get(self, i):
         return PWFDF_Entry(self.df.iloc[i].to_dict())
-    
-    def get_data_target(self):
-        numerical_features = [
-            'UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
-            'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-            'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
-            'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
-        ]
 
-        categorical_features = ['State', 'UTM_Zone']
-        label_encoders = {}
-        for col in categorical_features:
-            if col in self.df.columns:
-                le = LabelEncoder()
-                self.df[col + '_encoded'] = le.fit_transform(self.df[col].astype(str))
-                label_encoders[col] = le
-
-        self.df[numerical_features] = self.df[numerical_features].fillna(self.df[numerical_features].mean()) # handle missing values
-        feature_cols = numerical_features + [col + '_encoded' for col in categorical_features if col in self.df.columns] # combine features
-        
-        data = self.df[feature_cols].values
-        target = self.df['Response'].values
-
-        #normalize
-        scaler = StandardScaler() 
-        data = scaler.fit_transform(data)
-
-        return data, target
-
-    
-    def prepare_data(self, split='Training'):
-        """
-        Prepare data directly from PWFDF_Data using Database column
-        Returns the full feature matrix and labels
-        
-        Args:
-            pwfdf_data: PWFDF_Data object
-            split: 'Training' or 'Test'
-        """
+    def prepare_data_usgs(self, features, split='Training', duration='15min', scaler=None):
         df = self.df
-        
-        # Filter by Database column
         df = df[df['Database'] == split].copy()
-        
-        # Get all numerical features
-        numerical_features = [
-            'UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
-            'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-            'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
-            'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
-        ]
-        
-        X = df[numerical_features].values
+
+        #        
+        # Creating the USGS MASK
+        #
+        T = df['PropHM23'].values
+        F = df['dNBR/1000'].values
+        S = df['KF'].values
+        if duration == '15min':
+            R = df['Acc015_mm'].values
+        elif duration == '30min':
+            R = df['Acc030_mm'].values
+        else:  # 60min
+            R = df['Acc060_mm'].values
+        mask = ~(np.isnan(T) | np.isnan(F) | np.isnan(S) | np.isnan(R))
+
+        #
+        # Filling in NaN values
+        #
+        # Strategy 1: Remove rows with critical missing values
+        critical_features = ['UTM_X', 'UTM_Y']
+        df = df.dropna(subset=critical_features)
+
+        # Strategy 2: Fill storm-related features with 0 (assuming no storm = 0)
+        storm_zero_features = ['StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+        df[storm_zero_features] = df[storm_zero_features].fillna(0)
+
+        # Strategy 3: Median imputation for remaining features
+        # First, identify which features still have NaN values
+        remaining_features = df.select_dtypes(include=[np.number]).columns.tolist()
+        remaining_features = [f for f in remaining_features if f not in critical_features + storm_zero_features]
+
+        # Only impute features that actually have NaN values
+        features_with_nan = [f for f in remaining_features if df[f].isna().any()]
+
+        if features_with_nan:
+            print(f"Imputing {len(features_with_nan)} features with median:")
+            print(f"  {features_with_nan}")
+            
+            imputer = SimpleImputer(strategy='median')
+            df[features_with_nan] = imputer.fit_transform(df[features_with_nan])
+            
+            # Verify imputation worked
+            print(f"Remaining NaN values: {df[features_with_nan].isna().sum().sum()}")
+        else:
+            print("No remaining features need imputation")
+
+        X = df[features].values
         y = df['Response'].values
 
-        # Remove rows with ANY missing values
-        mask = ~np.isnan(X).any(axis=1) & ~np.isnan(y)
         X = X[mask]
         y = y[mask]
 
-        # Fill missing values with 0 instead of removing rows
-        #X = np.nan_to_num(X, nan=0.0)
-        #y = np.nan_to_num(y, nan=0.0)
+        # Normalize
+        if True:
+            skip_indices = [features.index(f) for f in [
+                #'UTM_X', 'UTM_Y', 
+                'PropHM23', 'dNBR/1000', 'KF']]
+            normalize_indices = [i for i in range(len(features)) if i not in skip_indices]
+            
+            if scaler is None:
+                scaler = StandardScaler()
+                X[:, normalize_indices] = scaler.fit_transform(X[:, normalize_indices])
+                print(f"\nNormalized {len(normalize_indices)} features (fitted new scaler)")
+            else:
+                # Use provided scaler (for test set)
+                X[:, normalize_indices] = scaler.transform(X[:, normalize_indices])
+                print(f"\nNormalized {len(normalize_indices)} features (using provided scaler)")
+            
+            return X, y, scaler
         
-        #scaler = StandardScaler() 
-        #X = scaler.fit_transform(X)
-
-        return X, y
-
-    def prepare_data_with_normalization(self, split='Training', normalize=True):
-        """
-        Prepare data with proper normalization
-        """
-        df = self.df
-        
-        # Filter by Database column
-        df = df[df['Database'] == split].copy()
-        
-        # Get all numerical features
-        numerical_features = [
-            'UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
-            'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-            'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
-            'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
-        ]
-        
-        X = df[numerical_features].values
-        y = df['Response'].values
-
-        # Remove rows with ANY missing values
-        mask = ~np.isnan(X).any(axis=1) & ~np.isnan(y)
-        X = X[mask]
-        y = y[mask]
-        
-        if normalize:
-            # Different normalization strategies for different feature types
-            X_normalized = self._smart_normalize(X, numerical_features)
-            return X_normalized, y
-        
-        return X, y
-
-    def _smart_normalize(self, X, feature_names):
-        """
-        Apply different normalization strategies based on feature characteristics
-        """
-        feature_indices = {name: i for i, name in enumerate(feature_names)}
-        X_normalized = X.copy().astype(np.float32)
-        
-        # Group 1: UTM coordinates - use RobustScaler (less sensitive to outliers)
-        utm_features = ['UTM_X', 'UTM_Y']
-        utm_indices = [feature_indices[f] for f in utm_features]
-        if utm_indices:
-            utm_scaler = RobustScaler()
-            X_normalized[:, utm_indices] = utm_scaler.fit_transform(X[:, utm_indices])
-        
-        # Group 2: Distance and area features - StandardScaler
-        spatial_features = ['GaugeDist_m', 'ContributingArea_km2']
-        spatial_indices = [feature_indices[f] for f in spatial_features]
-        if spatial_indices:
-            spatial_scaler = StandardScaler()
-            X_normalized[:, spatial_indices] = spatial_scaler.fit_transform(X[:, spatial_indices])
-        
-        # Group 3: Rainfall intensity and accumulation - StandardScaler
-        rainfall_features = [
-            'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 
-            'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-            'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
-        ]
-        rainfall_indices = [feature_indices[f] for f in rainfall_features]
-        if rainfall_indices:
-            rainfall_scaler = StandardScaler()
-            X_normalized[:, rainfall_indices] = rainfall_scaler.fit_transform(X[:, rainfall_indices])
-        
-        # Group 4: Proportional features (already 0-1 range) - Minimal scaling
-        proportional_features = ['PropHM23', 'KF']
-        proportional_indices = [feature_indices[f] for f in proportional_features]
-        if proportional_indices:
-            # Just center them around 0
-            prop_scaler = StandardScaler(with_std=False)  # Only center, don't scale
-            X_normalized[:, proportional_indices] = prop_scaler.fit_transform(X[:, proportional_indices])
-        
-        # Group 5: dNBR - StandardScaler (already divided by 1000)
-        dNBR_index = feature_indices['dNBR/1000']
-        dNBR_scaler = StandardScaler()
-        X_normalized[:, dNBR_index] = dNBR_scaler.fit_transform(X[:, dNBR_index:dNBR_index+1]).flatten()
-        
-        return X_normalized
+        return X, y, None
 
 def export_to_shapefile(pwfdf_data, output_path='data/pwfdf_points.shp', crs='EPSG:4326'):
     geometries = []

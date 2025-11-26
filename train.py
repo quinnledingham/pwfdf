@@ -8,17 +8,26 @@ import numpy as np
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 from data import PWFDF_Data
-from eval import find_best_threshold, evaluate, compare_params, evaluate_model
+from eval import evaluate, compare_params, evaluate_model, threat_score
 
 from models.log_reg import Staley2017Model
 from models.mamba import MambaClassifier, HybridMambaLogisticModel
 from models.transformer import TransformerClassifier
+from models.TSMixer import TSMixerClassifier
 
 import logging
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-output_file = './output/logs.txt'
+output_file = './output/nandiff_logs.txt'
+
+numerical_features = [
+    #'UTM_X', 'UTM_Y', 
+    'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
+    'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
+    'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
+    'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
+]
 
 # Setup logging to both console and file
 logging.basicConfig(
@@ -74,7 +83,7 @@ def train_logistic(model, X_train, y_train, X_test, y_test, max_iter=1000):
             model.eval()
             with torch.no_grad():
                 y_test_pred = model(X_test).cpu().numpy().flatten()
-            threshold, test_ts = find_best_threshold(y_test.cpu().numpy(), y_test_pred)
+            test_ts = threat_score(y_test.cpu().numpy(), y_test_pred)
             model.train()
             
            
@@ -108,7 +117,13 @@ def train_mamba(model, X_train, y_train, X_test, y_test, max_epochs=100, patienc
     
     optimizer = optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.01)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.5, patience=5)
-    criterion = nn.BCELoss()
+    
+    # Count class distribution
+    n_neg = (y_train == 0).sum()
+    n_pos = (y_train == 1).sum()
+    pos_weight = n_neg / n_pos
+    criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos_weight]).to(device))
+    #criterion = nn.BCELoss()
     
     train_losses = []
     test_metrics = []
@@ -132,14 +147,14 @@ def train_mamba(model, X_train, y_train, X_test, y_test, max_epochs=100, patienc
         # Evaluation
         model.eval()
         with torch.no_grad():
-            # Training metrics
+            # Training metrics            
             train_pred = (y_pred > 0.5).float()
             train_acc = accuracy_score(y_train.cpu().numpy(), train_pred.cpu().numpy())
             
             # Test metrics
             y_test_pred = model(X_test).cpu().numpy().flatten()
-            threshold, test_ts = find_best_threshold(y_test.cpu().numpy(), y_test_pred)
-            test_pred = (y_test_pred > threshold).astype(int)
+            test_ts = threat_score(y_test.cpu().numpy(), y_test_pred)
+            test_pred = (y_test_pred > 0.5).astype(int)
             test_acc = accuracy_score(y_test.cpu().numpy(), test_pred)
             test_f1 = f1_score(y_test.cpu().numpy(), test_pred)
             
@@ -163,8 +178,9 @@ def train_mamba(model, X_train, y_train, X_test, y_test, max_epochs=100, patienc
             patience_counter += 1
             
         if patience_counter >= patience:
-            print(f"Early stopping at epoch {epoch}")
-            break
+            pass
+            #print(f"Early stopping at epoch {epoch}")
+            #break
             
         train_losses.append(loss.item())
         test_metrics.append({
@@ -187,9 +203,9 @@ def compare_all_approaches():
     print(f"Training samples: {len(data.df[data.df['Database'] == 'Training'])}")
     print(f"Test samples: {len(data.df[data.df['Database'] == 'Test'])}\n")
 
-    X_train, y_train = data.prepare_data_with_normalization(split='Training')
-    X_test, y_test = data.prepare_data_with_normalization(split='Test')
-    
+    X_train, y_train, scaler = data.prepare_data_usgs(numerical_features, split='Training')
+    X_test, y_test, _ = data.prepare_data_usgs(numerical_features, split='Test', scaler=scaler)
+
     X_train = torch.Tensor(X_train).to(device)
     y_train = torch.Tensor(y_train).to(device)
     X_test = torch.Tensor(X_test).to(device)
@@ -198,48 +214,59 @@ def compare_all_approaches():
     print(f"Feature dimension: {X_train.shape[1]}")
     print(f"Training set: {X_train.shape[0]} samples")
     print(f"Test set: {X_test.shape[0]} samples")
-
-    feature_names = [
-        'UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
-        'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-        'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
-        'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
-    ]
     
-    results = {}
+    training_results = {}
+    test_results = {}
     
     # Approach 1: Classical Logistic
     print("=" * 60)
-    print("APPROACH 1: Classical Logistic Model")
+    print("APPROACH 1: Logistic Regression")
     print("=" * 60)
-    model1 = Staley2017Model().to(device)
+    model1 = Staley2017Model(numerical_features, duration='15min').to(device)
     model1 = train_logistic(model1, X_train, y_train, X_test, y_test, max_iter=100)
-    results['logistic'] = evaluate_model(model1, X_test, y_test, "Classical Logistic")
-    
+    training_results[model1.name] = evaluate_model(model1, X_train, y_train)
+    test_results[model1.name] = evaluate_model(model1, X_test, y_test)
+
     # Approach 2: Mamba Feature Fusion
     print("\n" + "=" * 60)
     print("APPROACH 2: Mamba Feature Fusion")
     print("=" * 60)
     model2 = MambaClassifier(input_dim=X_train.shape[1], n_layers=2).to(device)
     model2 = train_mamba(model2, X_train, y_train, X_test, y_test, max_epochs=100)
-    results['mamba_fusion'] = evaluate_model(model2, X_test, y_test, "Mamba Fusion")
-    
+    training_results[model2.name] = evaluate_model(model2, X_train, y_train)
+    test_results[model2.name] = evaluate_model(model2, X_test, y_test)
+
     # Approach 3: Mamba × Rainfall Multiplication
     print("\n" + "=" * 60)
     print("APPROACH 3: Mamba × Rainfall Multiplication")
     print("=" * 60)
-    model3 = HybridMambaLogisticModel(input_dim=X_train.shape[1], n_layers=2).to(device)
+    model3 = HybridMambaLogisticModel(numerical_features, input_dim=X_train.shape[1], n_layers=2).to(device)
     model3 = train_mamba(model3, X_train, y_train, X_test, y_test, max_epochs=100)
-    results['mamba_rainfall'] = evaluate_model(model3, X_test, y_test, "Mamba × Rainfall")
+    training_results[model3.name] = evaluate_model(model3, X_train, y_train)
+    test_results[model3.name] = evaluate_model(model3, X_test, y_test)
     
+    # Approach 4: TS Mixer
+    print("\n" + "=" * 60)
+    print("APPROACH 4: TS Mixer")
+    print("=" * 60)
+    model4 = TSMixerClassifier(input_dim=X_train.shape[1], d_model=64, n_layers=4, dropout=0.1).to(device)
+    model4 = train_mamba(model4, X_train, y_train, X_test, y_test, max_epochs=100)
+    training_results[model4.name] = evaluate_model(model4, X_train, y_train)
+    test_results[model4.name] = evaluate_model(model4, X_test, y_test)
+
     # Compare results
     logging.info("\n" + "=" * 60)
     logging.info("COMPARISON SUMMARY")
     logging.info("=" * 60)
-    for approach, result in results.items():
-        logging.info(f"{result['name']:25} TS: {result['ts']:.4f} | Acc: {result['accuracy']:.4f} | F1: {result['f1']:.4f}")
+    logging.info("Train set")
+    for approach, results in training_results.items():
+        logging.info(f"{results['name']:25} TS: {results['ts']:.4f} | Acc: {results['accuracy']:.4f} | F1: {results['f1']:.4f}")
+    logging.info("=" * 60)
+    logging.info("Test set")
+    for approach, results in test_results.items():
+        logging.info(f"{results['name']:25} TS: {results['ts']:.4f} | Acc: {results['accuracy']:.4f} | F1: {results['f1']:.4f}")
     
-    return results, [model1, model2, model3]
+    return test_results, [model1, model2, model3]
 
 def main():
     data = PWFDF_Data()
@@ -248,8 +275,8 @@ def main():
     print(f"Training samples: {len(data.df[data.df['Database'] == 'Training'])}")
     print(f"Test samples: {len(data.df[data.df['Database'] == 'Test'])}\n")
     
-    X_train, y_train = data.prepare_data_with_normalization(split='Training')
-    X_test, y_test = data.prepare_data_with_normalization(split='Test')
+    X_train, y_train, scaler = data.prepare_data_with_normalization(split='Training')
+    X_test, y_test, _ = data.prepare_data_with_normalization(split='Test', scaler=scaler)
 
     X_train = torch.Tensor(X_train).to(device)
     y_train = torch.Tensor(y_train).to(device)
@@ -264,6 +291,7 @@ def main():
     model = MambaClassifier(input_dim=X_train.shape[1]).to(device)
     #model = HybridMambaLogisticModel(input_dim=X_train.shape[1]).to(device)
     #model = TransformerClassifier(X_train.shape[1]).to(device)
+    #model = TSMixerClassifier(input_dim=X_train.shape[1], d_model=64, n_layers=4, dropout=0.1)
 
     #model = train_lg(model, X_train, y_train, X_test, y_test, max_iter=100)
     model = train_mamba(model, X_train, y_train, X_test, y_test, max_epochs=100, patience=15)

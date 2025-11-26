@@ -6,7 +6,9 @@ import numpy as np
 from sklearn.metrics import roc_auc_score, roc_curve, confusion_matrix
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-def threat_score(y_true, y_pred, threshold=0.5):
+threshold = 0.5
+
+def threat_score(y_true, y_pred):
     """Threat Score = TP / (TP + FN + FP)"""
     y_pred_binary = (y_pred >= threshold).astype(int)
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred_binary, labels=[0, 1]).ravel()
@@ -15,22 +17,15 @@ def threat_score(y_true, y_pred, threshold=0.5):
         return 0.0
     return tp / (tp + fn + fp)
 
-def find_best_threshold(y_true, y_pred):
-    """Find threshold that maximizes threat score"""
-    thresholds = np.arange(0.01, 1.0, 0.01)
-    scores = [threat_score(y_true, y_pred, t) for t in thresholds]
-    best_idx = np.argmax(scores)
-    return thresholds[best_idx], scores[best_idx]
-
 def evaluate(model, X_test, y_test):
     model.eval()
     with torch.no_grad():
         y_pred = model(X_test).cpu().numpy().flatten()
     
-    threshold, ts = find_best_threshold(y_test.cpu().numpy(), y_pred)
     y_pred_binary = (y_pred >= threshold).astype(int)
     tn, fp, fn, tp = confusion_matrix(y_test.cpu().numpy(), y_pred_binary, labels=[0, 1]).ravel()
     
+    ts = tp / (tp + fn + fp) if (tp + fn + fp) > 0 else 0.0
     accuracy = (tp + tn) / (tp + tn + fp + fn)
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0
     recall = tp / (tp + fn) if (tp + fn) > 0 else 0
@@ -71,7 +66,7 @@ def compare_params(models, durations):
             diff = learn - pub
             print(f"{param:<8} {pub:<12.4f} {learn:<12.4f} {diff:<12.4f}")
 
-def evaluate_model(model, X_test, y_test, name):
+def evaluate_model(model, X_test, y_test):
     """Evaluate model and return metrics"""
     model.eval()
     with torch.no_grad():
@@ -79,16 +74,16 @@ def evaluate_model(model, X_test, y_test, name):
     
     y_test = y_test.cpu().numpy()
 
-    threshold, ts = find_best_threshold(y_test, y_pred)
-    y_pred_binary = (y_pred > threshold).astype(int)
+    y_pred_binary = (y_pred >= threshold).astype(int)
     
+    ts = threat_score(y_test, y_pred_binary)
     accuracy = accuracy_score(y_test, y_pred_binary)
     precision = precision_score(y_test, y_pred_binary, zero_division=0)
     recall = recall_score(y_test, y_pred_binary, zero_division=0)
     f1 = f1_score(y_test, y_pred_binary, zero_division=0)
     
     return {
-        'name': name,
+        'name': model.name,
         'ts': ts,
         'accuracy': accuracy,
         'precision': precision,
