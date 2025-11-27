@@ -6,6 +6,7 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 
 from data import PWFDF_Data
@@ -25,7 +26,7 @@ output_file = './output/logs/foo_seeds100.txt'
 
 features = [
     #'UTM_X', 'UTM_Y', 
-    #'Fire_ID', 'Fire_SegID',
+    'Fire_ID', 'Fire_SegID',
     'GaugeDist_m', 
     'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 
     'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
@@ -55,7 +56,7 @@ def setup_seed(seed):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-def train_logistic(model, X_train, y_train, X_test, y_test, seed, max_iter=1000):    
+def train_logistic(model, X_train, y_train, X_val, y_val, seed, max_iter=1000):    
     # Use LBFGS optimizer (same as sklearn's lbfgs)
     optimizer = optim.LBFGS(
         model.parameters(),
@@ -84,16 +85,11 @@ def train_logistic(model, X_train, y_train, X_test, y_test, seed, max_iter=1000)
         if iteration % 10 == 0:
             model.eval()
             with torch.no_grad():
-                y_test_pred = model(X_test).cpu().numpy().flatten()
-            test_ts = threat_score(y_test.cpu().numpy(), y_test_pred)
+                y_test_pred = model(X_val).cpu().numpy().flatten()
+            test_ts = threat_score(y_val.cpu().numpy(), y_test_pred)
             model.train()
             
-            #print(f"Iter {iteration}: Loss={loss.item():.6f}, Test TS={test_ts:.4f}")
             pbar.set_postfix({'Loss': f'{loss.item():.6f}', 'Test TS': f'{test_ts:.4f}'})
-            '''
-            print(f"  B={model.B.item():.4f}, Ct={model.Ct.item():.4f}, "
-                  f"Cf={model.Cf.item():.4f}, Cs={model.Cs.item():.4f}")
-            '''
         
         iteration += 1
         pbar.update(1)
@@ -107,9 +103,7 @@ def train_logistic(model, X_train, y_train, X_test, y_test, seed, max_iter=1000)
         if iteration >= max_iter:
             break
     
-    pbar.close()
-    #print(f"Training completed after {iteration} iterations")
-    
+    pbar.close()    
     return model
 
 def train_logistic_fast(model, X_train, y_train, X_test, y_test, seed, max_iter=1000):    
@@ -168,7 +162,7 @@ class FocalLoss(nn.Module):
         return focal_loss.mean()
 
 
-def train_mamba(model, X_train, y_train, X_test, y_test, seed, max_epochs=200, patience=10):    
+def train_mamba(model, X_train, y_train, X_val, y_val, seed, max_epochs=200):    
     model_save_path = f"./output/{model.name}_model.pth"
     
     optimizer = optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.01)
@@ -183,7 +177,7 @@ def train_mamba(model, X_train, y_train, X_test, y_test, seed, max_epochs=200, p
     #criterion = FocalLoss(alpha=0.25, gamma=2.0)
 
     train_losses = []
-    test_metrics = []
+    val_metrics = []
     best_ts = 0.0
         
     pbar = tqdm(range(max_epochs), desc=f"Training {model.name} Seed={seed}", unit="epoch", disable=True)
@@ -205,21 +199,21 @@ def train_mamba(model, X_train, y_train, X_test, y_test, seed, max_epochs=200, p
             train_pred = (y_pred > 0.5).float()
             train_acc = accuracy_score(y_train.cpu().numpy(), train_pred.cpu().numpy())
             
-            # Test metrics
-            y_test_pred = model(X_test).cpu().numpy().flatten()
-            test_ts = threat_score(y_test.cpu().numpy(), y_test_pred)
-            test_pred = (y_test_pred > 0.5).astype(int)
-            test_acc = accuracy_score(y_test.cpu().numpy(), test_pred)
-            test_f1 = f1_score(y_test.cpu().numpy(), test_pred)
+            # Val metrics
+            y_val_pred = model(X_val).cpu().numpy().flatten()
+            val_ts = threat_score(y_val.cpu().numpy(), y_val_pred)
+            val_pred = (y_val_pred > 0.5).astype(int)
+            val_acc = accuracy_score(y_val.cpu().numpy(), val_pred)
+            val_f1 = f1_score(y_val.cpu().numpy(), val_pred)
             
         # Update learning rate
         #scheduler.step()
         
         pbar.set_postfix({
             'Loss': f'{loss.item():.4f}',
-            'TS': f'{test_ts:.4f}',
-            'Acc': f'{test_acc:.4f}',
-            'F1': f'{test_f1:.4f}',
+            'TS': f'{val_ts:.4f}',
+            'Acc': f'{val_acc:.4f}',
+            'F1': f'{val_f1:.4f}',
             'Best': f'{best_ts:.4f}'
         })
         
@@ -229,22 +223,22 @@ def train_mamba(model, X_train, y_train, X_test, y_test, seed, max_epochs=200, p
         #    tqdm.write(f"  LR={optimizer.param_groups[0]['lr']:.2e}")
         
         # Save best model
-        if train_ts > best_ts:
-            best_ts = train_ts
+        if val_ts > best_ts:
+            best_ts = val_ts
             torch.save(model.state_dict(), model_save_path)
             
         train_losses.append(loss.item())
-        test_metrics.append({
+        val_metrics.append({
             'epoch': epoch,
-            'ts': test_ts,
-            'acc': test_acc,
-            'f1': test_f1
+            'ts': val_ts,
+            'acc': val_acc,
+            'f1': val_f1
         })
     
     pbar.close()
     model.load_state_dict(torch.load(model_save_path)) # Load best model
     os.remove(model_save_path)
-    
+
     return model
 
 def compare_all_approaches():
@@ -254,16 +248,20 @@ def compare_all_approaches():
     print(f"Training samples: {len(data.df[data.df['Database'] == 'Training'])}")
     print(f"Test samples: {len(data.df[data.df['Database'] == 'Test'])}\n")
 
-    X_train, y_train, scaler = data.prepare_data_usgs(features, split='Training')
+    X_train_full, y_train_full, scaler = data.prepare_data_usgs(features, split='Training')
+    X_train, X_val, y_train, y_val = train_test_split(X_train_full, y_train_full, test_size=0.2, random_state=42, stratify=y_train_full)
     X_test, y_test, _ = data.prepare_data_usgs(features, split='Test', scaler=scaler)
 
     X_train = torch.Tensor(X_train).to(device)
     y_train = torch.Tensor(y_train).to(device)
+    X_val = torch.Tensor(X_val).to(device)
+    y_val = torch.Tensor(y_val).to(device)
     X_test = torch.Tensor(X_test).to(device)
     y_test = torch.Tensor(y_test).to(device)
 
     print(f"Feature dimension: {X_train.shape[1]}")
     print(f"Training set: {X_train.shape[0]} samples")
+    print(f"Val set: {X_val.shape[0]} samples")
     print(f"Test set: {X_test.shape[0]} samples")
     
     print(f"Training on {len(y_train)} samples")
@@ -275,13 +273,8 @@ def compare_all_approaches():
 
     print(f"Batch Size: {batch_size}, Feature Size: {input_dim}")
 
-    from torch.utils.data import TensorDataset, DataLoader
-    train_dataset = TensorDataset(X_train, y_train)
-    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_dataset = TensorDataset(X_test, y_test)
-    test_dataloader = DataLoader(test_dataset, batch_size=batch_size * 2, shuffle=False)
-
     training_results = {}
+    validation_results = {}
     test_results = {}
         
     best_seed_for_model = {}   # { model_name: seed }
@@ -290,18 +283,20 @@ def compare_all_approaches():
 
     model_classes = [
         lambda: Staley2017Model(features, duration='15min'),
-        lambda: LogisticRegression(features, duration='15min'),
+        #lambda: LogisticRegression(features, duration='15min'),
         lambda: RandomForestModel(features, random_state=None),
-        lambda: MambaClassifier(input_dim=input_dim, n_layers=2),
+        #lambda: MambaClassifier(input_dim=input_dim, n_layers=2),
         lambda: HybridMambaLogisticModel(features, input_dim=input_dim, n_layers=1),
-        lambda: TSMixerClassifier(input_dim=input_dim),
-        #lambda: MultiPathwayHybridModel(features=features),
+        #lambda: TSMixerClassifier(input_dim=input_dim),
+        lambda: MultiPathwayHybridModel(features=features),
         #lambda: Test(batch_size=batch_size, num_blocks=2),
     ]
 
     #seeds = [0, 24, 89]
     seeds = range(100)
     epochs = 100
+
+    logging.info("\n\n\n========================= Comparison =========================")
 
     for seed in tqdm(seeds, desc="Seeds", position=0):
         for make_model in model_classes:
@@ -311,16 +306,18 @@ def compare_all_approaches():
             model = model.to(device)
 
             if model.name == 'Staley' or model.name == 'LogisticRegression':
-                model = train_logistic(model, X_train, y_train, X_test, y_test, seed, max_iter=epochs)
+                model = train_logistic(model, X_train, y_train, X_val, y_val, seed, max_iter=epochs)
             elif model.name == 'RandomForest':
-                model = train_random_forest(model, X_train, y_train, X_test, y_test, seed)
+                model = train_random_forest(model, X_train, y_train, X_val, y_val, seed)
             else:
-                model = train_mamba(model, X_train, y_train, X_test, y_test, seed, max_epochs=epochs)
+                model = train_mamba(model, X_train, y_train, X_val, y_val, seed, max_epochs=epochs)
 
             train_metrics = evaluate_model(model, X_train, y_train)
+            val_metrics = evaluate_model(model, X_val, y_val)
             test_metrics = evaluate_model(model, X_test, y_test)
 
             training_results[model.name] = train_metrics
+            validation_results[model.name] = val_metrics
             test_results[model.name] = test_metrics
 
             ts = test_metrics['ts']
@@ -332,7 +329,7 @@ def compare_all_approaches():
                 best_metrics_for_model[name] = test_metrics
                 
                 os.makedirs('./output/best_models', exist_ok=True)
-                torch.save(model.state_dict(), f'./output/best_models/{name}_best.pth')
+                torch.save(model.state_dict(), f'./output/best_models/{name}_{seed}_best.pth')
             
             torch.cuda.empty_cache()
 
@@ -350,7 +347,8 @@ def compare_all_approaches():
                 logging.info(f"{results['name']:25} TS: {results['ts']:.4f} | Acc: {results['accuracy']:.4f} | F1: {results['f1']:.4f} | Recall: {results['recall']:.4f} | Precision: {results['precision']:.4f}")
 
     logging.info(f"Seeds: {seeds}")
-    logging.info(f"Features: {features}")
+    logging.info(f"Features Count: {len(features)}")
+    logging.info(f"{features}")
 
     logging.info("\n========================= BEST SEEDS =========================")
     for name in best_seed_for_model:

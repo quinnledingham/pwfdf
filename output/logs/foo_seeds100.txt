@@ -32,3 +32,118 @@ Model: TSMixer
   Best Seed: 7
   Best TS:   0.3367
   Metrics:   {'name': 'TSMixer', 'ts': np.float64(0.33668341708542715), 'accuracy': 0.6915887850467289, 'precision': 0.44370860927152317, 'recall': 0.5826086956521739, 'f1': 0.5037593984962406, 'threshold': 0.5}
+Seeds: [0, 24, 89]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed: 0
+  Best TS:   0.3862
+  Metrics:   {'name': 'Staley', 'ts': np.float64(0.3861788617886179), 'accuracy': 0.647196261682243, 'precision': 0.42035398230088494, 'recall': 0.8260869565217391, 'f1': 0.5571847507331378, 'threshold': 0.5}
+
+Model: RandomForest
+  Best Seed: 24
+  Best TS:   0.3925
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.3925233644859813), 'accuracy': 0.6962616822429907, 'precision': 0.45901639344262296, 'recall': 0.7304347826086957, 'f1': 0.5637583892617449, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed: 24
+  Best TS:   0.3714
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.37142857142857144), 'accuracy': 0.6915887850467289, 'precision': 0.4508670520231214, 'recall': 0.6782608695652174, 'f1': 0.5416666666666666, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 24
+  Best TS:   0.3927
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3926940639269406), 'accuracy': 0.6892523364485982, 'precision': 0.45263157894736844, 'recall': 0.7478260869565218, 'f1': 0.5639344262295082, 'threshold': 0.5}
+
+
+========================= Comparison =========================
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed: 0
+  Best TS:   0.3862
+  Metrics:   {'name': 'Staley', 'ts': np.float64(0.3861788617886179), 'accuracy': 0.647196261682243, 'precision': 0.42035398230088494, 'recall': 0.8260869565217391, 'f1': 0.5571847507331378, 'threshold': 0.5}
+
+Model: RandomForest
+  Best Seed: 51
+  Best TS:   0.4085
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed: 1
+  Best TS:   0.3789
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.3788546255506608), 'accuracy': 0.6705607476635514, 'precision': 0.43434343434343436, 'recall': 0.7478260869565218, 'f1': 0.549520766773163, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 31
+  Best TS:   0.4020
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.4020100502512563), 'accuracy': 0.7219626168224299, 'precision': 0.4878048780487805, 'recall': 0.6956521739130435, 'f1': 0.5734767025089605, 'threshold': 0.5}
+
+
+========================= Comparison =========================
+
+
+========================= Comparison =========================
+
+
+========================= Comparison =========================
+Seeds: [0, 24, 89]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed: 0
+  Best TS:   0.3868
+  Metrics:   {'name': 'Staley', 'ts': np.float64(0.3868312757201646), 'accuracy': 0.6518691588785047, 'precision': 0.42342342342342343, 'recall': 0.8173913043478261, 'f1': 0.5578635014836796, 'threshold': 0.5}
+
+Model: RandomForest
+  Best Seed: 24
+  Best TS:   0.4067
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.40669856459330145), 'accuracy': 0.7102803738317757, 'precision': 0.4748603351955307, 'recall': 0.7391304347826086, 'f1': 0.5782312925170068, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed: 24
+  Best TS:   0.3686
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.3686440677966102), 'accuracy': 0.6518691588785047, 'precision': 0.4182692307692308, 'recall': 0.7565217391304347, 'f1': 0.5386996904024768, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 89
+  Best TS:   0.3791
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3791469194312796), 'accuracy': 0.6939252336448598, 'precision': 0.45454545454545453, 'recall': 0.6956521739130435, 'f1': 0.5498281786941581, 'threshold': 0.5}
+
+
+========================= Comparison =========================
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed: 0
+  Best TS:   0.3868
+  Metrics:   {'name': 'Staley', 'ts': np.float64(0.3868312757201646), 'accuracy': 0.6518691588785047, 'precision': 0.42342342342342343, 'recall': 0.8173913043478261, 'f1': 0.5578635014836796, 'threshold': 0.5}
+
+Model: RandomForest
+  Best Seed: 78
+  Best TS:   0.4183
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.4182692307692308), 'accuracy': 0.7172897196261683, 'precision': 0.48333333333333334, 'recall': 0.7565217391304347, 'f1': 0.5898305084745763, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed: 99
+  Best TS:   0.3836
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.38362068965517243), 'accuracy': 0.6658878504672897, 'precision': 0.4320388349514563, 'recall': 0.7739130434782608, 'f1': 0.5545171339563862, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 26
+  Best TS:   0.3951
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3951219512195122), 'accuracy': 0.7102803738317757, 'precision': 0.47368421052631576, 'recall': 0.7043478260869566, 'f1': 0.5664335664335665, 'threshold': 0.5}
