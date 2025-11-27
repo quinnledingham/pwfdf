@@ -1,0 +1,34 @@
+Seeds: range(0, 100)
+Features: ['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed: 0
+  Best TS:   0.3862
+  Metrics:   {'name': 'Staley', 'ts': np.float64(0.3861788617886179), 'accuracy': 0.647196261682243, 'precision': 0.42035398230088494, 'recall': 0.8260869565217391, 'f1': 0.5571847507331378, 'threshold': 0.5}
+
+Model: LogisticRegression
+  Best Seed: 0
+  Best TS:   0.2604
+  Metrics:   {'name': 'LogisticRegression', 'ts': np.float64(0.2603550295857988), 'accuracy': 0.7079439252336449, 'precision': 0.4489795918367347, 'recall': 0.3826086956521739, 'f1': 0.4131455399061033, 'threshold': 0.5}
+
+Model: RandomForest
+  Best Seed: 51
+  Best TS:   0.4085
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: Mamba
+  Best Seed: 48
+  Best TS:   0.3877
+  Metrics:   {'name': 'Mamba', 'ts': np.float64(0.3876651982378855), 'accuracy': 0.6752336448598131, 'precision': 0.44, 'recall': 0.7652173913043478, 'f1': 0.5587301587301587, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed: 0
+  Best TS:   0.4054
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.40540540540540543), 'accuracy': 0.6915887850467289, 'precision': 0.45685279187817257, 'recall': 0.782608695652174, 'f1': 0.5769230769230769, 'threshold': 0.5}
+
+Model: TSMixer
+  Best Seed: 7
+  Best TS:   0.3367
+  Metrics:   {'name': 'TSMixer', 'ts': np.float64(0.33668341708542715), 'accuracy': 0.6915887850467289, 'precision': 0.44370860927152317, 'recall': 0.5826086956521739, 'f1': 0.5037593984962406, 'threshold': 0.5}

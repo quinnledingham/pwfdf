@@ -393,3 +393,81 @@ class BestSimpleModel(nn.Module):
         
         combined = torch.cat([env, rain], dim=1)
         return self.fusion(combined).squeeze(-1)
+
+
+class TestBlock(nn.Module):
+    def __init__(self, batch_size, dropout=0.1):
+        super().__init__()
+
+        self.layer = nn.Sequential(
+            nn.Linear(batch_size, batch_size),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(batch_size, 1),
+        )
+
+    def forward(self, x):
+        return self.layer(x)
+
+class Test(nn.Module):
+    def __init__(self, features, batch_size, input_dim=16, d_model=48, dropout=0.3):
+        super().__init__()
+        self.name = 'TestModel'
+        
+        self.layers = [TestBlock(batch_size) for i in range(14)]
+
+
+    def forward(self, x):
+        for i in range(14):
+            self.layers[i](x)
+
+        # weighted summation of output of 14 layers
+
+class TestBlock(nn.Module):
+    def __init__(self, input_dim: int, dropout: float = 0.1):
+        super().__init__()
+        
+        self.layer = nn.Sequential(
+            nn.Linear(input_dim, 1024), 
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(1024, input_dim), 
+        )
+
+    def forward(self, x):
+        # x is expected to have shape (actual_batch_size, input_dim)
+        return self.layer(x)
+
+class Test(nn.Module):
+    def __init__(self, batch_size, num_blocks, dropout: float = 0.1):
+        super().__init__()
+        self.name = 'TestModel'
+
+        self.layer1 = TestBlock(input_dim=batch_size, dropout=dropout) 
+        self.layer2 = TestBlock(input_dim=batch_size, dropout=dropout) 
+        #self.layer3 = nn.Linear(batch_size, 1)
+
+        # Learnable weights for the weighted summation
+        self.weights = nn.Parameter(torch.ones(16))
+
+
+    def forward(self, x):
+        # List to store the output of each TestBlock
+        x = x.T
+        block_outputs = []
+
+        x = self.layer1(x)
+        x = x + self.layer2(x)
+        #x = self.layer3(x)
+        
+        print(x.shape) # N, B
+        weights = self.weights.unsqueeze(0)
+        print(weights.shape)
+
+        weighted_sum = torch.matmul(weights, x)
+
+        print(weighted_sum.shape)
+        
+        return weighted_sum.squeeze(0)
+
+

@@ -81,6 +81,18 @@ class PWFDF_Data:
     def __init__(self):
         self.df = pd.read_excel(self.path, sheet_name=self.sheet_name)
 
+        self.encoders = {}
+        fire_cols = ['Fire_ID', 'Fire_SegID']
+        for col in fire_cols:
+            le = LabelEncoder()
+            le.fit(self.df[col].astype(str).unique()) 
+            self.encoders[col] = le
+            
+        for col in fire_cols:
+            if col in self.df.columns and col in self.encoders:
+                le = self.encoders[col]
+                self.df[col] = le.transform(self.df[col].astype(str))
+
     def get(self, i):
         return PWFDF_Entry(self.df.iloc[i].to_dict())
 
@@ -142,7 +154,7 @@ class PWFDF_Data:
 
         # Normalize
         if True:
-            to_skip = ['UTM_X', 'UTM_Y', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+            to_skip = ['Fire_ID', 'Fire_SegID', 'UTM_X', 'UTM_Y', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
             present = [f for f in to_skip if f in features]
             skip_indices = [features.index(f) for f in present]
             normalize_indices = [i for i in range(len(features)) if i not in skip_indices]
