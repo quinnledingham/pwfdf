@@ -6,9 +6,9 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
 from data import PWFDF_Data
-from eval import find_best_threshold, evaluate, compare_params
 from models.log_reg import Staley2017Model
 from models.mamba import MambaClassifier, HybridMambaLogisticModel
+from train import numerical_features
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -218,20 +218,26 @@ def comprehensive_shap_analysis(model, X_train, X_test, y_test, feature_names):
 def main():
     data = PWFDF_Data()
     
-    X_train, y_train = data.prepare_data_with_normalization(split='Training')
-    X_test, y_test = data.prepare_data_with_normalization(split='Test')
+    X_train, y_train, scaler = data.prepare_data_usgs(numerical_features, split='Training')
+    X_test, y_test, _ = data.prepare_data_usgs(numerical_features, split='Test', scaler=scaler)
     
-    feature_names = [
-        'UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm',
-        'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
-        'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF',
-        'Acc015_mm', 'Acc030_mm', 'Acc060_mm'
+    '''
+    numerical_features = [
+        #'UTM_X', 'UTM_Y', 
+        'GaugeDist_m', 
+        'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 
+        'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h',
+        'ContributingArea_km2', 
+        'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 
+        'Acc030_mm', 'Acc060_mm'
     ]
-    
-    model_load_path = './output/HybridMamba_model.pth'
+    '''
+    input_dim = X_train.shape[1]
+
     #model = MambaClassifier(input_dim=X_train.shape[1]).to(device)
-    model = HybridMambaLogisticModel(input_dim=X_train.shape[1]).to(device)
+    model = HybridMambaLogisticModel(numerical_features, input_dim=input_dim, n_layers=1).to(device)
     #model = train_with_normalization(model, X_train, y_train, X_test, y_test)
+    model_load_path = f"./output/best_models/{model.name}_best.pth"
     model.load_state_dict(torch.load(model_load_path))
     
     # SHAP analysis
@@ -239,7 +245,7 @@ def main():
     print("SHAP FEATURE IMPORTANCE ANALYSIS")
     print("="*60)
     
-    shap_values, importance_df = comprehensive_shap_analysis(model, X_train, X_test, y_test, feature_names)
+    shap_values, importance_df = comprehensive_shap_analysis(model, X_train, X_test, y_test, numerical_features)
     
     # Additional insights
     print("\n" + "="*60)

@@ -15,12 +15,13 @@ from models.log_reg import Staley2017Model, LogisticRegression
 from models.mamba import MambaClassifier, HybridMambaLogisticModel
 from models.transformer import TransformerClassifier
 from models.TSMixer import TSMixerClassifier, BestSimpleModel
+from models.randomforest import RandomForestModel, train_random_forest
 
 import logging
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-output_file = './output/seeds100_logs.txt'
+output_file = './output/seeds101_logs.txt'
 
 numerical_features = [
     #'UTM_X', 'UTM_Y', 
@@ -293,12 +294,13 @@ def compare_all_approaches():
     model_classes = [
         lambda: Staley2017Model(numerical_features, duration='15min'),
         lambda: LogisticRegression(numerical_features, duration='15min'),
+        lambda: RandomForestModel(numerical_features, random_state=None),
         lambda: MambaClassifier(input_dim=input_dim, n_layers=2),
         lambda: HybridMambaLogisticModel(numerical_features, input_dim=input_dim, n_layers=1),
         lambda: TSMixerClassifier(input_dim=input_dim),
     ]
 
-    for seed in tqdm(range(100), desc="Seeds", position=0):
+    for seed in tqdm(range(101), desc="Seeds", position=0):
     #for seed in range(100):
         #print(f"\n========== SEED {seed} ==========")
 
@@ -313,6 +315,8 @@ def compare_all_approaches():
 
             if model.name == 'Staley' or model.name == 'LogisticRegression':
                 model = train_logistic_fast(model, X_train, y_train, X_test, y_test, seed, max_iter=100)
+            elif model.name == 'RandomForest':
+                model = train_random_forest(model, X_train, y_train, X_test, y_test, seed)
             else:
                 model = train_mamba(model, X_train, y_train, X_test, y_test, seed, max_epochs=100)
 
@@ -325,17 +329,13 @@ def compare_all_approaches():
             ts = test_metrics['ts']
             name = model.name
 
-            # Initialize if needed
-            if name not in best_ts_for_model:
+            if name not in best_ts_for_model or ts > best_ts_for_model[name]:
                 best_ts_for_model[name] = ts
                 best_seed_for_model[name] = seed
                 best_metrics_for_model[name] = test_metrics
-            else:
-                # Update if new TS is better
-                if ts > best_ts_for_model[name]:
-                    best_ts_for_model[name] = ts
-                    best_seed_for_model[name] = seed
-                    best_metrics_for_model[name] = test_metrics
+                
+                os.makedirs('./output/best_models', exist_ok=True)
+                torch.save(model.state_dict(), f'./output/best_models/{name}_best.pth')
             
             torch.cuda.empty_cache()
 

@@ -1,0 +1,167 @@
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import roc_auc_score, precision_recall_curve, auc
+import torch
+import torch.nn as nn
+
+from eval import threat_score
+
+class RandomForestModel(nn.Module):
+    """
+    Random Forest wrapper that uses the same 4 features as Staley2017Model:
+    - T (PropHM23): Proportion of high-moderate burn severity
+    - F (dNBR/1000): Differenced Normalized Burn Ratio
+    - S (KF): Kuchler Fire classification
+    - R (Rainfall): Accumulated rainfall (duration-dependent)
+    """
+    
+    def __init__(self, features, duration='15min', n_estimators=100, max_depth=None, 
+                 min_samples_split=2, min_samples_leaf=1, max_features='sqrt',
+                 random_state=None):
+        super().__init__()
+        self.name = 'RandomForest'
+        self.features = features
+        self.duration = duration
+        
+        # Feature indices for T, F, S (same as Staley2017Model)
+        self.T_idx = features.index('PropHM23')
+        self.F_idx = features.index('dNBR/1000')
+        self.S_idx = features.index('KF')
+        
+        # Rainfall index based on duration
+        self.R_idx = {
+            '15min': features.index('Acc015_mm'), 
+            '30min': features.index('Acc030_mm'), 
+            '60min': features.index('Acc060_mm')
+        }[duration]
+        
+        # Store the 4 feature indices
+        self.feature_indices = [self.T_idx, self.F_idx, self.S_idx, self.R_idx]
+        self.feature_names = ['PropHM23', 'dNBR/1000', 'KF', f'Acc_{duration}']
+        
+        # Initialize sklearn Random Forest
+        self.rf = RandomForestClassifier(
+            n_estimators=n_estimators,
+            max_depth=max_depth,
+            min_samples_split=min_samples_split,
+            min_samples_leaf=min_samples_leaf,
+            max_features=max_features,
+            random_state=random_state,
+            n_jobs=-1,
+            class_weight='balanced'
+        )
+        
+        self.is_fitted = False
+    
+    def forward(self, x):
+        """
+        Predict probabilities for input x using only the 4 selected features.
+        
+        Args:
+            x: torch.Tensor of shape (batch_size, num_features)
+        
+        Returns:
+            torch.Tensor of predicted probabilities
+        """
+        if not self.is_fitted:
+            raise RuntimeError("Model must be fitted before forward pass")
+        
+        # Convert to numpy if needed
+        if isinstance(x, torch.Tensor):
+            x_np = x.cpu().numpy()
+        else:
+            x_np = x
+        
+        # Extract only the 4 features we need
+        x_selected = x_np[:, self.feature_indices]
+        
+        # Get probabilities for positive class
+        probs = self.rf.predict_proba(x_selected)[:, 1]
+        
+        # Convert back to torch tensor
+        return torch.tensor(probs, dtype=torch.float32)
+    
+    def fit(self, X, y):
+        """
+        Fit the Random Forest model using only the 4 selected features.
+        
+        Args:
+            X: Features (torch.Tensor or numpy array)
+            y: Labels (torch.Tensor or numpy array)
+        """
+        # Convert to numpy if needed
+        if isinstance(X, torch.Tensor):
+            X_np = X.cpu().numpy()
+        else:
+            X_np = X
+            
+        if isinstance(y, torch.Tensor):
+            y_np = y.cpu().numpy()
+        else:
+            y_np = y
+        
+        # Extract only the 4 features
+        X_selected = X_np[:, self.feature_indices]
+        
+        self.rf.fit(X_selected, y_np)
+        self.is_fitted = True
+        
+        return self
+    
+    def get_feature_importance(self):
+        """Get feature importances from the trained model (for the 4 features)."""
+        if not self.is_fitted:
+            raise RuntimeError("Model must be fitted first")
+        
+        importances = self.rf.feature_importances_
+        return dict(zip(self.feature_names, importances))
+
+
+class RandomForestModelOptimized(RandomForestModel):
+    """
+    Optimized Random Forest using same 4 features as Staley2017Model.
+    """
+    
+    def __init__(self, features, duration='15min', random_state=None):
+        super().__init__(
+            features=features,
+            duration=duration,
+            n_estimators=200,
+            max_depth=15,
+            min_samples_split=10,
+            min_samples_leaf=5,
+            max_features='sqrt',
+            random_state=random_state
+        )
+        self.name = 'RandomForest_Optimized'
+
+
+def train_random_forest(model, X_train, y_train, X_test, y_test, seed, max_iter=None):
+    """
+    Training function for Random Forest models.
+    
+    Args:
+        model: RandomForestModel instance
+        X_train: Training features
+        y_train: Training labels
+        X_test: Test features (for evaluation)
+        y_test: Test labels (for evaluation)
+        seed: Random seed
+        max_iter: Ignored (for compatibility with other training functions)
+    
+    Returns:
+        Trained model
+    """
+    # Fit the model
+    #print(f"Training {model.name} with seed {seed}...")
+    model.fit(X_train, y_train)
+    
+    # Evaluate on test set
+    model.eval()
+    with torch.no_grad():
+        y_test_pred = model(X_test).cpu().numpy()
+    
+    test_ts = threat_score(y_test.cpu().numpy(), y_test_pred)
+    #print(f"  Test Threat Score: {test_ts:.4f}")
+    
+    return model
