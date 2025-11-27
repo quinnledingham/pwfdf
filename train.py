@@ -21,7 +21,7 @@ import logging
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-output_file = './output/realmamba_seeds101_logs.txt'
+output_file = './output/realmamba_seeds5_logs.txt'
 
 numerical_features = [
     #'UTM_X', 'UTM_Y', 
@@ -70,7 +70,7 @@ def train_logistic(model, X_train, y_train, X_test, y_test, seed, max_iter=1000)
     criterion = nn.BCELoss()
     
     iteration = 0
-    pbar = tqdm(total=max_iter, desc=f"Training {model.name} Seed={seed}", unit="iter", disable=False)
+    pbar = tqdm(total=max_iter, desc=f"Training {model.name} Seed={seed}", unit="iter", disable=True)
 
     def closure():
         nonlocal iteration
@@ -300,7 +300,7 @@ def compare_all_approaches():
         lambda: TSMixerClassifier(input_dim=input_dim),
     ]
 
-    for seed in tqdm(range(101), desc="Seeds", position=0):
+    for seed in tqdm(range(5), desc="Seeds", position=0):
     #for seed in range(100):
         #print(f"\n========== SEED {seed} ==========")
 
@@ -314,7 +314,7 @@ def compare_all_approaches():
             #print("=" * 60)
 
             if model.name == 'Staley' or model.name == 'LogisticRegression':
-                model = train_logistic_fast(model, X_train, y_train, X_test, y_test, seed, max_iter=100)
+                model = train_logistic(model, X_train, y_train, X_test, y_test, seed, max_iter=100)
             elif model.name == 'RandomForest':
                 model = train_random_forest(model, X_train, y_train, X_test, y_test, seed)
             else:

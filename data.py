@@ -136,7 +136,6 @@ class PWFDF_Data:
         X = df[features].values
         y = df['Response'].values
 
-
         if split == 'Test':
             X = X[mask]
             y = y[mask]
