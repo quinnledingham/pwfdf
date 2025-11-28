@@ -470,4 +470,74 @@ class Test(nn.Module):
         
         return weighted_sum.squeeze(0)
 
+from models.mamba import threat_score_loss
 
+class StaticMLPModel(nn.Module):
+    def __init__(self, features, duration, d_model=64, dropout=0.1):
+        super().__init__()
+        self.name = 'StaticMLPModel'
+        self.d_model = d_model
+        
+        # ... (Feature index finding remains the same for T, F, S, R) ...
+        self.T_idx = features.index('PropHM23')
+        self.F_idx = features.index('dNBR/1000')
+        self.S_idx = features.index('KF')
+        duration_map = {'15min': 'Acc015_mm', '30min': 'Acc030_mm', '60min': 'Acc060_mm'}
+        feature_name = duration_map[duration]
+        self.R_idx = features.index(feature_name) if feature_name in features else 0
+        
+        # 1. Feature Projection/Embedding (Replaces individual Mamba blocks)
+        # We use simple Linear layers (Dense layers) for feature transformation
+        self.proj_T = nn.Linear(1, d_model)
+        self.proj_F = nn.Linear(1, d_model)
+        self.proj_S = nn.Linear(1, d_model)
+        self.proj_R = nn.Linear(1, d_model)
+        
+        # 2. Regularization
+        self.dropout = nn.Dropout(dropout) 
+        self.activation = nn.ReLU() # Added a non-linearity for the feature transformations
+        
+        # 3. Prediction Head (Replaces the Global Mamba + Pooling)
+        # Input size is 4 * d_model (256) after concatenation
+        self.prediction_head = nn.Sequential(
+            nn.Linear(4 * d_model, d_model * 2), # Wider first layer
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(d_model * 2, d_model),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(d_model, 1) # Final output
+        )
+
+    def forward(self, x, target=None):
+        # x is (Batch, Features)
+        
+        # 1. Slicing and Transformation
+        # x[:, self.T_idx] -> (B,)
+        # x[:, self.T_idx].unsqueeze(-1) -> (B, 1) - Input shape for nn.Linear(1, d_model)
+
+        x_T_in = x[:, self.T_idx].unsqueeze(-1)
+        x_F_in = x[:, self.F_idx].unsqueeze(-1)
+        x_S_in = x[:, self.S_idx].unsqueeze(-1)
+        x_R_in = x[:, self.R_idx].unsqueeze(-1)
+
+        # Apply projection, activation, and dropout
+        x_T = self.dropout(self.activation(self.proj_T(x_T_in))) # Output: (B, d_model)
+        x_F = self.dropout(self.activation(self.proj_F(x_F_in)))
+        x_S = self.dropout(self.activation(self.proj_S(x_S_in)))
+        x_R = self.dropout(self.activation(self.proj_R(x_R_in)))
+        
+        # 2. Concatenation and Fusion
+        # Output: (B, 4 * d_model)
+        x_fused = torch.cat([x_T, x_F, x_S, x_R], dim=-1) 
+        
+        # 3. Final Prediction
+        output = self.prediction_head(x_fused)
+        
+        if target != None:
+            #loss = self.criterion(output, target)
+            loss = threat_score_loss(output, target)
+        else:
+            loss = None
+
+        return torch.sigmoid(output), loss

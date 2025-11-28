@@ -13,6 +13,7 @@ class Staley2017Model(nn.Module):
         super().__init__()
         self.duration = duration
         self.name = 'Staley'
+        self.spatial = False
         
         # Feature indices for T, F, S
         self.T_idx = features.index('PropHM23')
@@ -20,12 +21,15 @@ class Staley2017Model(nn.Module):
         self.S_idx = features.index('KF') 
         
         # Rainfall index based on duration
-        self.R_idx = {
-            '15min': features.index('Acc015_mm'), 
-            '30min': features.index('Acc030_mm'), 
-            '60min': features.index('Acc060_mm')
-        }[duration]
-        
+        duration_map = {
+            '15min': 'Acc015_mm',
+            '30min': 'Acc030_mm',
+            '60min': 'Acc060_mm'
+        }
+
+        feature_name = duration_map[duration]
+        self.R_idx = features.index(feature_name) if feature_name in features else 0 # SETS TO 0 IF THAT FEATURE IS NOT PASSED IN
+
         # Initialize all parameters at 0
         #self.B = nn.Parameter(torch.tensor([0.0]))
         #self.Ct = nn.Parameter(torch.tensor([0.0]))
@@ -44,7 +48,7 @@ class Staley2017Model(nn.Module):
         nn.init.xavier_uniform_(self.Cf.unsqueeze(0))
         nn.init.xavier_uniform_(self.Cs.unsqueeze(0))
     
-    def forward(self, x):
+    def forward(self, x, target=None):
         """
         Args:
             x: Full feature matrix (batch_size, num_features)
@@ -61,9 +65,7 @@ class Staley2017Model(nn.Module):
         Cs = self.Cs.squeeze()
         
         logit = B + Ct * T * R + Cf * F * R + Cs * S * R
-        return torch.sigmoid(logit)
-
-
+        return torch.sigmoid(logit), None
 
 class LogisticRegression(nn.Module):
     def __init__(self, features, duration='15min'):

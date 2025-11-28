@@ -66,18 +66,23 @@ def compare_params(models, durations):
             diff = learn - pub
             print(f"{param:<8} {pub:<12.4f} {learn:<12.4f} {diff:<12.4f}")
 
+from models.mamba import create_spatial_tensors
+
 def evaluate_model(model, X_test, y_test):
+    if model.spatial:
+        X_test_spatial = create_spatial_tensors(X_test, model.features, k_neighbors=8)
+        X_test = (X_test, X_test_spatial)
+
     """Evaluate model and return metrics"""
     model.eval()
     with torch.no_grad():
-        y_pred = model(X_test).cpu().numpy()
+        y_pred, _ = model(X_test, None)
+        y_pred = y_pred.cpu().numpy()
     
-    y_test = y_test.cpu().numpy()
-
     y_pred_binary = (y_pred >= threshold).astype(int)
-    
     #print(y_pred_binary)
 
+    y_test = y_test.cpu().numpy()
     ts = threat_score(y_test, y_pred_binary)
     accuracy = accuracy_score(y_test, y_pred_binary)
     precision = precision_score(y_test, y_pred_binary, zero_division=0)

@@ -1,0 +1,1962 @@
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(0, 100)
+Features Count: 18
+['UTM_X', 'UTM_Y', 'Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(0, 100)
+Features Count: 18
+['UTM_X', 'UTM_Y', 'Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+============================================================
+SUMMARY (Seed = 0)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5599 | Acc: 0.8521 | F1: 0.7178
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.2521 | Acc: 0.7858 | F1: 0.4026
+HGSMamba2                 TS: 0.5000 | Acc: 0.8367 | F1: 0.6667
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3833 | Acc: 0.6729 | F1: 0.5541 | Recall: 0.7565 | Precision: 0.4372
+HybridMamba               TS: 0.3476 | Acc: 0.6449 | F1: 0.5159 | Recall: 0.7043 | Precision: 0.4070
+MultiPathwayHybrid        TS: 0.3548 | Acc: 0.6729 | F1: 0.5238 | Recall: 0.6696 | Precision: 0.4302
+HGSMamba                  TS: 0.0608 | Acc: 0.6752 | F1: 0.1146 | Recall: 0.0783 | Precision: 0.2143
+HGSMamba2                 TS: 0.3482 | Acc: 0.6238 | F1: 0.5165 | Recall: 0.7478 | Precision: 0.3945
+
+============================================================
+SUMMARY (Seed = 1)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4791 | Acc: 0.7787 | F1: 0.6478
+MultiPathwayHybrid        TS: 0.4726 | Acc: 0.7953 | F1: 0.6418
+HGSMamba                  TS: 0.5134 | Acc: 0.8497 | F1: 0.6785
+HGSMamba2                 TS: 0.4867 | Acc: 0.8178 | F1: 0.6547
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3973 | Acc: 0.6916 | F1: 0.5686 | Recall: 0.7565 | Precision: 0.4555
+HybridMamba               TS: 0.3020 | Acc: 0.6005 | F1: 0.4639 | Recall: 0.6435 | Precision: 0.3627
+MultiPathwayHybrid        TS: 0.3655 | Acc: 0.6308 | F1: 0.5353 | Recall: 0.7913 | Precision: 0.4044
+HGSMamba                  TS: 0.3532 | Acc: 0.6706 | F1: 0.5220 | Recall: 0.6696 | Precision: 0.4278
+HGSMamba2                 TS: 0.3480 | Acc: 0.6192 | F1: 0.5163 | Recall: 0.7565 | Precision: 0.3919
+
+============================================================
+SUMMARY (Seed = 2)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5382 | Acc: 0.8426 | F1: 0.6998
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.4407 | Acc: 0.8438 | F1: 0.6118
+HGSMamba2                 TS: 0.4804 | Acc: 0.8272 | F1: 0.6490
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4019 | Acc: 0.7009 | F1: 0.5733 | Recall: 0.7478 | Precision: 0.4649
+HybridMamba               TS: 0.3102 | Acc: 0.6519 | F1: 0.4735 | Recall: 0.5826 | Precision: 0.3988
+MultiPathwayHybrid        TS: 0.3465 | Acc: 0.6519 | F1: 0.5147 | Recall: 0.6870 | Precision: 0.4115
+HGSMamba                  TS: 0.3450 | Acc: 0.6939 | F1: 0.5130 | Recall: 0.6000 | Precision: 0.4481
+HGSMamba2                 TS: 0.3359 | Acc: 0.5981 | F1: 0.5029 | Recall: 0.7565 | Precision: 0.3766
+
+============================================================
+SUMMARY (Seed = 3)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5719 | Acc: 0.8592 | F1: 0.7277
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.4942 | Acc: 0.8462 | F1: 0.6615
+HGSMamba2                 TS: 0.4984 | Acc: 0.8189 | F1: 0.6652
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3660 | Acc: 0.6519 | F1: 0.5358 | Recall: 0.7478 | Precision: 0.4175
+HybridMamba               TS: 0.3511 | Acc: 0.6589 | F1: 0.5197 | Recall: 0.6870 | Precision: 0.4180
+MultiPathwayHybrid        TS: 0.3593 | Acc: 0.6542 | F1: 0.5287 | Recall: 0.7217 | Precision: 0.4171
+HGSMamba                  TS: 0.3035 | Acc: 0.6729 | F1: 0.4656 | Recall: 0.5304 | Precision: 0.4150
+HGSMamba2                 TS: 0.3465 | Acc: 0.6121 | F1: 0.5146 | Recall: 0.7652 | Precision: 0.3877
+
+============================================================
+SUMMARY (Seed = 4)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5634 | Acc: 0.8533 | F1: 0.7207
+MultiPathwayHybrid        TS: 0.5500 | Acc: 0.8722 | F1: 0.7097
+HGSMamba                  TS: 0.2459 | Acc: 0.3538 | F1: 0.3947
+HGSMamba2                 TS: 0.5000 | Acc: 0.8438 | F1: 0.6667
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3881 | Acc: 0.6869 | F1: 0.5592 | Recall: 0.7391 | Precision: 0.4497
+HybridMamba               TS: 0.3559 | Acc: 0.6659 | F1: 0.5249 | Recall: 0.6870 | Precision: 0.4247
+MultiPathwayHybrid        TS: 0.3300 | Acc: 0.6869 | F1: 0.4962 | Recall: 0.5739 | Precision: 0.4371
+HGSMamba                  TS: 0.2624 | Acc: 0.5140 | F1: 0.4157 | Recall: 0.6435 | Precision: 0.3071
+HGSMamba2                 TS: 0.3632 | Acc: 0.6682 | F1: 0.5329 | Recall: 0.7043 | Precision: 0.4286
+
+============================================================
+SUMMARY (Seed = 5)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4663 | Acc: 0.7657 | F1: 0.6360
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.5179 | Acc: 0.8568 | F1: 0.6824
+HGSMamba2                 TS: 0.4876 | Acc: 0.8047 | F1: 0.6555
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3867 | Acc: 0.6776 | F1: 0.5577 | Recall: 0.7565 | Precision: 0.4416
+HybridMamba               TS: 0.3553 | Acc: 0.5888 | F1: 0.5243 | Recall: 0.8435 | Precision: 0.3804
+MultiPathwayHybrid        TS: 0.3537 | Acc: 0.6542 | F1: 0.5226 | Recall: 0.7043 | Precision: 0.4154
+HGSMamba                  TS: 0.3694 | Acc: 0.6729 | F1: 0.5395 | Recall: 0.7130 | Precision: 0.4339
+HGSMamba2                 TS: 0.3212 | Acc: 0.5654 | F1: 0.4862 | Recall: 0.7652 | Precision: 0.3563
+
+============================================================
+SUMMARY (Seed = 6)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4753 | Acc: 0.7740 | F1: 0.6443
+MultiPathwayHybrid        TS: 0.4767 | Acc: 0.8272 | F1: 0.6456
+HGSMamba                  TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba2                 TS: 0.5019 | Acc: 0.8473 | F1: 0.6684
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3805 | Acc: 0.6729 | F1: 0.5513 | Recall: 0.7478 | Precision: 0.4365
+HybridMamba               TS: 0.2939 | Acc: 0.5958 | F1: 0.4543 | Recall: 0.6261 | Precision: 0.3564
+MultiPathwayHybrid        TS: 0.3426 | Acc: 0.6682 | F1: 0.5103 | Recall: 0.6435 | Precision: 0.4229
+HGSMamba                  TS: 0.3178 | Acc: 0.6589 | F1: 0.4823 | Recall: 0.5913 | Precision: 0.4072
+HGSMamba2                 TS: 0.3689 | Acc: 0.6682 | F1: 0.5390 | Recall: 0.7217 | Precision: 0.4301
+
+============================================================
+SUMMARY (Seed = 7)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5709 | Acc: 0.8568 | F1: 0.7269
+MultiPathwayHybrid        TS: 0.5123 | Acc: 0.8592 | F1: 0.6775
+HGSMamba                  TS: 0.5138 | Acc: 0.8544 | F1: 0.6789
+HGSMamba2                 TS: 0.4710 | Acc: 0.8272 | F1: 0.6404
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3778 | Acc: 0.6729 | F1: 0.5484 | Recall: 0.7391 | Precision: 0.4359
+HybridMamba               TS: 0.3744 | Acc: 0.6682 | F1: 0.5449 | Recall: 0.7391 | Precision: 0.4315
+MultiPathwayHybrid        TS: 0.3532 | Acc: 0.6963 | F1: 0.5221 | Recall: 0.6174 | Precision: 0.4522
+HGSMamba                  TS: 0.3894 | Acc: 0.6776 | F1: 0.5605 | Recall: 0.7652 | Precision: 0.4422
+HGSMamba2                 TS: 0.3147 | Acc: 0.5981 | F1: 0.4788 | Recall: 0.6870 | Precision: 0.3674
+
+============================================================
+SUMMARY (Seed = 8)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5510 | Acc: 0.8438 | F1: 0.7105
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.2352 | Acc: 0.3112 | F1: 0.3809
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4038 | Acc: 0.7033 | F1: 0.5753 | Recall: 0.7478 | Precision: 0.4674
+HybridMamba               TS: 0.3776 | Acc: 0.6495 | F1: 0.5482 | Recall: 0.7913 | Precision: 0.4194
+MultiPathwayHybrid        TS: 0.3410 | Acc: 0.6659 | F1: 0.5086 | Recall: 0.6435 | Precision: 0.4205
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.2664 | Acc: 0.5047 | F1: 0.4208 | Recall: 0.6696 | Precision: 0.3068
+
+============================================================
+SUMMARY (Seed = 9)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4856 | Acc: 0.7882 | F1: 0.6538
+MultiPathwayHybrid        TS: 0.5366 | Acc: 0.8651 | F1: 0.6984
+HGSMamba                  TS: 0.4815 | Acc: 0.8509 | F1: 0.6500
+HGSMamba2                 TS: 0.5000 | Acc: 0.8355 | F1: 0.6667
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3825 | Acc: 0.6869 | F1: 0.5533 | Recall: 0.7217 | Precision: 0.4486
+HybridMamba               TS: 0.3682 | Acc: 0.6472 | F1: 0.5382 | Recall: 0.7652 | Precision: 0.4151
+MultiPathwayHybrid        TS: 0.3395 | Acc: 0.6682 | F1: 0.5069 | Recall: 0.6348 | Precision: 0.4220
+HGSMamba                  TS: 0.3636 | Acc: 0.7056 | F1: 0.5333 | Recall: 0.6261 | Precision: 0.4645
+HGSMamba2                 TS: 0.3664 | Acc: 0.6565 | F1: 0.5363 | Recall: 0.7391 | Precision: 0.4208
+
+============================================================
+SUMMARY (Seed = 10)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4483 | Acc: 0.7538 | F1: 0.6190
+MultiPathwayHybrid        TS: 0.5366 | Acc: 0.8651 | F1: 0.6984
+HGSMamba                  TS: 0.5097 | Acc: 0.8497 | F1: 0.6752
+HGSMamba2                 TS: 0.4310 | Acc: 0.8391 | F1: 0.6023
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3909 | Acc: 0.6869 | F1: 0.5621 | Recall: 0.7478 | Precision: 0.4503
+HybridMamba               TS: 0.3221 | Acc: 0.5280 | F1: 0.4873 | Recall: 0.8348 | Precision: 0.3441
+MultiPathwayHybrid        TS: 0.2872 | Acc: 0.6752 | F1: 0.4462 | Recall: 0.4870 | Precision: 0.4118
+HGSMamba                  TS: 0.3693 | Acc: 0.6449 | F1: 0.5394 | Recall: 0.7739 | Precision: 0.4140
+HGSMamba2                 TS: 0.2227 | Acc: 0.6005 | F1: 0.3643 | Recall: 0.4261 | Precision: 0.3182
+
+============================================================
+SUMMARY (Seed = 11)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4737 | Acc: 0.7870 | F1: 0.6429
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.4792 | Acc: 0.8521 | F1: 0.6479
+HGSMamba2                 TS: 0.4962 | Acc: 0.8450 | F1: 0.6632
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3946 | Acc: 0.6846 | F1: 0.5659 | Recall: 0.7652 | Precision: 0.4490
+HybridMamba               TS: 0.3386 | Acc: 0.6075 | F1: 0.5059 | Recall: 0.7478 | Precision: 0.3822
+MultiPathwayHybrid        TS: 0.3644 | Acc: 0.6495 | F1: 0.5342 | Recall: 0.7478 | Precision: 0.4155
+HGSMamba                  TS: 0.3670 | Acc: 0.6776 | F1: 0.5369 | Recall: 0.6957 | Precision: 0.4372
+HGSMamba2                 TS: 0.2808 | Acc: 0.5631 | F1: 0.4384 | Recall: 0.6348 | Precision: 0.3349
+
+============================================================
+SUMMARY (Seed = 12)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5746 | Acc: 0.8651 | F1: 0.7299
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.5205 | Acc: 0.8615 | F1: 0.6846
+HGSMamba2                 TS: 0.5212 | Acc: 0.8533 | F1: 0.6853
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4076 | Acc: 0.7079 | F1: 0.5791 | Recall: 0.7478 | Precision: 0.4725
+HybridMamba               TS: 0.3476 | Acc: 0.6449 | F1: 0.5159 | Recall: 0.7043 | Precision: 0.4070
+MultiPathwayHybrid        TS: 0.3951 | Acc: 0.7103 | F1: 0.5664 | Recall: 0.7043 | Precision: 0.4737
+HGSMamba                  TS: 0.3443 | Acc: 0.6752 | F1: 0.5123 | Recall: 0.6348 | Precision: 0.4294
+HGSMamba2                 TS: 0.3605 | Acc: 0.6519 | F1: 0.5300 | Recall: 0.7304 | Precision: 0.4158
+
+============================================================
+SUMMARY (Seed = 13)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4505 | Acc: 0.7503 | F1: 0.6212
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4739 | Acc: 0.8450 | F1: 0.6431
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3784 | Acc: 0.6776 | F1: 0.5490 | Recall: 0.7304 | Precision: 0.4398
+HybridMamba               TS: 0.3286 | Acc: 0.5607 | F1: 0.4946 | Recall: 0.8000 | Precision: 0.3580
+MultiPathwayHybrid        TS: 0.3649 | Acc: 0.6706 | F1: 0.5347 | Recall: 0.7043 | Precision: 0.4309
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3590 | Acc: 0.6495 | F1: 0.5283 | Recall: 0.7304 | Precision: 0.4138
+
+============================================================
+SUMMARY (Seed = 14)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4681 | Acc: 0.7728 | F1: 0.6377
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2235 | Acc: 0.2556 | F1: 0.3653
+HGSMamba2                 TS: 0.5072 | Acc: 0.8391 | F1: 0.6731
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4065 | Acc: 0.7033 | F1: 0.5781 | Recall: 0.7565 | Precision: 0.4677
+HybridMamba               TS: 0.3386 | Acc: 0.6075 | F1: 0.5059 | Recall: 0.7478 | Precision: 0.3822
+MultiPathwayHybrid        TS: 0.3575 | Acc: 0.6893 | F1: 0.5267 | Recall: 0.6435 | Precision: 0.4458
+HGSMamba                  TS: 0.2381 | Acc: 0.2523 | F1: 0.3846 | Recall: 0.8696 | Precision: 0.2469
+HGSMamba2                 TS: 0.3568 | Acc: 0.6379 | F1: 0.5260 | Recall: 0.7478 | Precision: 0.4057
+
+============================================================
+SUMMARY (Seed = 15)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5750 | Acc: 0.8592 | F1: 0.7302
+MultiPathwayHybrid        TS: 0.4854 | Acc: 0.8331 | F1: 0.6536
+HGSMamba                  TS: 0.4677 | Acc: 0.8438 | F1: 0.6374
+HGSMamba2                 TS: 0.3693 | Acc: 0.6544 | F1: 0.5394
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4123 | Acc: 0.7103 | F1: 0.5839 | Recall: 0.7565 | Precision: 0.4754
+HybridMamba               TS: 0.3532 | Acc: 0.6449 | F1: 0.5220 | Recall: 0.7217 | Precision: 0.4089
+MultiPathwayHybrid        TS: 0.3061 | Acc: 0.6822 | F1: 0.4688 | Recall: 0.5217 | Precision: 0.4255
+HGSMamba                  TS: 0.1684 | Acc: 0.6308 | F1: 0.2883 | Recall: 0.2783 | Precision: 0.2991
+HGSMamba2                 TS: 0.3071 | Acc: 0.5678 | F1: 0.4699 | Recall: 0.7130 | Precision: 0.3504
+
+============================================================
+SUMMARY (Seed = 16)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4566 | Acc: 0.7704 | F1: 0.6269
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.5079 | Acc: 0.8521 | F1: 0.6736
+HGSMamba2                 TS: 0.4618 | Acc: 0.8414 | F1: 0.6319
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4019 | Acc: 0.7079 | F1: 0.5734 | Recall: 0.7304 | Precision: 0.4719
+HybridMamba               TS: 0.3412 | Acc: 0.6075 | F1: 0.5088 | Recall: 0.7565 | Precision: 0.3833
+MultiPathwayHybrid        TS: 0.3691 | Acc: 0.6565 | F1: 0.5392 | Recall: 0.7478 | Precision: 0.4216
+HGSMamba                  TS: 0.3409 | Acc: 0.6612 | F1: 0.5085 | Recall: 0.6522 | Precision: 0.4167
+HGSMamba2                 TS: 0.3439 | Acc: 0.6121 | F1: 0.5118 | Recall: 0.7565 | Precision: 0.3867
+
+============================================================
+SUMMARY (Seed = 17)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5414 | Acc: 0.8426 | F1: 0.7025
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.5259 | Acc: 0.8592 | F1: 0.6893
+HGSMamba2                 TS: 0.5102 | Acc: 0.8580 | F1: 0.6757
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3874 | Acc: 0.6822 | F1: 0.5584 | Recall: 0.7478 | Precision: 0.4456
+HybridMamba               TS: 0.3590 | Acc: 0.6495 | F1: 0.5283 | Recall: 0.7304 | Precision: 0.4138
+MultiPathwayHybrid        TS: 0.3691 | Acc: 0.6565 | F1: 0.5392 | Recall: 0.7478 | Precision: 0.4216
+HGSMamba                  TS: 0.3409 | Acc: 0.6612 | F1: 0.5085 | Recall: 0.6522 | Precision: 0.4167
+HGSMamba2                 TS: 0.3665 | Acc: 0.6729 | F1: 0.5364 | Recall: 0.7043 | Precision: 0.4332
+
+============================================================
+SUMMARY (Seed = 18)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5782 | Acc: 0.8627 | F1: 0.7327
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.4454 | Acc: 0.8438 | F1: 0.6163
+HGSMamba2                 TS: 0.5072 | Acc: 0.8391 | F1: 0.6731
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3853 | Acc: 0.6869 | F1: 0.5563 | Recall: 0.7304 | Precision: 0.4492
+HybridMamba               TS: 0.3390 | Acc: 0.6355 | F1: 0.5063 | Recall: 0.6957 | Precision: 0.3980
+MultiPathwayHybrid        TS: 0.3810 | Acc: 0.6963 | F1: 0.5517 | Recall: 0.6957 | Precision: 0.4571
+HGSMamba                  TS: 0.3447 | Acc: 0.6846 | F1: 0.5126 | Recall: 0.6174 | Precision: 0.4383
+HGSMamba2                 TS: 0.3500 | Acc: 0.6355 | F1: 0.5185 | Recall: 0.7304 | Precision: 0.4019
+
+============================================================
+SUMMARY (Seed = 19)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4734 | Acc: 0.7893 | F1: 0.6426
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4798 | Acc: 0.8024 | F1: 0.6484
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3904 | Acc: 0.6752 | F1: 0.5615 | Recall: 0.7739 | Precision: 0.4406
+HybridMamba               TS: 0.2920 | Acc: 0.6262 | F1: 0.4521 | Recall: 0.5739 | Precision: 0.3729
+MultiPathwayHybrid        TS: 0.3333 | Acc: 0.6449 | F1: 0.5000 | Recall: 0.6609 | Precision: 0.4021
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3333 | Acc: 0.5794 | F1: 0.5000 | Recall: 0.7826 | Precision: 0.3673
+
+============================================================
+SUMMARY (Seed = 20)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4806 | Acc: 0.7787 | F1: 0.6492
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.4855 | Acc: 0.8533 | F1: 0.6536
+HGSMamba2                 TS: 0.4947 | Acc: 0.8296 | F1: 0.6620
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3973 | Acc: 0.6916 | F1: 0.5686 | Recall: 0.7565 | Precision: 0.4555
+HybridMamba               TS: 0.3447 | Acc: 0.5958 | F1: 0.5127 | Recall: 0.7913 | Precision: 0.3792
+MultiPathwayHybrid        TS: 0.3649 | Acc: 0.6706 | F1: 0.5347 | Recall: 0.7043 | Precision: 0.4309
+HGSMamba                  TS: 0.3425 | Acc: 0.6636 | F1: 0.5102 | Recall: 0.6522 | Precision: 0.4190
+HGSMamba2                 TS: 0.3321 | Acc: 0.5911 | F1: 0.4986 | Recall: 0.7565 | Precision: 0.3718
+
+============================================================
+SUMMARY (Seed = 21)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4711 | Acc: 0.7728 | F1: 0.6404
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.5139 | Acc: 0.8556 | F1: 0.6789
+HGSMamba2                 TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3874 | Acc: 0.6822 | F1: 0.5584 | Recall: 0.7478 | Precision: 0.4456
+HybridMamba               TS: 0.3071 | Acc: 0.5888 | F1: 0.4699 | Recall: 0.6783 | Precision: 0.3594
+MultiPathwayHybrid        TS: 0.3517 | Acc: 0.6425 | F1: 0.5204 | Recall: 0.7217 | Precision: 0.4069
+HGSMamba                  TS: 0.3288 | Acc: 0.6565 | F1: 0.4948 | Recall: 0.6261 | Precision: 0.4091
+HGSMamba2                 TS: 0.2512 | Acc: 0.2547 | F1: 0.4015 | Recall: 0.9304 | Precision: 0.2560
+
+============================================================
+SUMMARY (Seed = 22)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5674 | Acc: 0.8556 | F1: 0.7240
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.4938 | Acc: 0.8556 | F1: 0.6611
+HGSMamba2                 TS: 0.4669 | Acc: 0.8473 | F1: 0.6366
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3733 | Acc: 0.6706 | F1: 0.5437 | Recall: 0.7304 | Precision: 0.4330
+HybridMamba               TS: 0.3629 | Acc: 0.6472 | F1: 0.5325 | Recall: 0.7478 | Precision: 0.4135
+MultiPathwayHybrid        TS: 0.3550 | Acc: 0.6986 | F1: 0.5240 | Recall: 0.6174 | Precision: 0.4551
+HGSMamba                  TS: 0.3665 | Acc: 0.6729 | F1: 0.5364 | Recall: 0.7043 | Precision: 0.4332
+HGSMamba2                 TS: 0.3713 | Acc: 0.6519 | F1: 0.5415 | Recall: 0.7652 | Precision: 0.4190
+
+============================================================
+SUMMARY (Seed = 23)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5319 | Acc: 0.8438 | F1: 0.6944
+MultiPathwayHybrid        TS: 0.4961 | Acc: 0.8473 | F1: 0.6632
+HGSMamba                  TS: 0.2162 | Acc: 0.2237 | F1: 0.3556
+HGSMamba2                 TS: 0.4804 | Acc: 0.8272 | F1: 0.6490
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3956 | Acc: 0.6822 | F1: 0.5669 | Recall: 0.7739 | Precision: 0.4472
+HybridMamba               TS: 0.3194 | Acc: 0.6565 | F1: 0.4842 | Recall: 0.6000 | Precision: 0.4059
+MultiPathwayHybrid        TS: 0.3194 | Acc: 0.6565 | F1: 0.4842 | Recall: 0.6000 | Precision: 0.4059
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3176 | Acc: 0.5935 | F1: 0.4821 | Recall: 0.7043 | Precision: 0.3665
+
+============================================================
+SUMMARY (Seed = 24)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5771 | Acc: 0.8604 | F1: 0.7318
+MultiPathwayHybrid        TS: 0.5366 | Acc: 0.8651 | F1: 0.6984
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5208 | Acc: 0.8639 | F1: 0.6849
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3955 | Acc: 0.6893 | F1: 0.5668 | Recall: 0.7565 | Precision: 0.4531
+HybridMamba               TS: 0.3745 | Acc: 0.6565 | F1: 0.5449 | Recall: 0.7652 | Precision: 0.4231
+MultiPathwayHybrid        TS: 0.3682 | Acc: 0.7033 | F1: 0.5382 | Recall: 0.6435 | Precision: 0.4625
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3508 | Acc: 0.6238 | F1: 0.5194 | Recall: 0.7565 | Precision: 0.3955
+
+============================================================
+SUMMARY (Seed = 25)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5668 | Acc: 0.8580 | F1: 0.7235
+MultiPathwayHybrid        TS: 0.5323 | Acc: 0.8627 | F1: 0.6947
+HGSMamba                  TS: 0.4622 | Acc: 0.8485 | F1: 0.6322
+HGSMamba2                 TS: 0.5072 | Acc: 0.8379 | F1: 0.6730
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3778 | Acc: 0.6729 | F1: 0.5484 | Recall: 0.7391 | Precision: 0.4359
+HybridMamba               TS: 0.3376 | Acc: 0.6379 | F1: 0.5048 | Recall: 0.6870 | Precision: 0.3990
+MultiPathwayHybrid        TS: 0.3950 | Acc: 0.7173 | F1: 0.5663 | Recall: 0.6870 | Precision: 0.4817
+HGSMamba                  TS: 0.3503 | Acc: 0.7009 | F1: 0.5188 | Recall: 0.6000 | Precision: 0.4570
+HGSMamba2                 TS: 0.3598 | Acc: 0.6425 | F1: 0.5292 | Recall: 0.7478 | Precision: 0.4095
+
+============================================================
+SUMMARY (Seed = 26)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4651 | Acc: 0.8367 | F1: 0.6349
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.2340 | Acc: 0.3183 | F1: 0.3793
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4019 | Acc: 0.7009 | F1: 0.5733 | Recall: 0.7478 | Precision: 0.4649
+HybridMamba               TS: 0.3527 | Acc: 0.6098 | F1: 0.5215 | Recall: 0.7913 | Precision: 0.3889
+MultiPathwayHybrid        TS: 0.3539 | Acc: 0.6332 | F1: 0.5228 | Recall: 0.7478 | Precision: 0.4019
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.2695 | Acc: 0.5187 | F1: 0.4246 | Recall: 0.6609 | Precision: 0.3128
+
+============================================================
+SUMMARY (Seed = 27)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5812 | Acc: 0.8627 | F1: 0.7352
+MultiPathwayHybrid        TS: 0.4985 | Acc: 0.8012 | F1: 0.6653
+HGSMamba                  TS: 0.5114 | Acc: 0.8473 | F1: 0.6767
+HGSMamba2                 TS: 0.5019 | Acc: 0.8438 | F1: 0.6683
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3717 | Acc: 0.6682 | F1: 0.5419 | Recall: 0.7304 | Precision: 0.4308
+HybridMamba               TS: 0.3559 | Acc: 0.6659 | F1: 0.5249 | Recall: 0.6870 | Precision: 0.4247
+MultiPathwayHybrid        TS: 0.3228 | Acc: 0.7009 | F1: 0.4880 | Recall: 0.5304 | Precision: 0.4519
+HGSMamba                  TS: 0.3600 | Acc: 0.6636 | F1: 0.5294 | Recall: 0.7043 | Precision: 0.4241
+HGSMamba2                 TS: 0.3595 | Acc: 0.6379 | F1: 0.5289 | Recall: 0.7565 | Precision: 0.4065
+
+============================================================
+SUMMARY (Seed = 28)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5643 | Acc: 0.8556 | F1: 0.7215
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5301 | Acc: 0.8615 | F1: 0.6929
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3929 | Acc: 0.6822 | F1: 0.5641 | Recall: 0.7652 | Precision: 0.4467
+HybridMamba               TS: 0.3700 | Acc: 0.6659 | F1: 0.5402 | Recall: 0.7304 | Precision: 0.4286
+MultiPathwayHybrid        TS: 0.3498 | Acc: 0.6916 | F1: 0.5182 | Recall: 0.6174 | Precision: 0.4465
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3670 | Acc: 0.6776 | F1: 0.5369 | Recall: 0.6957 | Precision: 0.4372
+
+============================================================
+SUMMARY (Seed = 29)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4726 | Acc: 0.7834 | F1: 0.6419
+MultiPathwayHybrid        TS: 0.4831 | Acc: 0.8556 | F1: 0.6514
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.2183 | Acc: 0.2331 | F1: 0.3584
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3935 | Acc: 0.6939 | F1: 0.5648 | Recall: 0.7391 | Precision: 0.4570
+HybridMamba               TS: 0.3308 | Acc: 0.5888 | F1: 0.4971 | Recall: 0.7565 | Precision: 0.3702
+MultiPathwayHybrid        TS: 0.3380 | Acc: 0.6659 | F1: 0.5052 | Recall: 0.6348 | Precision: 0.4195
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+
+============================================================
+SUMMARY (Seed = 30)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5654 | Acc: 0.8544 | F1: 0.7223
+MultiPathwayHybrid        TS: 0.5500 | Acc: 0.8722 | F1: 0.7097
+HGSMamba                  TS: 0.5159 | Acc: 0.8556 | F1: 0.6806
+HGSMamba2                 TS: 0.4792 | Acc: 0.8367 | F1: 0.6480
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3879 | Acc: 0.6939 | F1: 0.5589 | Recall: 0.7217 | Precision: 0.4560
+HybridMamba               TS: 0.3641 | Acc: 0.6776 | F1: 0.5338 | Recall: 0.6870 | Precision: 0.4365
+MultiPathwayHybrid        TS: 0.3264 | Acc: 0.6963 | F1: 0.4922 | Recall: 0.5478 | Precision: 0.4468
+HGSMamba                  TS: 0.3789 | Acc: 0.6706 | F1: 0.5495 | Recall: 0.7478 | Precision: 0.4343
+HGSMamba2                 TS: 0.2771 | Acc: 0.5794 | F1: 0.4340 | Recall: 0.6000 | Precision: 0.3399
+
+============================================================
+SUMMARY (Seed = 31)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5809 | Acc: 0.8651 | F1: 0.7349
+MultiPathwayHybrid        TS: 0.5176 | Acc: 0.8544 | F1: 0.6822
+HGSMamba                  TS: 0.5209 | Acc: 0.8509 | F1: 0.6850
+HGSMamba2                 TS: 0.4883 | Acc: 0.8189 | F1: 0.6562
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4009 | Acc: 0.6963 | F1: 0.5724 | Recall: 0.7565 | Precision: 0.4603
+HybridMamba               TS: 0.3565 | Acc: 0.6752 | F1: 0.5256 | Recall: 0.6696 | Precision: 0.4326
+MultiPathwayHybrid        TS: 0.3439 | Acc: 0.6612 | F1: 0.5118 | Recall: 0.6609 | Precision: 0.4176
+HGSMamba                  TS: 0.3836 | Acc: 0.6659 | F1: 0.5545 | Recall: 0.7739 | Precision: 0.4320
+HGSMamba2                 TS: 0.3424 | Acc: 0.6051 | F1: 0.5101 | Recall: 0.7652 | Precision: 0.3826
+
+============================================================
+SUMMARY (Seed = 32)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4737 | Acc: 0.7751 | F1: 0.6429
+MultiPathwayHybrid        TS: 0.5366 | Acc: 0.8651 | F1: 0.6984
+HGSMamba                  TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba2                 TS: 0.5050 | Acc: 0.8249 | F1: 0.6711
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3955 | Acc: 0.6893 | F1: 0.5668 | Recall: 0.7565 | Precision: 0.4531
+HybridMamba               TS: 0.3555 | Acc: 0.6145 | F1: 0.5245 | Recall: 0.7913 | Precision: 0.3922
+MultiPathwayHybrid        TS: 0.3447 | Acc: 0.6846 | F1: 0.5126 | Recall: 0.6174 | Precision: 0.4383
+HGSMamba                  TS: 0.3394 | Acc: 0.6589 | F1: 0.5068 | Recall: 0.6522 | Precision: 0.4144
+HGSMamba2                 TS: 0.3346 | Acc: 0.5864 | F1: 0.5014 | Recall: 0.7739 | Precision: 0.3708
+
+============================================================
+SUMMARY (Seed = 33)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5693 | Acc: 0.8604 | F1: 0.7256
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4899 | Acc: 0.8509 | F1: 0.6576
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3772 | Acc: 0.6682 | F1: 0.5478 | Recall: 0.7478 | Precision: 0.4322
+HybridMamba               TS: 0.3496 | Acc: 0.6565 | F1: 0.5180 | Recall: 0.6870 | Precision: 0.4158
+MultiPathwayHybrid        TS: 0.3420 | Acc: 0.6449 | F1: 0.5097 | Recall: 0.6870 | Precision: 0.4051
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3410 | Acc: 0.5981 | F1: 0.5086 | Recall: 0.7739 | Precision: 0.3787
+
+============================================================
+SUMMARY (Seed = 34)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5735 | Acc: 0.8592 | F1: 0.7289
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5241 | Acc: 0.8367 | F1: 0.6878
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4009 | Acc: 0.6963 | F1: 0.5724 | Recall: 0.7565 | Precision: 0.4603
+HybridMamba               TS: 0.3096 | Acc: 0.6822 | F1: 0.4729 | Recall: 0.5304 | Precision: 0.4266
+MultiPathwayHybrid        TS: 0.3644 | Acc: 0.6495 | F1: 0.5342 | Recall: 0.7478 | Precision: 0.4155
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3494 | Acc: 0.6215 | F1: 0.5179 | Recall: 0.7565 | Precision: 0.3937
+
+============================================================
+SUMMARY (Seed = 35)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4530 | Acc: 0.7657 | F1: 0.6236
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5451 | Acc: 0.8568 | F1: 0.7056
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3877 | Acc: 0.6752 | F1: 0.5587 | Recall: 0.7652 | Precision: 0.4400
+HybridMamba               TS: 0.3395 | Acc: 0.5818 | F1: 0.5069 | Recall: 0.8000 | Precision: 0.3710
+MultiPathwayHybrid        TS: 0.3784 | Acc: 0.6776 | F1: 0.5490 | Recall: 0.7304 | Precision: 0.4398
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3419 | Acc: 0.6402 | F1: 0.5096 | Recall: 0.6957 | Precision: 0.4020
+
+============================================================
+SUMMARY (Seed = 36)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5124 | Acc: 0.8604 | F1: 0.6776
+MultiPathwayHybrid        TS: 0.5559 | Acc: 0.8450 | F1: 0.7146
+HGSMamba                  TS: 0.5357 | Acc: 0.8615 | F1: 0.6977
+HGSMamba2                 TS: 0.4822 | Acc: 0.8450 | F1: 0.6507
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4018 | Acc: 0.6939 | F1: 0.5733 | Recall: 0.7652 | Precision: 0.4583
+HybridMamba               TS: 0.2356 | Acc: 0.6893 | F1: 0.3814 | Recall: 0.3565 | Precision: 0.4100
+MultiPathwayHybrid        TS: 0.3705 | Acc: 0.6706 | F1: 0.5407 | Recall: 0.7217 | Precision: 0.4323
+HGSMamba                  TS: 0.3257 | Acc: 0.6565 | F1: 0.4913 | Recall: 0.6174 | Precision: 0.4080
+HGSMamba2                 TS: 0.3605 | Acc: 0.6519 | F1: 0.5300 | Recall: 0.7304 | Precision: 0.4158
+
+============================================================
+SUMMARY (Seed = 37)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5735 | Acc: 0.8592 | F1: 0.7289
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4730 | Acc: 0.8036 | F1: 0.6422
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3881 | Acc: 0.6869 | F1: 0.5592 | Recall: 0.7391 | Precision: 0.4497
+HybridMamba               TS: 0.3487 | Acc: 0.6379 | F1: 0.5171 | Recall: 0.7217 | Precision: 0.4029
+MultiPathwayHybrid        TS: 0.3439 | Acc: 0.6612 | F1: 0.5118 | Recall: 0.6609 | Precision: 0.4176
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3357 | Acc: 0.5607 | F1: 0.5026 | Recall: 0.8261 | Precision: 0.3612
+
+============================================================
+SUMMARY (Seed = 38)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4688 | Acc: 0.7680 | F1: 0.6384
+MultiPathwayHybrid        TS: 0.5366 | Acc: 0.8651 | F1: 0.6984
+HGSMamba                  TS: 0.2216 | Acc: 0.2852 | F1: 0.3629
+HGSMamba2                 TS: 0.4962 | Acc: 0.8450 | F1: 0.6632
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3680 | Acc: 0.6589 | F1: 0.5380 | Recall: 0.7391 | Precision: 0.4229
+HybridMamba               TS: 0.3398 | Acc: 0.6005 | F1: 0.5072 | Recall: 0.7652 | Precision: 0.3793
+MultiPathwayHybrid        TS: 0.3604 | Acc: 0.6682 | F1: 0.5298 | Recall: 0.6957 | Precision: 0.4278
+HGSMamba                  TS: 0.2731 | Acc: 0.5397 | F1: 0.4290 | Recall: 0.6435 | Precision: 0.3217
+HGSMamba2                 TS: 0.3484 | Acc: 0.6285 | F1: 0.5167 | Recall: 0.7391 | Precision: 0.3972
+
+============================================================
+SUMMARY (Seed = 39)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4721 | Acc: 0.7763 | F1: 0.6414
+MultiPathwayHybrid        TS: 0.5500 | Acc: 0.8722 | F1: 0.7097
+HGSMamba                  TS: 0.5150 | Acc: 0.8473 | F1: 0.6799
+HGSMamba2                 TS: 0.2175 | Acc: 0.2296 | F1: 0.3574
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3766 | Acc: 0.6636 | F1: 0.5472 | Recall: 0.7565 | Precision: 0.4286
+HybridMamba               TS: 0.3559 | Acc: 0.6449 | F1: 0.5250 | Recall: 0.7304 | Precision: 0.4098
+MultiPathwayHybrid        TS: 0.3568 | Acc: 0.7009 | F1: 0.5259 | Recall: 0.6174 | Precision: 0.4581
+HGSMamba                  TS: 0.3500 | Acc: 0.6355 | F1: 0.5185 | Recall: 0.7304 | Precision: 0.4019
+HGSMamba2                 TS: 0.2447 | Acc: 0.2500 | F1: 0.3932 | Recall: 0.9043 | Precision: 0.2512
+
+============================================================
+SUMMARY (Seed = 40)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5556 | Acc: 0.8580 | F1: 0.7143
+MultiPathwayHybrid        TS: 0.5273 | Acc: 0.8260 | F1: 0.6905
+HGSMamba                  TS: 0.5328 | Acc: 0.8568 | F1: 0.6952
+HGSMamba2                 TS: 0.4630 | Acc: 0.8284 | F1: 0.6329
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3790 | Acc: 0.6822 | F1: 0.5497 | Recall: 0.7217 | Precision: 0.4439
+HybridMamba               TS: 0.3603 | Acc: 0.6308 | F1: 0.5298 | Recall: 0.7739 | Precision: 0.4027
+MultiPathwayHybrid        TS: 0.3318 | Acc: 0.6565 | F1: 0.4983 | Recall: 0.6348 | Precision: 0.4101
+HGSMamba                  TS: 0.3450 | Acc: 0.6495 | F1: 0.5130 | Recall: 0.6870 | Precision: 0.4093
+HGSMamba2                 TS: 0.3432 | Acc: 0.6379 | F1: 0.5110 | Recall: 0.7043 | Precision: 0.4010
+
+============================================================
+SUMMARY (Seed = 41)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5730 | Acc: 0.8580 | F1: 0.7285
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.5292 | Acc: 0.8568 | F1: 0.6921
+HGSMamba2                 TS: 0.4194 | Acc: 0.7231 | F1: 0.5909
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3911 | Acc: 0.6799 | F1: 0.5623 | Recall: 0.7652 | Precision: 0.4444
+HybridMamba               TS: 0.3718 | Acc: 0.6565 | F1: 0.5421 | Recall: 0.7565 | Precision: 0.4223
+MultiPathwayHybrid        TS: 0.3805 | Acc: 0.6729 | F1: 0.5513 | Recall: 0.7478 | Precision: 0.4365
+HGSMamba                  TS: 0.3833 | Acc: 0.6729 | F1: 0.5541 | Recall: 0.7565 | Precision: 0.4372
+HGSMamba2                 TS: 0.3161 | Acc: 0.4743 | F1: 0.4804 | Recall: 0.9043 | Precision: 0.3270
+
+============================================================
+SUMMARY (Seed = 42)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5477 | Acc: 0.8485 | F1: 0.7078
+MultiPathwayHybrid        TS: 0.5477 | Acc: 0.8710 | F1: 0.7078
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3915 | Acc: 0.6986 | F1: 0.5627 | Recall: 0.7217 | Precision: 0.4611
+HybridMamba               TS: 0.3602 | Acc: 0.6472 | F1: 0.5296 | Recall: 0.7391 | Precision: 0.4126
+MultiPathwayHybrid        TS: 0.3384 | Acc: 0.6939 | F1: 0.5057 | Recall: 0.5826 | Precision: 0.4467
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.2447 | Acc: 0.2500 | F1: 0.3932 | Recall: 0.9043 | Precision: 0.2512
+
+============================================================
+SUMMARY (Seed = 43)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5689 | Acc: 0.8556 | F1: 0.7252
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.5203 | Acc: 0.8604 | F1: 0.6845
+HGSMamba2                 TS: 0.5226 | Acc: 0.8497 | F1: 0.6864
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3925 | Acc: 0.6963 | F1: 0.5638 | Recall: 0.7304 | Precision: 0.4590
+HybridMamba               TS: 0.3810 | Acc: 0.6659 | F1: 0.5517 | Recall: 0.7652 | Precision: 0.4314
+MultiPathwayHybrid        TS: 0.3442 | Acc: 0.6706 | F1: 0.5121 | Recall: 0.6435 | Precision: 0.4253
+HGSMamba                  TS: 0.3425 | Acc: 0.6636 | F1: 0.5102 | Recall: 0.6522 | Precision: 0.4190
+HGSMamba2                 TS: 0.3628 | Acc: 0.6636 | F1: 0.5325 | Recall: 0.7130 | Precision: 0.4249
+
+============================================================
+SUMMARY (Seed = 44)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5719 | Acc: 0.8592 | F1: 0.7277
+MultiPathwayHybrid        TS: 0.5397 | Acc: 0.8627 | F1: 0.7010
+HGSMamba                  TS: 0.5194 | Acc: 0.8533 | F1: 0.6837
+HGSMamba2                 TS: 0.5152 | Acc: 0.8485 | F1: 0.6800
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3822 | Acc: 0.6752 | F1: 0.5531 | Recall: 0.7478 | Precision: 0.4388
+HybridMamba               TS: 0.3684 | Acc: 0.6636 | F1: 0.5385 | Recall: 0.7304 | Precision: 0.4264
+MultiPathwayHybrid        TS: 0.4163 | Acc: 0.7150 | F1: 0.5878 | Recall: 0.7565 | Precision: 0.4807
+HGSMamba                  TS: 0.3451 | Acc: 0.6542 | F1: 0.5132 | Recall: 0.6783 | Precision: 0.4127
+HGSMamba2                 TS: 0.3463 | Acc: 0.6472 | F1: 0.5145 | Recall: 0.6957 | Precision: 0.4082
+
+============================================================
+SUMMARY (Seed = 45)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4603 | Acc: 0.7586 | F1: 0.6304
+MultiPathwayHybrid        TS: 0.5500 | Acc: 0.8722 | F1: 0.7097
+HGSMamba                  TS: 0.5154 | Acc: 0.8509 | F1: 0.6802
+HGSMamba2                 TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3739 | Acc: 0.6752 | F1: 0.5443 | Recall: 0.7217 | Precision: 0.4368
+HybridMamba               TS: 0.3724 | Acc: 0.6495 | F1: 0.5427 | Recall: 0.7739 | Precision: 0.4178
+MultiPathwayHybrid        TS: 0.3316 | Acc: 0.7033 | F1: 0.4980 | Recall: 0.5478 | Precision: 0.4565
+HGSMamba                  TS: 0.3723 | Acc: 0.6612 | F1: 0.5426 | Recall: 0.7478 | Precision: 0.4257
+HGSMamba2                 TS: 0.2447 | Acc: 0.2500 | F1: 0.3932 | Recall: 0.9043 | Precision: 0.2512
+
+============================================================
+SUMMARY (Seed = 46)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4641 | Acc: 0.7704 | F1: 0.6340
+MultiPathwayHybrid        TS: 0.5097 | Acc: 0.8497 | F1: 0.6752
+HGSMamba                  TS: 0.5098 | Acc: 0.8521 | F1: 0.6753
+HGSMamba2                 TS: 0.4678 | Acc: 0.8142 | F1: 0.6374
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3871 | Acc: 0.6893 | F1: 0.5581 | Recall: 0.7304 | Precision: 0.4516
+HybridMamba               TS: 0.3447 | Acc: 0.5958 | F1: 0.5127 | Recall: 0.7913 | Precision: 0.3792
+MultiPathwayHybrid        TS: 0.3651 | Acc: 0.6262 | F1: 0.5349 | Recall: 0.8000 | Precision: 0.4017
+HGSMamba                  TS: 0.3550 | Acc: 0.6519 | F1: 0.5240 | Recall: 0.7130 | Precision: 0.4141
+HGSMamba2                 TS: 0.3660 | Acc: 0.6519 | F1: 0.5358 | Recall: 0.7478 | Precision: 0.4175
+
+============================================================
+SUMMARY (Seed = 47)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5709 | Acc: 0.8568 | F1: 0.7269
+MultiPathwayHybrid        TS: 0.4801 | Acc: 0.8296 | F1: 0.6488
+HGSMamba                  TS: 0.4664 | Acc: 0.8497 | F1: 0.6361
+HGSMamba2                 TS: 0.5049 | Acc: 0.8213 | F1: 0.6710
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4047 | Acc: 0.7009 | F1: 0.5762 | Recall: 0.7565 | Precision: 0.4652
+HybridMamba               TS: 0.3822 | Acc: 0.6752 | F1: 0.5531 | Recall: 0.7478 | Precision: 0.4388
+MultiPathwayHybrid        TS: 0.3394 | Acc: 0.6636 | F1: 0.5068 | Recall: 0.6435 | Precision: 0.4181
+HGSMamba                  TS: 0.3208 | Acc: 0.6636 | F1: 0.4857 | Recall: 0.5913 | Precision: 0.4121
+HGSMamba2                 TS: 0.3262 | Acc: 0.5607 | F1: 0.4919 | Recall: 0.7913 | Precision: 0.3569
+
+============================================================
+SUMMARY (Seed = 48)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4971 | Acc: 0.7929 | F1: 0.6641
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2175 | Acc: 0.2296 | F1: 0.3574
+HGSMamba2                 TS: 0.5167 | Acc: 0.8627 | F1: 0.6813
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3675 | Acc: 0.6542 | F1: 0.5375 | Recall: 0.7478 | Precision: 0.4195
+HybridMamba               TS: 0.3712 | Acc: 0.6636 | F1: 0.5414 | Recall: 0.7391 | Precision: 0.4271
+MultiPathwayHybrid        TS: 0.3805 | Acc: 0.7033 | F1: 0.5512 | Recall: 0.6783 | Precision: 0.4643
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3675 | Acc: 0.6542 | F1: 0.5375 | Recall: 0.7478 | Precision: 0.4195
+
+============================================================
+SUMMARY (Seed = 49)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5791 | Acc: 0.8615 | F1: 0.7335
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.4388 | Acc: 0.8426 | F1: 0.6100
+HGSMamba2                 TS: 0.5188 | Acc: 0.8485 | F1: 0.6832
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3772 | Acc: 0.6682 | F1: 0.5478 | Recall: 0.7478 | Precision: 0.4322
+HybridMamba               TS: 0.3767 | Acc: 0.6869 | F1: 0.5473 | Recall: 0.7043 | Precision: 0.4475
+MultiPathwayHybrid        TS: 0.3434 | Acc: 0.6963 | F1: 0.5113 | Recall: 0.5913 | Precision: 0.4503
+HGSMamba                  TS: 0.3081 | Acc: 0.6589 | F1: 0.4710 | Recall: 0.5652 | Precision: 0.4037
+HGSMamba2                 TS: 0.3559 | Acc: 0.6449 | F1: 0.5250 | Recall: 0.7304 | Precision: 0.4098
+
+============================================================
+SUMMARY (Seed = 50)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5088 | Acc: 0.8355 | F1: 0.6745
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4876 | Acc: 0.8284 | F1: 0.6556
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3860 | Acc: 0.6916 | F1: 0.5570 | Recall: 0.7217 | Precision: 0.4536
+HybridMamba               TS: 0.3675 | Acc: 0.6542 | F1: 0.5375 | Recall: 0.7478 | Precision: 0.4195
+MultiPathwayHybrid        TS: 0.3519 | Acc: 0.6472 | F1: 0.5206 | Recall: 0.7130 | Precision: 0.4100
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3412 | Acc: 0.6075 | F1: 0.5088 | Recall: 0.7565 | Precision: 0.3833
+
+============================================================
+SUMMARY (Seed = 51)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5634 | Acc: 0.8533 | F1: 0.7207
+MultiPathwayHybrid        TS: 0.4840 | Acc: 0.8095 | F1: 0.6523
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.2284 | Acc: 0.2805 | F1: 0.3719
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3860 | Acc: 0.6916 | F1: 0.5570 | Recall: 0.7217 | Precision: 0.4536
+HybridMamba               TS: 0.3595 | Acc: 0.6379 | F1: 0.5289 | Recall: 0.7565 | Precision: 0.4065
+MultiPathwayHybrid        TS: 0.3491 | Acc: 0.6472 | F1: 0.5176 | Recall: 0.7043 | Precision: 0.4091
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.2818 | Acc: 0.5117 | F1: 0.4397 | Recall: 0.7130 | Precision: 0.3178
+
+============================================================
+SUMMARY (Seed = 52)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4753 | Acc: 0.7740 | F1: 0.6443
+MultiPathwayHybrid        TS: 0.5263 | Acc: 0.8402 | F1: 0.6897
+HGSMamba                  TS: 0.2170 | Acc: 0.2272 | F1: 0.3567
+HGSMamba2                 TS: 0.5137 | Acc: 0.8533 | F1: 0.6788
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3956 | Acc: 0.6822 | F1: 0.5669 | Recall: 0.7739 | Precision: 0.4472
+HybridMamba               TS: 0.3506 | Acc: 0.6192 | F1: 0.5192 | Recall: 0.7652 | Precision: 0.3929
+MultiPathwayHybrid        TS: 0.3416 | Acc: 0.6893 | F1: 0.5092 | Recall: 0.6000 | Precision: 0.4423
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3621 | Acc: 0.6379 | F1: 0.5317 | Recall: 0.7652 | Precision: 0.4074
+
+============================================================
+SUMMARY (Seed = 53)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4312 | Acc: 0.7408 | F1: 0.6025
+MultiPathwayHybrid        TS: 0.5069 | Acc: 0.8320 | F1: 0.6728
+HGSMamba                  TS: 0.4644 | Acc: 0.8485 | F1: 0.6343
+HGSMamba2                 TS: 0.5124 | Acc: 0.8367 | F1: 0.6776
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3927 | Acc: 0.6893 | F1: 0.5639 | Recall: 0.7478 | Precision: 0.4526
+HybridMamba               TS: 0.3228 | Acc: 0.5491 | F1: 0.4881 | Recall: 0.8000 | Precision: 0.3511
+MultiPathwayHybrid        TS: 0.3493 | Acc: 0.6519 | F1: 0.5178 | Recall: 0.6957 | Precision: 0.4124
+HGSMamba                  TS: 0.3451 | Acc: 0.6542 | F1: 0.5132 | Recall: 0.6783 | Precision: 0.4127
+HGSMamba2                 TS: 0.3583 | Acc: 0.6402 | F1: 0.5276 | Recall: 0.7478 | Precision: 0.4076
+
+============================================================
+SUMMARY (Seed = 54)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5638 | Acc: 0.8544 | F1: 0.7211
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.5062 | Acc: 0.8592 | F1: 0.6722
+HGSMamba2                 TS: 0.4965 | Acc: 0.8320 | F1: 0.6635
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3816 | Acc: 0.6706 | F1: 0.5524 | Recall: 0.7565 | Precision: 0.4350
+HybridMamba               TS: 0.3921 | Acc: 0.6776 | F1: 0.5633 | Recall: 0.7739 | Precision: 0.4428
+MultiPathwayHybrid        TS: 0.3691 | Acc: 0.6565 | F1: 0.5392 | Recall: 0.7478 | Precision: 0.4216
+HGSMamba                  TS: 0.3709 | Acc: 0.6869 | F1: 0.5411 | Recall: 0.6870 | Precision: 0.4463
+HGSMamba2                 TS: 0.3534 | Acc: 0.5981 | F1: 0.5222 | Recall: 0.8174 | Precision: 0.3837
+
+============================================================
+SUMMARY (Seed = 55)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4804 | Acc: 0.7799 | F1: 0.6491
+MultiPathwayHybrid        TS: 0.5344 | Acc: 0.8639 | F1: 0.6966
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5247 | Acc: 0.8521 | F1: 0.6883
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3972 | Acc: 0.6986 | F1: 0.5686 | Recall: 0.7391 | Precision: 0.4620
+HybridMamba               TS: 0.3580 | Acc: 0.6355 | F1: 0.5273 | Recall: 0.7565 | Precision: 0.4047
+MultiPathwayHybrid        TS: 0.3349 | Acc: 0.6659 | F1: 0.5017 | Recall: 0.6261 | Precision: 0.4186
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3602 | Acc: 0.6472 | F1: 0.5296 | Recall: 0.7391 | Precision: 0.4126
+
+============================================================
+SUMMARY (Seed = 56)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5618 | Acc: 0.8533 | F1: 0.7195
+MultiPathwayHybrid        TS: 0.5388 | Acc: 0.8663 | F1: 0.7003
+HGSMamba                  TS: 0.2249 | Acc: 0.2864 | F1: 0.3673
+HGSMamba2                 TS: 0.4500 | Acc: 0.8438 | F1: 0.6207
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4009 | Acc: 0.7033 | F1: 0.5724 | Recall: 0.7391 | Precision: 0.4670
+HybridMamba               TS: 0.3700 | Acc: 0.6659 | F1: 0.5402 | Recall: 0.7304 | Precision: 0.4286
+MultiPathwayHybrid        TS: 0.3807 | Acc: 0.6846 | F1: 0.5515 | Recall: 0.7217 | Precision: 0.4462
+HGSMamba                  TS: 0.2602 | Acc: 0.5350 | F1: 0.4130 | Recall: 0.6087 | Precision: 0.3125
+HGSMamba2                 TS: 0.3463 | Acc: 0.6472 | F1: 0.5145 | Recall: 0.6957 | Precision: 0.4082
+
+============================================================
+SUMMARY (Seed = 57)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5803 | Acc: 0.8639 | F1: 0.7344
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.5138 | Acc: 0.8544 | F1: 0.6789
+HGSMamba2                 TS: 0.5000 | Acc: 0.8260 | F1: 0.6667
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4019 | Acc: 0.7009 | F1: 0.5733 | Recall: 0.7478 | Precision: 0.4649
+HybridMamba               TS: 0.3728 | Acc: 0.6659 | F1: 0.5431 | Recall: 0.7391 | Precision: 0.4293
+MultiPathwayHybrid        TS: 0.3550 | Acc: 0.6986 | F1: 0.5240 | Recall: 0.6174 | Precision: 0.4551
+HGSMamba                  TS: 0.3143 | Acc: 0.6636 | F1: 0.4783 | Recall: 0.5739 | Precision: 0.4099
+HGSMamba2                 TS: 0.3492 | Acc: 0.6168 | F1: 0.5176 | Recall: 0.7652 | Precision: 0.3911
+
+============================================================
+SUMMARY (Seed = 58)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4711 | Acc: 0.7834 | F1: 0.6405
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.5133 | Acc: 0.8485 | F1: 0.6784
+HGSMamba2                 TS: 0.2500 | Acc: 0.3716 | F1: 0.4000
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3761 | Acc: 0.6589 | F1: 0.5466 | Recall: 0.7652 | Precision: 0.4251
+HybridMamba               TS: 0.3640 | Acc: 0.6285 | F1: 0.5337 | Recall: 0.7913 | Precision: 0.4027
+MultiPathwayHybrid        TS: 0.3143 | Acc: 0.6636 | F1: 0.4783 | Recall: 0.5739 | Precision: 0.4099
+HGSMamba                  TS: 0.3668 | Acc: 0.6612 | F1: 0.5367 | Recall: 0.7304 | Precision: 0.4242
+HGSMamba2                 TS: 0.3031 | Acc: 0.5327 | F1: 0.4652 | Recall: 0.7565 | Precision: 0.3359
+
+============================================================
+SUMMARY (Seed = 59)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4126 | Acc: 0.8012 | F1: 0.5842
+MultiPathwayHybrid        TS: 0.5477 | Acc: 0.8710 | F1: 0.7078
+HGSMamba                  TS: 0.4302 | Acc: 0.8260 | F1: 0.6016
+HGSMamba2                 TS: 0.4699 | Acc: 0.8331 | F1: 0.6394
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3833 | Acc: 0.6729 | F1: 0.5541 | Recall: 0.7565 | Precision: 0.4372
+HybridMamba               TS: 0.1000 | Acc: 0.6846 | F1: 0.1818 | Recall: 0.1304 | Precision: 0.3000
+MultiPathwayHybrid        TS: 0.3510 | Acc: 0.6846 | F1: 0.5196 | Recall: 0.6348 | Precision: 0.4398
+HGSMamba                  TS: 0.2424 | Acc: 0.6495 | F1: 0.3902 | Recall: 0.4174 | Precision: 0.3664
+HGSMamba2                 TS: 0.3239 | Acc: 0.6098 | F1: 0.4893 | Recall: 0.6957 | Precision: 0.3774
+
+============================================================
+SUMMARY (Seed = 60)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5379 | Acc: 0.8414 | F1: 0.6996
+MultiPathwayHybrid        TS: 0.5077 | Acc: 0.8485 | F1: 0.6735
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5336 | Acc: 0.8438 | F1: 0.6959
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3801 | Acc: 0.6799 | F1: 0.5508 | Recall: 0.7304 | Precision: 0.4421
+HybridMamba               TS: 0.3070 | Acc: 0.6519 | F1: 0.4698 | Recall: 0.5739 | Precision: 0.3976
+MultiPathwayHybrid        TS: 0.3445 | Acc: 0.6355 | F1: 0.5125 | Recall: 0.7130 | Precision: 0.4000
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3413 | Acc: 0.6121 | F1: 0.5089 | Recall: 0.7478 | Precision: 0.3857
+
+============================================================
+SUMMARY (Seed = 61)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4560 | Acc: 0.7657 | F1: 0.6264
+MultiPathwayHybrid        TS: 0.5366 | Acc: 0.8651 | F1: 0.6984
+HGSMamba                  TS: 0.4875 | Acc: 0.8544 | F1: 0.6555
+HGSMamba2                 TS: 0.4690 | Acc: 0.8178 | F1: 0.6385
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3816 | Acc: 0.6706 | F1: 0.5524 | Recall: 0.7565 | Precision: 0.4350
+HybridMamba               TS: 0.2513 | Acc: 0.6659 | F1: 0.4017 | Recall: 0.4174 | Precision: 0.3871
+MultiPathwayHybrid        TS: 0.3739 | Acc: 0.6752 | F1: 0.5443 | Recall: 0.7217 | Precision: 0.4368
+HGSMamba                  TS: 0.3722 | Acc: 0.6729 | F1: 0.5425 | Recall: 0.7217 | Precision: 0.4346
+HGSMamba2                 TS: 0.3221 | Acc: 0.5771 | F1: 0.4873 | Recall: 0.7478 | Precision: 0.3613
+
+============================================================
+SUMMARY (Seed = 62)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5618 | Acc: 0.8533 | F1: 0.7195
+MultiPathwayHybrid        TS: 0.4853 | Acc: 0.8343 | F1: 0.6535
+HGSMamba                  TS: 0.4813 | Acc: 0.8521 | F1: 0.6499
+HGSMamba2                 TS: 0.4378 | Acc: 0.8343 | F1: 0.6089
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3991 | Acc: 0.7009 | F1: 0.5705 | Recall: 0.7391 | Precision: 0.4645
+HybridMamba               TS: 0.3128 | Acc: 0.6355 | F1: 0.4765 | Recall: 0.6174 | Precision: 0.3880
+MultiPathwayHybrid        TS: 0.3812 | Acc: 0.6776 | F1: 0.5519 | Recall: 0.7391 | Precision: 0.4404
+HGSMamba                  TS: 0.3439 | Acc: 0.6612 | F1: 0.5118 | Recall: 0.6609 | Precision: 0.4176
+HGSMamba2                 TS: 0.3347 | Acc: 0.6285 | F1: 0.5016 | Recall: 0.6957 | Precision: 0.3922
+
+============================================================
+SUMMARY (Seed = 63)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5689 | Acc: 0.8556 | F1: 0.7252
+MultiPathwayHybrid        TS: 0.5116 | Acc: 0.8509 | F1: 0.6769
+HGSMamba                  TS: 0.5116 | Acc: 0.8509 | F1: 0.6769
+HGSMamba2                 TS: 0.5306 | Acc: 0.8639 | F1: 0.6933
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3911 | Acc: 0.6799 | F1: 0.5623 | Recall: 0.7652 | Precision: 0.4444
+HybridMamba               TS: 0.3921 | Acc: 0.6776 | F1: 0.5633 | Recall: 0.7739 | Precision: 0.4428
+MultiPathwayHybrid        TS: 0.3568 | Acc: 0.6589 | F1: 0.5260 | Recall: 0.7043 | Precision: 0.4197
+HGSMamba                  TS: 0.3722 | Acc: 0.6729 | F1: 0.5425 | Recall: 0.7217 | Precision: 0.4346
+HGSMamba2                 TS: 0.3593 | Acc: 0.6542 | F1: 0.5287 | Recall: 0.7217 | Precision: 0.4171
+
+============================================================
+SUMMARY (Seed = 64)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4462 | Acc: 0.7444 | F1: 0.6170
+MultiPathwayHybrid        TS: 0.5197 | Acc: 0.8556 | F1: 0.6839
+HGSMamba                  TS: 0.5202 | Acc: 0.8592 | F1: 0.6844
+HGSMamba2                 TS: 0.2152 | Acc: 0.2189 | F1: 0.3542
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3712 | Acc: 0.6636 | F1: 0.5414 | Recall: 0.7391 | Precision: 0.4271
+HybridMamba               TS: 0.3200 | Acc: 0.6028 | F1: 0.4848 | Recall: 0.6957 | Precision: 0.3721
+MultiPathwayHybrid        TS: 0.3410 | Acc: 0.6659 | F1: 0.5086 | Recall: 0.6435 | Precision: 0.4205
+HGSMamba                  TS: 0.3085 | Acc: 0.6752 | F1: 0.4715 | Recall: 0.5391 | Precision: 0.4189
+HGSMamba2                 TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+
+============================================================
+SUMMARY (Seed = 65)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4639 | Acc: 0.7716 | F1: 0.6338
+MultiPathwayHybrid        TS: 0.5123 | Acc: 0.8355 | F1: 0.6775
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4629 | Acc: 0.8201 | F1: 0.6329
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4038 | Acc: 0.7033 | F1: 0.5753 | Recall: 0.7478 | Precision: 0.4674
+HybridMamba               TS: 0.3000 | Acc: 0.6075 | F1: 0.4615 | Recall: 0.6261 | Precision: 0.3655
+MultiPathwayHybrid        TS: 0.3574 | Acc: 0.6262 | F1: 0.5266 | Recall: 0.7739 | Precision: 0.3991
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3529 | Acc: 0.6402 | F1: 0.5217 | Recall: 0.7304 | Precision: 0.4058
+
+============================================================
+SUMMARY (Seed = 66)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4759 | Acc: 0.7811 | F1: 0.6449
+MultiPathwayHybrid        TS: 0.5116 | Acc: 0.8509 | F1: 0.6769
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5226 | Acc: 0.8497 | F1: 0.6864
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3884 | Acc: 0.6799 | F1: 0.5595 | Recall: 0.7565 | Precision: 0.4439
+HybridMamba               TS: 0.3022 | Acc: 0.6332 | F1: 0.4642 | Recall: 0.5913 | Precision: 0.3820
+MultiPathwayHybrid        TS: 0.3767 | Acc: 0.6752 | F1: 0.5472 | Recall: 0.7304 | Precision: 0.4375
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3640 | Acc: 0.6449 | F1: 0.5337 | Recall: 0.7565 | Precision: 0.4123
+
+============================================================
+SUMMARY (Seed = 67)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5636 | Acc: 0.8497 | F1: 0.7209
+MultiPathwayHybrid        TS: 0.5359 | Acc: 0.8320 | F1: 0.6979
+HGSMamba                  TS: 0.2302 | Acc: 0.2876 | F1: 0.3742
+HGSMamba2                 TS: 0.4946 | Acc: 0.8343 | F1: 0.6618
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3909 | Acc: 0.6869 | F1: 0.5621 | Recall: 0.7478 | Precision: 0.4503
+HybridMamba               TS: 0.3366 | Acc: 0.6869 | F1: 0.5037 | Recall: 0.5913 | Precision: 0.4387
+MultiPathwayHybrid        TS: 0.3281 | Acc: 0.6986 | F1: 0.4941 | Recall: 0.5478 | Precision: 0.4500
+HGSMamba                  TS: 0.2661 | Acc: 0.5748 | F1: 0.4204 | Recall: 0.5739 | Precision: 0.3317
+HGSMamba2                 TS: 0.3482 | Acc: 0.6238 | F1: 0.5165 | Recall: 0.7478 | Precision: 0.3945
+
+============================================================
+SUMMARY (Seed = 68)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4539 | Acc: 0.8249 | F1: 0.6244
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.3566 | Acc: 0.7929 | F1: 0.5257
+HGSMamba2                 TS: 0.4615 | Acc: 0.8426 | F1: 0.6316
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3846 | Acc: 0.6822 | F1: 0.5556 | Recall: 0.7391 | Precision: 0.4450
+HybridMamba               TS: 0.3204 | Acc: 0.6729 | F1: 0.4853 | Recall: 0.5739 | Precision: 0.4204
+MultiPathwayHybrid        TS: 0.3857 | Acc: 0.6799 | F1: 0.5566 | Recall: 0.7478 | Precision: 0.4433
+HGSMamba                  TS: 0.1337 | Acc: 0.6215 | F1: 0.2358 | Recall: 0.2174 | Precision: 0.2577
+HGSMamba2                 TS: 0.2661 | Acc: 0.5748 | F1: 0.4204 | Recall: 0.5739 | Precision: 0.3317
+
+============================================================
+SUMMARY (Seed = 69)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5786 | Acc: 0.8604 | F1: 0.7330
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.5159 | Acc: 0.8556 | F1: 0.6806
+HGSMamba2                 TS: 0.4778 | Acc: 0.8189 | F1: 0.6467
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3790 | Acc: 0.6822 | F1: 0.5497 | Recall: 0.7217 | Precision: 0.4439
+HybridMamba               TS: 0.3906 | Acc: 0.6682 | F1: 0.5617 | Recall: 0.7913 | Precision: 0.4354
+MultiPathwayHybrid        TS: 0.3462 | Acc: 0.6822 | F1: 0.5143 | Recall: 0.6261 | Precision: 0.4364
+HGSMamba                  TS: 0.3839 | Acc: 0.6776 | F1: 0.5548 | Recall: 0.7478 | Precision: 0.4410
+HGSMamba2                 TS: 0.3285 | Acc: 0.5654 | F1: 0.4946 | Recall: 0.7913 | Precision: 0.3597
+
+============================================================
+SUMMARY (Seed = 70)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4729 | Acc: 0.7811 | F1: 0.6422
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2254 | Acc: 0.2923 | F1: 0.3679
+HGSMamba2                 TS: 0.5019 | Acc: 0.8414 | F1: 0.6683
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3728 | Acc: 0.6659 | F1: 0.5431 | Recall: 0.7391 | Precision: 0.4293
+HybridMamba               TS: 0.3504 | Acc: 0.6145 | F1: 0.5190 | Recall: 0.7739 | Precision: 0.3904
+MultiPathwayHybrid        TS: 0.3410 | Acc: 0.6659 | F1: 0.5086 | Recall: 0.6435 | Precision: 0.4205
+HGSMamba                  TS: 0.2581 | Acc: 0.5164 | F1: 0.4103 | Recall: 0.6261 | Precision: 0.3051
+HGSMamba2                 TS: 0.3454 | Acc: 0.6192 | F1: 0.5134 | Recall: 0.7478 | Precision: 0.3909
+
+============================================================
+SUMMARY (Seed = 71)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5791 | Acc: 0.8615 | F1: 0.7335
+MultiPathwayHybrid        TS: 0.4803 | Acc: 0.8438 | F1: 0.6489
+HGSMamba                  TS: 0.4855 | Acc: 0.8533 | F1: 0.6536
+HGSMamba2                 TS: 0.4536 | Acc: 0.7633 | F1: 0.6241
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4028 | Acc: 0.7056 | F1: 0.5743 | Recall: 0.7391 | Precision: 0.4696
+HybridMamba               TS: 0.3491 | Acc: 0.6472 | F1: 0.5176 | Recall: 0.7043 | Precision: 0.4091
+MultiPathwayHybrid        TS: 0.3265 | Acc: 0.6916 | F1: 0.4923 | Recall: 0.5565 | Precision: 0.4414
+HGSMamba                  TS: 0.3604 | Acc: 0.6682 | F1: 0.5298 | Recall: 0.6957 | Precision: 0.4278
+HGSMamba2                 TS: 0.2938 | Acc: 0.4439 | F1: 0.4541 | Recall: 0.8609 | Precision: 0.3084
+
+============================================================
+SUMMARY (Seed = 72)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4829 | Acc: 0.7858 | F1: 0.6513
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5096 | Acc: 0.8189 | F1: 0.6752
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3812 | Acc: 0.6776 | F1: 0.5519 | Recall: 0.7391 | Precision: 0.4404
+HybridMamba               TS: 0.3713 | Acc: 0.6519 | F1: 0.5415 | Recall: 0.7652 | Precision: 0.4190
+MultiPathwayHybrid        TS: 0.3828 | Acc: 0.6986 | F1: 0.5536 | Recall: 0.6957 | Precision: 0.4598
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3308 | Acc: 0.5841 | F1: 0.4972 | Recall: 0.7652 | Precision: 0.3682
+
+============================================================
+SUMMARY (Seed = 73)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4813 | Acc: 0.7870 | F1: 0.6498
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.4772 | Acc: 0.8509 | F1: 0.6461
+HGSMamba2                 TS: 0.4888 | Acc: 0.8379 | F1: 0.6566
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3901 | Acc: 0.6822 | F1: 0.5613 | Recall: 0.7565 | Precision: 0.4462
+HybridMamba               TS: 0.3288 | Acc: 0.6519 | F1: 0.4949 | Recall: 0.6348 | Precision: 0.4056
+MultiPathwayHybrid        TS: 0.3264 | Acc: 0.6963 | F1: 0.4922 | Recall: 0.5478 | Precision: 0.4468
+HGSMamba                  TS: 0.3593 | Acc: 0.6542 | F1: 0.5287 | Recall: 0.7217 | Precision: 0.4171
+HGSMamba2                 TS: 0.3636 | Acc: 0.6565 | F1: 0.5333 | Recall: 0.7304 | Precision: 0.4200
+
+============================================================
+SUMMARY (Seed = 74)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5567 | Acc: 0.8521 | F1: 0.7153
+MultiPathwayHybrid        TS: 0.5097 | Acc: 0.8497 | F1: 0.6752
+HGSMamba                  TS: 0.5184 | Acc: 0.8604 | F1: 0.6828
+HGSMamba2                 TS: 0.5285 | Acc: 0.8533 | F1: 0.6915
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3874 | Acc: 0.6822 | F1: 0.5584 | Recall: 0.7478 | Precision: 0.4456
+HybridMamba               TS: 0.3435 | Acc: 0.6472 | F1: 0.5113 | Recall: 0.6870 | Precision: 0.4072
+MultiPathwayHybrid        TS: 0.3684 | Acc: 0.6355 | F1: 0.5385 | Recall: 0.7913 | Precision: 0.4081
+HGSMamba                  TS: 0.3349 | Acc: 0.6706 | F1: 0.5018 | Recall: 0.6174 | Precision: 0.4226
+HGSMamba2                 TS: 0.3728 | Acc: 0.6659 | F1: 0.5431 | Recall: 0.7391 | Precision: 0.4293
+
+============================================================
+SUMMARY (Seed = 75)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4957 | Acc: 0.7929 | F1: 0.6628
+MultiPathwayHybrid        TS: 0.4868 | Acc: 0.8166 | F1: 0.6548
+HGSMamba                  TS: 0.4378 | Acc: 0.8450 | F1: 0.6090
+HGSMamba2                 TS: 0.5097 | Acc: 0.8509 | F1: 0.6753
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3956 | Acc: 0.6822 | F1: 0.5669 | Recall: 0.7739 | Precision: 0.4472
+HybridMamba               TS: 0.3551 | Acc: 0.6308 | F1: 0.5241 | Recall: 0.7565 | Precision: 0.4009
+MultiPathwayHybrid        TS: 0.3421 | Acc: 0.6495 | F1: 0.5098 | Recall: 0.6783 | Precision: 0.4084
+HGSMamba                  TS: 0.3333 | Acc: 0.6682 | F1: 0.5000 | Recall: 0.6174 | Precision: 0.4201
+HGSMamba2                 TS: 0.3586 | Acc: 0.6238 | F1: 0.5279 | Recall: 0.7826 | Precision: 0.3982
+
+============================================================
+SUMMARY (Seed = 76)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5833 | Acc: 0.8698 | F1: 0.7368
+MultiPathwayHybrid        TS: 0.5500 | Acc: 0.8722 | F1: 0.7097
+HGSMamba                  TS: 0.5138 | Acc: 0.8544 | F1: 0.6789
+HGSMamba2                 TS: 0.5157 | Acc: 0.8544 | F1: 0.6805
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3829 | Acc: 0.6799 | F1: 0.5537 | Recall: 0.7391 | Precision: 0.4427
+HybridMamba               TS: 0.3568 | Acc: 0.6799 | F1: 0.5260 | Recall: 0.6609 | Precision: 0.4368
+MultiPathwayHybrid        TS: 0.3944 | Acc: 0.6986 | F1: 0.5657 | Recall: 0.7304 | Precision: 0.4615
+HGSMamba                  TS: 0.3568 | Acc: 0.6589 | F1: 0.5260 | Recall: 0.7043 | Precision: 0.4197
+HGSMamba2                 TS: 0.3682 | Acc: 0.6472 | F1: 0.5382 | Recall: 0.7652 | Precision: 0.4151
+
+============================================================
+SUMMARY (Seed = 77)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5524 | Acc: 0.8485 | F1: 0.7117
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5119 | Acc: 0.8544 | F1: 0.6772
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3945 | Acc: 0.6916 | F1: 0.5658 | Recall: 0.7478 | Precision: 0.4550
+HybridMamba               TS: 0.3761 | Acc: 0.6589 | F1: 0.5466 | Recall: 0.7652 | Precision: 0.4251
+MultiPathwayHybrid        TS: 0.3857 | Acc: 0.6799 | F1: 0.5566 | Recall: 0.7478 | Precision: 0.4433
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3491 | Acc: 0.6472 | F1: 0.5176 | Recall: 0.7043 | Precision: 0.4091
+
+============================================================
+SUMMARY (Seed = 78)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5500 | Acc: 0.8509 | F1: 0.7097
+MultiPathwayHybrid        TS: 0.4981 | Acc: 0.8426 | F1: 0.6650
+HGSMamba                  TS: 0.3585 | Acc: 0.8391 | F1: 0.5278
+HGSMamba2                 TS: 0.5000 | Acc: 0.8604 | F1: 0.6667
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3904 | Acc: 0.6752 | F1: 0.5615 | Recall: 0.7739 | Precision: 0.4406
+HybridMamba               TS: 0.3580 | Acc: 0.6355 | F1: 0.5273 | Recall: 0.7565 | Precision: 0.4047
+MultiPathwayHybrid        TS: 0.3456 | Acc: 0.6682 | F1: 0.5137 | Recall: 0.6522 | Precision: 0.4237
+HGSMamba                  TS: 0.1479 | Acc: 0.6636 | F1: 0.2577 | Recall: 0.2174 | Precision: 0.3165
+HGSMamba2                 TS: 0.2905 | Acc: 0.6005 | F1: 0.4502 | Recall: 0.6087 | Precision: 0.3571
+
+============================================================
+SUMMARY (Seed = 79)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5540 | Acc: 0.8485 | F1: 0.7130
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4943 | Acc: 0.8414 | F1: 0.6616
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3884 | Acc: 0.6799 | F1: 0.5595 | Recall: 0.7565 | Precision: 0.4439
+HybridMamba               TS: 0.3652 | Acc: 0.6589 | F1: 0.5350 | Recall: 0.7304 | Precision: 0.4221
+MultiPathwayHybrid        TS: 0.3722 | Acc: 0.6729 | F1: 0.5425 | Recall: 0.7217 | Precision: 0.4346
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3398 | Acc: 0.6005 | F1: 0.5072 | Recall: 0.7652 | Precision: 0.3793
+
+============================================================
+SUMMARY (Seed = 80)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4732 | Acc: 0.7787 | F1: 0.6424
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5214 | Acc: 0.8544 | F1: 0.6854
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3881 | Acc: 0.6869 | F1: 0.5592 | Recall: 0.7391 | Precision: 0.4497
+HybridMamba               TS: 0.3358 | Acc: 0.5888 | F1: 0.5028 | Recall: 0.7739 | Precision: 0.3724
+MultiPathwayHybrid        TS: 0.3260 | Acc: 0.6425 | F1: 0.4917 | Recall: 0.6435 | Precision: 0.3978
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3602 | Acc: 0.6472 | F1: 0.5296 | Recall: 0.7391 | Precision: 0.4126
+
+============================================================
+SUMMARY (Seed = 81)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5739 | Acc: 0.8568 | F1: 0.7293
+MultiPathwayHybrid        TS: 0.5366 | Acc: 0.8651 | F1: 0.6984
+HGSMamba                  TS: 0.4498 | Acc: 0.8509 | F1: 0.6205
+HGSMamba2                 TS: 0.4704 | Acc: 0.8414 | F1: 0.6398
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3829 | Acc: 0.6799 | F1: 0.5537 | Recall: 0.7391 | Precision: 0.4427
+HybridMamba               TS: 0.3717 | Acc: 0.6682 | F1: 0.5419 | Recall: 0.7304 | Precision: 0.4308
+MultiPathwayHybrid        TS: 0.3467 | Acc: 0.6963 | F1: 0.5149 | Recall: 0.6000 | Precision: 0.4510
+HGSMamba                  TS: 0.3212 | Acc: 0.6939 | F1: 0.4863 | Recall: 0.5391 | Precision: 0.4429
+HGSMamba2                 TS: 0.3532 | Acc: 0.6449 | F1: 0.5220 | Recall: 0.7217 | Precision: 0.4089
+
+============================================================
+SUMMARY (Seed = 82)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4611 | Acc: 0.7621 | F1: 0.6312
+MultiPathwayHybrid        TS: 0.5164 | Acc: 0.8426 | F1: 0.6811
+HGSMamba                  TS: 0.5296 | Acc: 0.8592 | F1: 0.6925
+HGSMamba2                 TS: 0.5259 | Acc: 0.8592 | F1: 0.6893
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3778 | Acc: 0.6729 | F1: 0.5484 | Recall: 0.7391 | Precision: 0.4359
+HybridMamba               TS: 0.3272 | Acc: 0.5724 | F1: 0.4931 | Recall: 0.7739 | Precision: 0.3618
+MultiPathwayHybrid        TS: 0.3655 | Acc: 0.6308 | F1: 0.5353 | Recall: 0.7913 | Precision: 0.4044
+HGSMamba                  TS: 0.3772 | Acc: 0.6682 | F1: 0.5478 | Recall: 0.7478 | Precision: 0.4322
+HGSMamba2                 TS: 0.3545 | Acc: 0.6682 | F1: 0.5235 | Recall: 0.6783 | Precision: 0.4262
+
+============================================================
+SUMMARY (Seed = 83)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5464 | Acc: 0.8438 | F1: 0.7067
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.4696 | Acc: 0.8450 | F1: 0.6391
+HGSMamba2                 TS: 0.5163 | Acc: 0.8249 | F1: 0.6810
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3825 | Acc: 0.6869 | F1: 0.5533 | Recall: 0.7217 | Precision: 0.4486
+HybridMamba               TS: 0.3710 | Acc: 0.6752 | F1: 0.5413 | Recall: 0.7130 | Precision: 0.4362
+MultiPathwayHybrid        TS: 0.3177 | Acc: 0.6939 | F1: 0.4822 | Recall: 0.5304 | Precision: 0.4420
+HGSMamba                  TS: 0.3568 | Acc: 0.6379 | F1: 0.5260 | Recall: 0.7478 | Precision: 0.4057
+HGSMamba2                 TS: 0.3398 | Acc: 0.6005 | F1: 0.5072 | Recall: 0.7652 | Precision: 0.3793
+
+============================================================
+SUMMARY (Seed = 84)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5806 | Acc: 0.8615 | F1: 0.7347
+MultiPathwayHybrid        TS: 0.5500 | Acc: 0.8722 | F1: 0.7097
+HGSMamba                  TS: 0.2335 | Acc: 0.2970 | F1: 0.3787
+HGSMamba2                 TS: 0.4826 | Acc: 0.8059 | F1: 0.6511
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4000 | Acc: 0.6846 | F1: 0.5714 | Recall: 0.7826 | Precision: 0.4500
+HybridMamba               TS: 0.3839 | Acc: 0.6776 | F1: 0.5548 | Recall: 0.7478 | Precision: 0.4410
+MultiPathwayHybrid        TS: 0.3561 | Acc: 0.6916 | F1: 0.5252 | Recall: 0.6348 | Precision: 0.4479
+HGSMamba                  TS: 0.2772 | Acc: 0.5187 | F1: 0.4341 | Recall: 0.6870 | Precision: 0.3173
+HGSMamba2                 TS: 0.3347 | Acc: 0.6098 | F1: 0.5015 | Recall: 0.7304 | Precision: 0.3818
+
+============================================================
+SUMMARY (Seed = 85)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5918 | Acc: 0.8710 | F1: 0.7435
+MultiPathwayHybrid        TS: 0.5177 | Acc: 0.8391 | F1: 0.6822
+HGSMamba                  TS: 0.4959 | Acc: 0.8556 | F1: 0.6630
+HGSMamba2                 TS: 0.4962 | Acc: 0.8438 | F1: 0.6633
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3889 | Acc: 0.6916 | F1: 0.5600 | Recall: 0.7304 | Precision: 0.4541
+HybridMamba               TS: 0.3375 | Acc: 0.6285 | F1: 0.5047 | Recall: 0.7043 | Precision: 0.3932
+MultiPathwayHybrid        TS: 0.2540 | Acc: 0.6706 | F1: 0.4051 | Recall: 0.4174 | Precision: 0.3934
+HGSMamba                  TS: 0.3697 | Acc: 0.6893 | F1: 0.5398 | Recall: 0.6783 | Precision: 0.4483
+HGSMamba2                 TS: 0.3684 | Acc: 0.6636 | F1: 0.5385 | Recall: 0.7304 | Precision: 0.4264
+
+============================================================
+SUMMARY (Seed = 86)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5714 | Acc: 0.8580 | F1: 0.7273
+MultiPathwayHybrid        TS: 0.5141 | Acc: 0.8568 | F1: 0.6790
+HGSMamba                  TS: 0.4213 | Acc: 0.8391 | F1: 0.5928
+HGSMamba2                 TS: 0.5116 | Acc: 0.8260 | F1: 0.6769
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3860 | Acc: 0.6729 | F1: 0.5570 | Recall: 0.7652 | Precision: 0.4378
+HybridMamba               TS: 0.3398 | Acc: 0.6822 | F1: 0.5072 | Recall: 0.6087 | Precision: 0.4348
+MultiPathwayHybrid        TS: 0.3448 | Acc: 0.6893 | F1: 0.5128 | Recall: 0.6087 | Precision: 0.4430
+HGSMamba                  TS: 0.3518 | Acc: 0.6986 | F1: 0.5204 | Recall: 0.6087 | Precision: 0.4545
+HGSMamba2                 TS: 0.3425 | Acc: 0.6098 | F1: 0.5103 | Recall: 0.7565 | Precision: 0.3850
+
+============================================================
+SUMMARY (Seed = 87)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4741 | Acc: 0.7834 | F1: 0.6433
+MultiPathwayHybrid        TS: 0.5500 | Acc: 0.8722 | F1: 0.7097
+HGSMamba                  TS: 0.2155 | Acc: 0.2201 | F1: 0.3546
+HGSMamba2                 TS: 0.4829 | Acc: 0.8213 | F1: 0.6513
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3784 | Acc: 0.6776 | F1: 0.5490 | Recall: 0.7304 | Precision: 0.4398
+HybridMamba               TS: 0.3466 | Acc: 0.5771 | F1: 0.5147 | Recall: 0.8348 | Precision: 0.3721
+MultiPathwayHybrid        TS: 0.3434 | Acc: 0.6963 | F1: 0.5113 | Recall: 0.5913 | Precision: 0.4503
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3284 | Acc: 0.5748 | F1: 0.4944 | Recall: 0.7739 | Precision: 0.3633
+
+============================================================
+SUMMARY (Seed = 88)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5719 | Acc: 0.8592 | F1: 0.7277
+MultiPathwayHybrid        TS: 0.5523 | Acc: 0.8734 | F1: 0.7116
+HGSMamba                  TS: 0.2296 | Acc: 0.2970 | F1: 0.3734
+HGSMamba2                 TS: 0.5250 | Acc: 0.8651 | F1: 0.6885
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3660 | Acc: 0.6519 | F1: 0.5358 | Recall: 0.7478 | Precision: 0.4175
+HybridMamba               TS: 0.3534 | Acc: 0.6495 | F1: 0.5223 | Recall: 0.7130 | Precision: 0.4121
+MultiPathwayHybrid        TS: 0.3518 | Acc: 0.6986 | F1: 0.5204 | Recall: 0.6087 | Precision: 0.4545
+HGSMamba                  TS: 0.2741 | Acc: 0.5421 | F1: 0.4302 | Recall: 0.6435 | Precision: 0.3231
+HGSMamba2                 TS: 0.2876 | Acc: 0.6121 | F1: 0.4467 | Recall: 0.5826 | Precision: 0.3622
+
+============================================================
+SUMMARY (Seed = 89)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5699 | Acc: 0.8580 | F1: 0.7260
+MultiPathwayHybrid        TS: 0.5116 | Acc: 0.8509 | F1: 0.6769
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.4826 | Acc: 0.8592 | F1: 0.6510
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4054 | Acc: 0.6916 | F1: 0.5769 | Recall: 0.7826 | Precision: 0.4569
+HybridMamba               TS: 0.3290 | Acc: 0.6379 | F1: 0.4951 | Recall: 0.6609 | Precision: 0.3958
+MultiPathwayHybrid        TS: 0.3287 | Acc: 0.6612 | F1: 0.4948 | Recall: 0.6174 | Precision: 0.4128
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3515 | Acc: 0.6379 | F1: 0.5201 | Recall: 0.7304 | Precision: 0.4038
+
+============================================================
+SUMMARY (Seed = 90)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5654 | Acc: 0.8544 | F1: 0.7223
+MultiPathwayHybrid        TS: 0.5156 | Acc: 0.8533 | F1: 0.6804
+HGSMamba                  TS: 0.4100 | Acc: 0.8331 | F1: 0.5816
+HGSMamba2                 TS: 0.4267 | Acc: 0.7964 | F1: 0.5981
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3860 | Acc: 0.6729 | F1: 0.5570 | Recall: 0.7652 | Precision: 0.4378
+HybridMamba               TS: 0.3697 | Acc: 0.6495 | F1: 0.5399 | Recall: 0.7652 | Precision: 0.4171
+MultiPathwayHybrid        TS: 0.3362 | Acc: 0.6449 | F1: 0.5033 | Recall: 0.6696 | Precision: 0.4031
+HGSMamba                  TS: 0.1828 | Acc: 0.6449 | F1: 0.3091 | Recall: 0.2957 | Precision: 0.3238
+HGSMamba2                 TS: 0.3128 | Acc: 0.6098 | F1: 0.4765 | Recall: 0.6609 | Precision: 0.3725
+
+============================================================
+SUMMARY (Seed = 91)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4778 | Acc: 0.7775 | F1: 0.6466
+MultiPathwayHybrid        TS: 0.4959 | Acc: 0.8544 | F1: 0.6630
+HGSMamba                  TS: 0.5223 | Acc: 0.8604 | F1: 0.6862
+HGSMamba2                 TS: 0.4735 | Acc: 0.8592 | F1: 0.6426
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3884 | Acc: 0.6799 | F1: 0.5595 | Recall: 0.7565 | Precision: 0.4439
+HybridMamba               TS: 0.3136 | Acc: 0.6215 | F1: 0.4774 | Recall: 0.6435 | Precision: 0.3795
+MultiPathwayHybrid        TS: 0.2789 | Acc: 0.6799 | F1: 0.4362 | Recall: 0.4609 | Precision: 0.4141
+HGSMamba                  TS: 0.3095 | Acc: 0.6612 | F1: 0.4727 | Recall: 0.5652 | Precision: 0.4062
+HGSMamba2                 TS: 0.3145 | Acc: 0.6028 | F1: 0.4785 | Recall: 0.6783 | Precision: 0.3697
+
+============================================================
+SUMMARY (Seed = 92)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5512 | Acc: 0.8497 | F1: 0.7107
+MultiPathwayHybrid        TS: 0.5176 | Acc: 0.8544 | F1: 0.6822
+HGSMamba                  TS: 0.5195 | Acc: 0.8544 | F1: 0.6838
+HGSMamba2                 TS: 0.4553 | Acc: 0.8343 | F1: 0.6257
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.4037 | Acc: 0.6963 | F1: 0.5752 | Recall: 0.7652 | Precision: 0.4607
+HybridMamba               TS: 0.3678 | Acc: 0.6425 | F1: 0.5378 | Recall: 0.7739 | Precision: 0.4120
+MultiPathwayHybrid        TS: 0.3394 | Acc: 0.6636 | F1: 0.5068 | Recall: 0.6435 | Precision: 0.4181
+HGSMamba                  TS: 0.3664 | Acc: 0.6565 | F1: 0.5363 | Recall: 0.7391 | Precision: 0.4208
+HGSMamba2                 TS: 0.3577 | Acc: 0.6308 | F1: 0.5269 | Recall: 0.7652 | Precision: 0.4018
+
+============================================================
+SUMMARY (Seed = 93)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5664 | Acc: 0.8533 | F1: 0.7232
+MultiPathwayHybrid        TS: 0.5146 | Acc: 0.8627 | F1: 0.6796
+HGSMamba                  TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+HGSMamba2                 TS: 0.5468 | Acc: 0.8568 | F1: 0.7070
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3860 | Acc: 0.6729 | F1: 0.5570 | Recall: 0.7652 | Precision: 0.4378
+HybridMamba               TS: 0.3084 | Acc: 0.6542 | F1: 0.4714 | Recall: 0.5739 | Precision: 0.4000
+MultiPathwayHybrid        TS: 0.3216 | Acc: 0.6846 | F1: 0.4867 | Recall: 0.5565 | Precision: 0.4324
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3605 | Acc: 0.6519 | F1: 0.5300 | Recall: 0.7304 | Precision: 0.4158
+
+============================================================
+SUMMARY (Seed = 94)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5812 | Acc: 0.8627 | F1: 0.7352
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.4836 | Acc: 0.8509 | F1: 0.6519
+HGSMamba2                 TS: 0.5068 | Acc: 0.8296 | F1: 0.6727
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3673 | Acc: 0.6659 | F1: 0.5372 | Recall: 0.7217 | Precision: 0.4278
+HybridMamba               TS: 0.3678 | Acc: 0.6425 | F1: 0.5378 | Recall: 0.7739 | Precision: 0.4120
+MultiPathwayHybrid        TS: 0.3590 | Acc: 0.6495 | F1: 0.5283 | Recall: 0.7304 | Precision: 0.4138
+HGSMamba                  TS: 0.3982 | Acc: 0.6822 | F1: 0.5696 | Recall: 0.7826 | Precision: 0.4478
+HGSMamba2                 TS: 0.3425 | Acc: 0.6098 | F1: 0.5103 | Recall: 0.7565 | Precision: 0.3850
+
+============================================================
+SUMMARY (Seed = 95)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4538 | Acc: 0.7621 | F1: 0.6243
+MultiPathwayHybrid        TS: 0.5976 | Acc: 0.8805 | F1: 0.7481
+HGSMamba                  TS: 0.5184 | Acc: 0.8604 | F1: 0.6828
+HGSMamba2                 TS: 0.4811 | Acc: 0.8379 | F1: 0.6496
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3881 | Acc: 0.6869 | F1: 0.5592 | Recall: 0.7391 | Precision: 0.4497
+HybridMamba               TS: 0.3371 | Acc: 0.5911 | F1: 0.5042 | Recall: 0.7739 | Precision: 0.3739
+MultiPathwayHybrid        TS: 0.3299 | Acc: 0.6916 | F1: 0.4962 | Recall: 0.5652 | Precision: 0.4422
+HGSMamba                  TS: 0.3095 | Acc: 0.6612 | F1: 0.4727 | Recall: 0.5652 | Precision: 0.4062
+HGSMamba2                 TS: 0.3756 | Acc: 0.6776 | F1: 0.5461 | Recall: 0.7217 | Precision: 0.4392
+
+============================================================
+SUMMARY (Seed = 96)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.4622 | Acc: 0.7728 | F1: 0.6322
+MultiPathwayHybrid        TS: 0.5280 | Acc: 0.8604 | F1: 0.6911
+HGSMamba                  TS: 0.4628 | Acc: 0.8462 | F1: 0.6328
+HGSMamba2                 TS: 0.2178 | Acc: 0.2308 | F1: 0.3577
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3795 | Acc: 0.6752 | F1: 0.5502 | Recall: 0.7391 | Precision: 0.4381
+HybridMamba               TS: 0.3426 | Acc: 0.6145 | F1: 0.5104 | Recall: 0.7478 | Precision: 0.3874
+MultiPathwayHybrid        TS: 0.3805 | Acc: 0.7033 | F1: 0.5512 | Recall: 0.6783 | Precision: 0.4643
+HGSMamba                  TS: 0.3318 | Acc: 0.6612 | F1: 0.4983 | Recall: 0.6261 | Precision: 0.4138
+HGSMamba2                 TS: 0.2447 | Acc: 0.2500 | F1: 0.3932 | Recall: 0.9043 | Precision: 0.2512
+
+============================================================
+SUMMARY (Seed = 97)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5719 | Acc: 0.8592 | F1: 0.7277
+MultiPathwayHybrid        TS: 0.5203 | Acc: 0.8604 | F1: 0.6845
+HGSMamba                  TS: 0.2162 | Acc: 0.2237 | F1: 0.3556
+HGSMamba2                 TS: 0.4920 | Acc: 0.8118 | F1: 0.6595
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3901 | Acc: 0.6822 | F1: 0.5613 | Recall: 0.7565 | Precision: 0.4462
+HybridMamba               TS: 0.3864 | Acc: 0.6846 | F1: 0.5574 | Recall: 0.7391 | Precision: 0.4474
+MultiPathwayHybrid        TS: 0.3426 | Acc: 0.6682 | F1: 0.5103 | Recall: 0.6435 | Precision: 0.4229
+HGSMamba                  TS: 0.2687 | Acc: 0.2687 | F1: 0.4236 | Recall: 1.0000 | Precision: 0.2687
+HGSMamba2                 TS: 0.3450 | Acc: 0.6051 | F1: 0.5130 | Recall: 0.7739 | Precision: 0.3836
+
+============================================================
+SUMMARY (Seed = 98)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5599 | Acc: 0.8521 | F1: 0.7178
+MultiPathwayHybrid        TS: 0.4925 | Acc: 0.8391 | F1: 0.6600
+HGSMamba                  TS: 0.4885 | Acc: 0.8426 | F1: 0.6563
+HGSMamba2                 TS: 0.4713 | Acc: 0.7929 | F1: 0.6407
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3829 | Acc: 0.6799 | F1: 0.5537 | Recall: 0.7391 | Precision: 0.4427
+HybridMamba               TS: 0.3463 | Acc: 0.6472 | F1: 0.5145 | Recall: 0.6957 | Precision: 0.4082
+MultiPathwayHybrid        TS: 0.3585 | Acc: 0.6822 | F1: 0.5278 | Recall: 0.6609 | Precision: 0.4393
+HGSMamba                  TS: 0.3483 | Acc: 0.6939 | F1: 0.5166 | Recall: 0.6087 | Precision: 0.4487
+HGSMamba2                 TS: 0.3333 | Acc: 0.5421 | F1: 0.5000 | Recall: 0.8522 | Precision: 0.3538
+
+============================================================
+SUMMARY (Seed = 99)
+============================================================
+Train set
+Staley                    TS: 0.4163 | Acc: 0.8556 | F1: 0.5878
+RandomForest              TS: 1.0000 | Acc: 1.0000 | F1: 1.0000
+HybridMamba               TS: 0.5623 | Acc: 0.8544 | F1: 0.7198
+MultiPathwayHybrid        TS: 0.5238 | Acc: 0.8580 | F1: 0.6875
+HGSMamba                  TS: 0.5159 | Acc: 0.8556 | F1: 0.6806
+HGSMamba2                 TS: 0.4960 | Acc: 0.8497 | F1: 0.6631
+============================================================
+Test set
+Staley                    TS: 0.3815 | Acc: 0.6402 | F1: 0.5523 | Recall: 0.8261 | Precision: 0.4148
+RandomForest              TS: 0.3884 | Acc: 0.6799 | F1: 0.5595 | Recall: 0.7565 | Precision: 0.4439
+HybridMamba               TS: 0.3750 | Acc: 0.6612 | F1: 0.5455 | Recall: 0.7565 | Precision: 0.4265
+MultiPathwayHybrid        TS: 0.3805 | Acc: 0.6729 | F1: 0.5513 | Recall: 0.7478 | Precision: 0.4365
+HGSMamba                  TS: 0.3224 | Acc: 0.6612 | F1: 0.4876 | Recall: 0.6000 | Precision: 0.4107
+HGSMamba2                 TS: 0.3577 | Acc: 0.6308 | F1: 0.5269 | Recall: 0.7652 | Precision: 0.4018
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed:  0
+  Best TS:    0.3815
+  Best Worst: 0.3815
+  Metrics:    {'name': 'Staley', 'ts': np.float64(0.3815261044176707), 'accuracy': 0.6401869158878505, 'precision': 0.4148471615720524, 'recall': 0.8260869565217391, 'f1': 0.5523255813953488, 'threshold': 0.5}
+
+Model: RandomForest
+  Best Seed:  15
+  Best TS:    0.4123
+  Best Worst: 0.3660
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.41232227488151657), 'accuracy': 0.7102803738317757, 'precision': 0.47540983606557374, 'recall': 0.7565217391304347, 'f1': 0.5838926174496645, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed:  54
+  Best TS:    0.3921
+  Best Worst: 0.1000
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.3920704845814978), 'accuracy': 0.677570093457944, 'precision': 0.4427860696517413, 'recall': 0.7739130434782608, 'f1': 0.5632911392405063, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed:  44
+  Best TS:    0.4163
+  Best Worst: 0.2540
+  Metrics:    {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.41626794258373206), 'accuracy': 0.7149532710280374, 'precision': 0.48066298342541436, 'recall': 0.7565217391304347, 'f1': 0.5878378378378378, 'threshold': 0.5}
+
+Model: HGSMamba
+  Best Seed:  94
+  Best TS:    0.3982
+  Best Worst: 0.0608
+  Metrics:    {'name': 'HGSMamba', 'ts': np.float64(0.39823008849557523), 'accuracy': 0.6822429906542056, 'precision': 0.44776119402985076, 'recall': 0.782608695652174, 'f1': 0.569620253164557, 'threshold': 0.5}
+
+Model: HGSMamba2
+  Best Seed:  95
+  Best TS:    0.3756
+  Best Worst: 0.2227
+  Metrics:    {'name': 'HGSMamba2', 'ts': np.float64(0.3755656108597285), 'accuracy': 0.677570093457944, 'precision': 0.43915343915343913, 'recall': 0.7217391304347827, 'f1': 0.5460526315789473, 'threshold': 0.5}

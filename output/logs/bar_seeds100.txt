@@ -1,0 +1,1380 @@
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 51, 83, 68, 42]
+Features Count: 12
+['Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'Fire_ID', 'Fire_SegID', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'GaugeDist_m', 'StormDur_H']
+
+========================= BEST SEEDS =========================
+
+Model: MultiPathwayHybrid_LearnedImportance
+  Best Seed: 42
+  Best TS:   0.3265
+  Metrics:   {'name': 'MultiPathwayHybrid_LearnedImportance', 'ts': np.float64(0.32653061224489793), 'accuracy': 0.6915887850467289, 'precision': 0.4413793103448276, 'recall': 0.5565217391304348, 'f1': 0.49230769230769234, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 12
+['Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'Fire_ID', 'Fire_SegID', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'GaugeDist_m', 'StormDur_H']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 12
+['Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'Fire_ID', 'Fire_SegID', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'GaugeDist_m', 'StormDur_H']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: MBGMamba
+  Best Seed: 0
+  Best TS:   0.0683
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.06832298136645963), 'accuracy': 0.6495327102803738, 'precision': 0.19298245614035087, 'recall': 0.09565217391304348, 'f1': 0.12790697674418605, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: MBGMamba
+  Best Seed: 0
+  Best TS:   0.0683
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.06832298136645963), 'accuracy': 0.6495327102803738, 'precision': 0.19298245614035087, 'recall': 0.09565217391304348, 'f1': 0.12790697674418605, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: MBGMamba
+  Best Seed: 1
+  Best TS:   0.2211
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.22108843537414966), 'accuracy': 0.4649532710280374, 'precision': 0.26639344262295084, 'recall': 0.5652173913043478, 'f1': 0.362116991643454, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: MBGMamba
+  Best Seed: 1
+  Best TS:   0.2211
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.22108843537414966), 'accuracy': 0.4649532710280374, 'precision': 0.26639344262295084, 'recall': 0.5652173913043478, 'f1': 0.362116991643454, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: Mamba
+  Best Seed: 0
+  Best TS:   0.2718
+  Metrics:   {'name': 'Mamba', 'ts': np.float64(0.27177700348432055), 'accuracy': 0.5116822429906542, 'precision': 0.312, 'recall': 0.6782608695652174, 'f1': 0.4273972602739726, 'threshold': 0.5}
+
+Model: MBGMamba
+  Best Seed: 1
+  Best TS:   0.2211
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.22108843537414966), 'accuracy': 0.4649532710280374, 'precision': 0.26639344262295084, 'recall': 0.5652173913043478, 'f1': 0.362116991643454, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: Mamba
+  Best Seed: 1
+  Best TS:   0.1869
+  Metrics:   {'name': 'Mamba', 'ts': np.float64(0.18685121107266436), 'accuracy': 0.45093457943925236, 'precision': 0.23684210526315788, 'recall': 0.46956521739130436, 'f1': 0.31486880466472306, 'threshold': 0.5}
+
+Model: MBGMamba
+  Best Seed: 1
+  Best TS:   0.2211
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.22108843537414966), 'accuracy': 0.4649532710280374, 'precision': 0.26639344262295084, 'recall': 0.5652173913043478, 'f1': 0.362116991643454, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: Mamba
+  Best Seed: 1
+  Best TS:   0.1869
+  Metrics:   {'name': 'Mamba', 'ts': np.float64(0.18685121107266436), 'accuracy': 0.45093457943925236, 'precision': 0.23684210526315788, 'recall': 0.46956521739130436, 'f1': 0.31486880466472306, 'threshold': 0.5}
+
+Model: MBGMamba
+  Best Seed: 0
+  Best TS:   0.0683
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.06832298136645963), 'accuracy': 0.6495327102803738, 'precision': 0.19298245614035087, 'recall': 0.09565217391304348, 'f1': 0.12790697674418605, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: Mamba
+  Best Seed: 1
+  Best TS:   0.2613
+  Metrics:   {'name': 'Mamba', 'ts': np.float64(0.26126126126126126), 'accuracy': 0.4252336448598131, 'precision': 0.28524590163934427, 'recall': 0.7565217391304347, 'f1': 0.4142857142857143, 'threshold': 0.5}
+
+Model: MBGMamba
+  Best Seed: 0
+  Best TS:   0.2925
+  Metrics:   {'name': 'MBGMamba', 'ts': np.float64(0.2924901185770751), 'accuracy': 0.5817757009345794, 'precision': 0.3490566037735849, 'recall': 0.6434782608695652, 'f1': 0.4525993883792049, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 12
+['Fire_ID', 'Fire_SegID', 'PropHM23', 'ContributingArea_km2', 'dNBR/1000', 'KF', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'StormAvgI_mm/h', 'StormDur_H', 'GaugeDist_m']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed: 1
+  Best TS:   0.2687
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.26869158878504673), 'accuracy': 0.26869158878504673, 'precision': 0.26869158878504673, 'recall': 1.0, 'f1': 0.42357274401473294, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed: 1
+  Best TS:   0.2599
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.259946949602122), 'accuracy': 0.34813084112149534, 'precision': 0.2722222222222222, 'recall': 0.8521739130434782, 'f1': 0.4126315789473684, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed: 0
+  Best TS:   0.3210
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.32098765432098764), 'accuracy': 0.6144859813084113, 'precision': 0.3786407766990291, 'recall': 0.6782608695652174, 'f1': 0.48598130841121495, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed: 0
+  Best TS:   0.3862
+  Metrics:   {'name': 'Staley', 'ts': np.float64(0.3861788617886179), 'accuracy': 0.647196261682243, 'precision': 0.42035398230088494, 'recall': 0.8260869565217391, 'f1': 0.5571847507331378, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed: 0
+  Best TS:   0.3210
+  Metrics:   {'name': 'HybridMamba', 'ts': np.float64(0.32098765432098764), 'accuracy': 0.6144859813084113, 'precision': 0.3786407766990291, 'recall': 0.6782608695652174, 'f1': 0.48598130841121495, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: Staley
+  Best Seed: 0
+  Best TS:   0.3862
+  Metrics:   {'name': 'Staley', 'ts': np.float64(0.3861788617886179), 'accuracy': 0.647196261682243, 'precision': 0.42035398230088494, 'recall': 0.8260869565217391, 'f1': 0.5571847507331378, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid_LearnedImportance
+  Best Seed: 29
+  Best TS:   0.3650
+  Metrics:   {'name': 'MultiPathwayHybrid_LearnedImportance', 'ts': np.float64(0.365), 'accuracy': 0.7032710280373832, 'precision': 0.4620253164556962, 'recall': 0.6347826086956522, 'f1': 0.5347985347985348, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed: 0
+  Best TS:   0.3836
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.38362068965517243), 'accuracy': 0.6658878504672897, 'precision': 0.4320388349514563, 'recall': 0.7739130434782608, 'f1': 0.5545171339563862, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 0
+  Best TS:   0.3448
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3448275862068966), 'accuracy': 0.6892523364485982, 'precision': 0.4430379746835443, 'recall': 0.6086956521739131, 'f1': 0.5128205128205128, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed: 0
+  Best TS:   0.3836
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.38362068965517243), 'accuracy': 0.6658878504672897, 'precision': 0.4320388349514563, 'recall': 0.7739130434782608, 'f1': 0.5545171339563862, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 1
+  Best TS:   0.3614
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3614457831325301), 'accuracy': 0.6285046728971962, 'precision': 0.4017857142857143, 'recall': 0.782608695652174, 'f1': 0.5309734513274337, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 1]
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed: 0
+  Best TS:   0.3836
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.38362068965517243), 'accuracy': 0.6658878504672897, 'precision': 0.4320388349514563, 'recall': 0.7739130434782608, 'f1': 0.5545171339563862, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 0
+  Best TS:   0.3586
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.35856573705179284), 'accuracy': 0.6238317757009346, 'precision': 0.39823008849557523, 'recall': 0.782608695652174, 'f1': 0.5278592375366569, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed: 51
+  Best TS:   0.4085
+  Metrics:   {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed: 7
+  Best TS:   0.3803
+  Metrics:   {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3803418803418803), 'accuracy': 0.6612149532710281, 'precision': 0.42788461538461536, 'recall': 0.7739130434782608, 'f1': 0.5510835913312694, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  51
+  Best TS:    0.4085
+  Best Worst: 0.3571
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed:  10
+  Best TS:    0.3853
+  Best Worst: 0.2722
+  Metrics:    {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3852813852813853), 'accuracy': 0.6682242990654206, 'precision': 0.43414634146341463, 'recall': 0.7739130434782608, 'f1': 0.55625, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 10, 42, 51]
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  51
+  Best TS:    0.4085
+  Best Worst: 0.3717
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed:  10
+  Best TS:    0.3574
+  Best Worst: 0.3109
+  Metrics:    {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3574007220216607), 'accuracy': 0.5841121495327103, 'precision': 0.3793103448275862, 'recall': 0.8608695652173913, 'f1': 0.526595744680851, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 10, 42, 51]
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: [0, 10, 42, 51]
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  0
+  Best TS:    0.3446
+  Best Worst: 0.3042
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.3445692883895131), 'accuracy': 0.5911214953271028, 'precision': 0.3770491803278688, 'recall': 0.8, 'f1': 0.5125348189415042, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  84
+  Best TS:    0.3864
+  Best Worst: 0.2268
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.38636363636363635), 'accuracy': 0.6845794392523364, 'precision': 0.4473684210526316, 'recall': 0.7391304347826086, 'f1': 0.5573770491803278, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  30
+  Best TS:    0.3938
+  Best Worst: 0.2487
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.3938053097345133), 'accuracy': 0.6799065420560748, 'precision': 0.445, 'recall': 0.7739130434782608, 'f1': 0.5650793650793651, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  30
+  Best TS:    0.3956
+  Best Worst: 0.2438
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.39555555555555555), 'accuracy': 0.6822429906542056, 'precision': 0.4472361809045226, 'recall': 0.7739130434782608, 'f1': 0.5668789808917197, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 428, 428
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  77
+  Best TS:    0.3981
+  Best Worst: 0.2462
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.39814814814814814), 'accuracy': 0.6962616822429907, 'precision': 0.45989304812834225, 'recall': 0.7478260869565218, 'f1': 0.5695364238410596, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 428, 428
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  30
+  Best TS:    0.3973
+  Best Worst: 0.2487
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.39732142857142855), 'accuracy': 0.6845794392523364, 'precision': 0.4494949494949495, 'recall': 0.7739130434782608, 'f1': 0.5686900958466453, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 428, 428
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 428, 428
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 428, 428
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  42
+  Best TS:    0.3947
+  Best Worst: 0.2203
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.39473684210526316), 'accuracy': 0.677570093457944, 'precision': 0.4433497536945813, 'recall': 0.782608695652174, 'f1': 0.5660377358490566, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 0 samples
+Test set: 428 samples
+Input_data: 939, 939, 428, 428
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  77
+  Best TS:    0.3981
+  Best Worst: 0.2462
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.39814814814814814), 'accuracy': 0.6962616822429907, 'precision': 0.45989304812834225, 'recall': 0.7478260869565218, 'f1': 0.5695364238410596, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 0 samples
+Test set: 428 samples
+Input_data: 939, 939, 428, 428
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  68
+  Best TS:    0.3945
+  Best Worst: 0.2591
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.3944954128440367), 'accuracy': 0.6915887850467289, 'precision': 0.455026455026455, 'recall': 0.7478260869565218, 'f1': 0.5657894736842105, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 188 samples
+Test set: 428 samples
+Input_data: 939, 939, 188, 188
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  5
+  Best TS:    0.3837
+  Best Worst: 0.2035
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.3836734693877551), 'accuracy': 0.647196261682243, 'precision': 0.41964285714285715, 'recall': 0.8173913043478261, 'f1': 0.5545722713864307, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 47 samples
+Test set: 428 samples
+Input_data: 939, 939, 47, 47
+Seeds: range(0, 100)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  5
+  Best TS:    0.3856
+  Best Worst: 0.0959
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.3855932203389831), 'accuracy': 0.6612149532710281, 'precision': 0.42924528301886794, 'recall': 0.7913043478260869, 'f1': 0.5565749235474006, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  192
+  Best TS:    0.3810
+  Best Worst: 0.1534
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.38095238095238093), 'accuracy': 0.6658878504672897, 'precision': 0.43137254901960786, 'recall': 0.7652173913043478, 'f1': 0.5517241379310345, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  130
+  Best TS:    0.3716
+  Best Worst: 0.2086
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.37155963302752293), 'accuracy': 0.6799065420560748, 'precision': 0.44021739130434784, 'recall': 0.7043478260869566, 'f1': 0.5418060200668896, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  191
+  Best TS:    0.4009
+  Best Worst: 0.1592
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.4009009009009009), 'accuracy': 0.6892523364485982, 'precision': 0.45408163265306123, 'recall': 0.7739130434782608, 'f1': 0.572347266881029, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  147
+  Best TS:    0.4085
+  Best Worst: 0.3595
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed:  191
+  Best TS:    0.4009
+  Best Worst: 0.1592
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.4009009009009009), 'accuracy': 0.6892523364485982, 'precision': 0.45408163265306123, 'recall': 0.7739130434782608, 'f1': 0.572347266881029, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  147
+  Best TS:    0.4085
+  Best Worst: 0.3595
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed:  158
+  Best TS:    0.3210
+  Best Worst: 0.1176
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.32098765432098764), 'accuracy': 0.6144859813084113, 'precision': 0.3786407766990291, 'recall': 0.6782608695652174, 'f1': 0.48598130841121495, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed:  127
+  Best TS:    0.3857
+  Best Worst: 0.3143
+  Metrics:    {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.38565022421524664), 'accuracy': 0.6799065420560748, 'precision': 0.44329896907216493, 'recall': 0.7478260869565218, 'f1': 0.5566343042071198, 'threshold': 0.5}
+
+Model: InsaneMambaModel
+  Best Seed:  119
+  Best TS:    0.3731
+  Best Worst: 0.2600
+  Metrics:    {'name': 'InsaneMambaModel', 'ts': np.float64(0.3730769230769231), 'accuracy': 0.6191588785046729, 'precision': 0.40082644628099173, 'recall': 0.8434782608695652, 'f1': 0.5434173669467787, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  147
+  Best TS:    0.4085
+  Best Worst: 0.3595
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed:  180
+  Best TS:    0.3226
+  Best Worst: 0.1176
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.3225806451612903), 'accuracy': 0.6565420560747663, 'precision': 0.4069767441860465, 'recall': 0.6086956521739131, 'f1': 0.4878048780487805, 'threshold': 0.5}
+
+Model: MultiPathwayHybrid
+  Best Seed:  147
+  Best TS:    0.3853
+  Best Worst: 0.2989
+  Metrics:    {'name': 'MultiPathwayHybrid', 'ts': np.float64(0.3852813852813853), 'accuracy': 0.6682242990654206, 'precision': 0.43414634146341463, 'recall': 0.7739130434782608, 'f1': 0.55625, 'threshold': 0.5}
+
+Model: InsaneMambaModel
+  Best Seed:  119
+  Best TS:    0.3731
+  Best Worst: 0.2600
+  Metrics:    {'name': 'InsaneMambaModel', 'ts': np.float64(0.3730769230769231), 'accuracy': 0.6191588785046729, 'precision': 0.40082644628099173, 'recall': 0.8434782608695652, 'f1': 0.5434173669467787, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['Fire_ID', 'Fire_SegID', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  147
+  Best TS:    0.4085
+  Best Worst: 0.3595
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed:  158
+  Best TS:    0.3210
+  Best Worst: 0.1176
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.32098765432098764), 'accuracy': 0.6144859813084113, 'precision': 0.3786407766990291, 'recall': 0.6782608695652174, 'f1': 0.48598130841121495, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  147
+  Best TS:    0.4085
+  Best Worst: 0.3595
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.4084507042253521), 'accuracy': 0.705607476635514, 'precision': 0.4702702702702703, 'recall': 0.7565217391304347, 'f1': 0.58, 'threshold': 0.5}
+
+Model: HybridMamba
+  Best Seed:  191
+  Best TS:    0.4009
+  Best Worst: 0.1592
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.4009009009009009), 'accuracy': 0.6892523364485982, 'precision': 0.45408163265306123, 'recall': 0.7739130434782608, 'f1': 0.572347266881029, 'threshold': 0.5}
+
+Model: InsaneMambaModel
+  Best Seed:  119
+  Best TS:    0.3731
+  Best Worst: 0.2600
+  Metrics:    {'name': 'InsaneMambaModel', 'ts': np.float64(0.3730769230769231), 'accuracy': 0.6191588785046729, 'precision': 0.40082644628099173, 'recall': 0.8434782608695652, 'f1': 0.5434173669467787, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: StaticMLPModel
+  Best Seed:  111
+  Best TS:    0.3805
+  Best Worst: 0.2617
+  Metrics:    {'name': 'StaticMLPModel', 'ts': np.float64(0.3805309734513274), 'accuracy': 0.6728971962616822, 'precision': 0.4365482233502538, 'recall': 0.7478260869565218, 'f1': 0.5512820512820513, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 939, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: StaticMLPModel
+  Best Seed:  111
+  Best TS:    0.3805
+  Best Worst: 0.2617
+  Metrics:    {'name': 'StaticMLPModel', 'ts': np.float64(0.3805309734513274), 'accuracy': 0.6728971962616822, 'precision': 0.4365482233502538, 'recall': 0.7478260869565218, 'f1': 0.5512820512820513, 'threshold': 0.5}
+
+Model: HybridMambaPro
+  Best Seed:  128
+  Best TS:    0.3904
+  Best Worst: 0.2584
+  Metrics:    {'name': 'HybridMambaPro', 'ts': np.float64(0.39035087719298245), 'accuracy': 0.6752336448598131, 'precision': 0.4405940594059406, 'recall': 0.7739130434782608, 'f1': 0.5615141955835962, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 939 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 939, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: RandomForest
+  Best Seed:  126
+  Best TS:    0.4126
+  Best Worst: 0.3628
+  Metrics:    {'name': 'RandomForest', 'ts': np.float64(0.41262135922330095), 'accuracy': 0.7172897196261683, 'precision': 0.48295454545454547, 'recall': 0.7391304347826086, 'f1': 0.584192439862543, 'threshold': 0.5}
+
+Model: HybridMambaPro
+  Best Seed:  189
+  Best TS:    0.3820
+  Best Worst: 0.2271
+  Metrics:    {'name': 'HybridMambaPro', 'ts': np.float64(0.38197424892703863), 'accuracy': 0.6635514018691588, 'precision': 0.42995169082125606, 'recall': 0.7739130434782608, 'f1': 0.5527950310559007, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 14
+['GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: HybridMamba
+  Best Seed:  167
+  Best TS:    0.3947
+  Best Worst: 0.1438
+  Metrics:    {'name': 'HybridMamba', 'ts': np.float64(0.39473684210526316), 'accuracy': 0.677570093457944, 'precision': 0.4433497536945813, 'recall': 0.782608695652174, 'f1': 0.5660377358490566, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+========================= BEST SEEDS =========================
+
+Model: SpatialMambaHybrid_vFinal
+  Best Seed:  156
+  Best TS:    0.3571
+  Best Worst: 0.1885
+  Metrics:    {'name': 'SpatialMambaHybrid_vFinal', 'ts': np.float64(0.35714285714285715), 'accuracy': 0.6635514018691588, 'precision': 0.42328042328042326, 'recall': 0.6956521739130435, 'f1': 0.5263157894736842, 'threshold': 0.5}
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']
+
+
+
+========================= Comparison =========================
+Total samples: 1550
+Training set: 845 samples
+Val set: 94 samples
+Test set: 428 samples
+Input_data: 845, 845, 94, 94
+Seeds: range(100, 200)
+Features Count: 16
+['UTM_X', 'UTM_Y', 'GaugeDist_m', 'StormDur_H', 'StormAccum_mm', 'StormAvgI_mm/h', 'Peak_I15_mm/h', 'Peak_I30_mm/h', 'Peak_I60_mm/h', 'ContributingArea_km2', 'PropHM23', 'dNBR/1000', 'KF', 'Acc015_mm', 'Acc030_mm', 'Acc060_mm']

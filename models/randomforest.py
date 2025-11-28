@@ -22,6 +22,7 @@ class RandomForestModel(nn.Module):
         self.name = 'RandomForest'
         self.features = features
         self.duration = duration
+        self.spatial = False
         
         # Feature indices for T, F, S (same as Staley2017Model)
         self.T_idx = features.index('PropHM23')
@@ -29,11 +30,14 @@ class RandomForestModel(nn.Module):
         self.S_idx = features.index('KF')
         
         # Rainfall index based on duration
-        self.R_idx = {
-            '15min': features.index('Acc015_mm'), 
-            '30min': features.index('Acc030_mm'), 
-            '60min': features.index('Acc060_mm')
-        }[duration]
+        duration_map = {
+            '15min': 'Acc015_mm',
+            '30min': 'Acc030_mm',
+            '60min': 'Acc060_mm'
+        }
+
+        feature_name = duration_map[duration]
+        self.R_idx = features.index(feature_name) if feature_name in features else 0 # SETS TO 0 IF THAT FEATURE IS NOT PASSED IN
         
         # Store the 4 feature indices
         self.feature_indices = [self.T_idx, self.F_idx, self.S_idx, self.R_idx]
@@ -53,7 +57,7 @@ class RandomForestModel(nn.Module):
         
         self.is_fitted = False
     
-    def forward(self, x):
+    def forward(self, x, target=None):
         """
         Predict probabilities for input x using only the 4 selected features.
         
@@ -79,7 +83,7 @@ class RandomForestModel(nn.Module):
         probs = self.rf.predict_proba(x_selected)[:, 1]
         
         # Convert back to torch tensor
-        return torch.tensor(probs, dtype=torch.float32)
+        return torch.tensor(probs, dtype=torch.float32), None
     
     def fit(self, X, y):
         """
@@ -136,7 +140,7 @@ class RandomForestModelOptimized(RandomForestModel):
         self.name = 'RandomForest_Optimized'
 
 
-def train_random_forest(model, X_train, y_train, X_test, y_test, seed, max_iter=None):
+def train_random_forest(model, input_data, seed, max_iter=None):
     """
     Training function for Random Forest models.
     
@@ -152,16 +156,15 @@ def train_random_forest(model, X_train, y_train, X_test, y_test, seed, max_iter=
     Returns:
         Trained model
     """
-    # Fit the model
-    #print(f"Training {model.name} with seed {seed}...")
+    X_train, y_train, X_val, y_val = input_data
+
     model.fit(X_train, y_train)
     
-    # Evaluate on test set
-    model.eval()
-    with torch.no_grad():
-        y_test_pred = model(X_test).cpu().numpy()
+    #model.eval()
+    #with torch.no_grad():
+    #    y_test_pred = model(X_val).cpu().numpy()
     
-    test_ts = threat_score(y_test.cpu().numpy(), y_test_pred)
+    #test_ts = threat_score(y_val.cpu().numpy(), y_test_pred)
     #print(f"  Test Threat Score: {test_ts:.4f}")
     
     return model
